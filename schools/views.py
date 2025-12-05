@@ -45,14 +45,40 @@ def home_view(request):
 
 
 def school_search_view(request):
-    """School search and filter page"""
+    """School search form page (Uber-style)"""
+    context = {
+        'board_choices': School.BOARD_CHOICES,
+    }
+    return render(request, 'search_form.html', context)
+
+
+def school_search_results_view(request):
+    """School search results page"""
     schools = School.objects.all().annotate(
         review_count=Count('reviews')
     )
     
+    # Get search parameters
+    location = request.GET.get('location', '')
+    name = request.GET.get('name', '')
+    board = request.GET.get('board', '')
+    grade = request.GET.get('grade', '')
+    
     # Apply filters
-    school_filter = SchoolFilter(request.GET, queryset=schools)
-    schools = school_filter.qs
+    if location:
+        schools = schools.filter(
+            Q(location__icontains=location) | 
+            Q(pin_code__icontains=location)
+        )
+    
+    if name:
+        schools = schools.filter(name__icontains=name)
+    
+    if board:
+        schools = schools.filter(board=board)
+    
+    if grade:
+        schools = schools.filter(grades_offered__icontains=grade)
     
     # Get sorting parameter
     sort_by = request.GET.get('sort', 'rating')
@@ -63,23 +89,11 @@ def school_search_view(request):
     else:
         schools = schools.order_by('-rating', 'name')
     
-    # Get all facilities for filter options
-    all_facilities = Facility.objects.all()
-    
-    # Get selected filters for display
-    selected_facilities = request.GET.getlist('facilities')
-    selected_grade = request.GET.get('grade', '')
-    
     context = {
         'schools': schools,
-        'filter': school_filter,
-        'all_facilities': all_facilities,
-        'selected_facilities': selected_facilities,
-        'selected_grade': selected_grade,
         'board_choices': School.BOARD_CHOICES,
-        'co_ed_choices': School.CO_ED_CHOICES,
     }
-    return render(request, 'search.html', context)
+    return render(request, 'search_results.html', context)
 
 
 def school_detail_view(request, school_id):

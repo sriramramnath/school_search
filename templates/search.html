@@ -76,8 +76,8 @@
                     {% if school.image %}
                     <img src="{{ school.image.url }}" alt="{{ school.name }}" class="card-image">
                     {% else %}
-                    <div class="card-image" style="display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);">
-                        <span class="material-icons" style="font-size: 64px; color: white; opacity: 0.9;">school</span>
+                    <div class="card-image" style="display: flex; align-items: center; justify-content: center; background: var(--bg-tertiary); border: 1px solid var(--border-light);">
+                        <span class="material-icons" style="font-size: 64px; color: var(--text-tertiary); opacity: 0.5;">school</span>
                     </div>
                     {% endif %}
                     <div class="card-content">
@@ -92,7 +92,10 @@
                             </span>
                             <span style="font-weight: 600; color: var(--text-primary);">₹{% if school.get_default_fee %}{{ school.get_default_fee }}{% else %}N/A{% endif %}</span>
                             {% for facility in school.facilities.all|slice:":2" %}
-                            <span style="background: rgba(79, 70, 229, 0.1); color: var(--accent-primary); padding: 6px 12px; border-radius: var(--radius-pill); font-size: 12px; font-weight: 500;">{{ facility.name }}</span>
+                            <span style="background: var(--bg-tertiary); color: var(--text-primary); padding: 6px 12px; border-radius: var(--radius-pill); font-size: 12px; font-weight: 500; border: 1px solid var(--border-light); position: relative;">
+                                <span style="position: absolute; top: -2px; right: -2px; width: 3px; height: 3px; background: var(--accent-green); border-radius: 50%;"></span>
+                                {{ facility.name }}
+                            </span>
                             {% endfor %}
                         </div>
                     </div>

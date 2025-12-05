@@ -14,12 +14,13 @@
 
     <!-- Main Curriculum Info Card -->
     <div class="card" style="padding: 0; overflow: hidden; margin-bottom: var(--space-6);">
-        <div style="padding: var(--space-6); background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%); border-bottom: 2px solid var(--border-light);">
+        <div style="padding: var(--space-6); background: var(--bg-secondary); border-bottom: 1px solid var(--border-light); position: relative;">
+            <div style="position: absolute; top: var(--space-4); right: var(--space-4); width: 4px; height: 4px; background: var(--accent-green); border-radius: 50%;"></div>
             <div style="display: flex; align-items: flex-start; gap: var(--space-5); flex-wrap: wrap;">
                 <div style="flex: 1; min-width: 250px;">
-                    <h1 style="margin-bottom: var(--space-2); font-size: 36px; color: var(--accent-primary);">{{ curriculum.name }}</h1>
+                    <h1 style="margin-bottom: var(--space-2); font-size: 36px; color: var(--text-primary);">{{ curriculum.name }}</h1>
                     {% if curriculum.abbreviation %}
-                    <span style="display: inline-block; padding: 6px 16px; background: rgba(79, 70, 229, 0.2); border-radius: var(--radius-pill); font-weight: 600; font-size: 16px; color: var(--accent-primary); margin-bottom: var(--space-4);">
+                    <span style="display: inline-block; padding: 6px 16px; background: var(--bg-tertiary); border-radius: var(--radius-pill); font-weight: 600; font-size: 16px; color: var(--text-primary); margin-bottom: var(--space-4); border: 1px solid var(--border-light);">
                         {{ curriculum.abbreviation }}
                     </span>
                     {% endif %}
@@ -37,7 +38,7 @@
             {% if curriculum.description %}
             <div style="margin-bottom: var(--space-6);">
                 <h3 style="margin-bottom: var(--space-3); display: flex; align-items: center; gap: var(--space-2);">
-                    <span class="material-icons" style="color: var(--accent-primary);">description</span>
+                    <span class="material-icons" style="color: var(--text-primary);">description</span>
                     Description
                 </h3>
                 <p style="font-size: 16px; line-height: 1.8; color: var(--text-secondary);">{{ curriculum.description }}</p>
@@ -48,12 +49,12 @@
                 <!-- Subjects -->
                 <div class="card" style="padding: var(--space-5); background: var(--bg-secondary); border: none;">
                     <h3 style="margin-bottom: var(--space-4); display: flex; align-items: center; gap: var(--space-2);">
-                        <span class="material-icons" style="color: var(--accent-primary);">menu_book</span>
+                        <span class="material-icons" style="color: var(--text-primary);">menu_book</span>
                         Subjects
                     </h3>
                     <div style="display: flex; flex-wrap: wrap; gap: var(--space-2);">
                         {% for subject in curriculum.get_subjects_list %}
-                        <span style="padding: 8px 16px; background: white; border-radius: var(--radius-pill); font-size: 14px; font-weight: 500; color: var(--text-primary); border: 1px solid var(--border-light);">
+                        <span style="padding: 8px 16px; background: var(--bg-tertiary); border-radius: var(--radius-pill); font-size: 14px; font-weight: 500; color: var(--text-primary); border: 1px solid var(--border-light);">
                             {{ subject }}
                         </span>
                         {% endfor %}
@@ -64,7 +65,7 @@
                 {% if curriculum.exams %}
                 <div class="card" style="padding: var(--space-5); background: var(--bg-secondary); border: none;">
                     <h3 style="margin-bottom: var(--space-4); display: flex; align-items: center; gap: var(--space-2);">
-                        <span class="material-icons" style="color: var(--accent-primary);">assignment</span>
+                        <span class="material-icons" style="color: var(--text-primary);">assignment</span>
                         Examinations
                     </h3>
                     <p style="font-size: 15px; line-height: 1.7; color: var(--text-secondary); margin: 0;">{{ curriculum.exams }}</p>
@@ -73,9 +74,10 @@
             </div>
 
             {% if curriculum.info %}
-            <div style="margin-top: var(--space-6); padding: var(--space-5); background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%); border-radius: var(--radius-lg);">
+            <div style="margin-top: var(--space-6); padding: var(--space-5); background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--border-light); position: relative;">
+                <div style="position: absolute; top: var(--space-4); right: var(--space-4); width: 3px; height: 3px; background: var(--accent-green); border-radius: 50%;"></div>
                 <h3 style="margin-bottom: var(--space-3); display: flex; align-items: center; gap: var(--space-2);">
-                    <span class="material-icons" style="color: var(--accent-primary);">info</span>
+                    <span class="material-icons" style="color: var(--text-primary);">info</span>
                     Additional Information
                 </h3>
                 <p style="font-size: 15px; line-height: 1.7; color: var(--text-secondary); margin: 0;">{{ curriculum.info }}</p>
@@ -86,10 +88,11 @@
 
     <!-- Wikipedia Data Section -->
     {% if wikipedia_data %}
-    <div class="card" style="padding: var(--space-6); margin-bottom: var(--space-6); border: 2px solid rgba(79, 70, 229, 0.2);">
+    <div class="card" style="padding: var(--space-6); margin-bottom: var(--space-6); border: 1px solid var(--border-light); position: relative;">
+        <div style="position: absolute; top: var(--space-4); right: var(--space-4); width: 4px; height: 4px; background: var(--accent-green); border-radius: 50%;"></div>
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-5); flex-wrap: wrap; gap: var(--space-3);">
             <div style="display: flex; align-items: center; gap: var(--space-3);">
-                <span class="material-icons" style="font-size: 32px; color: var(--accent-primary);">public</span>
+                <span class="material-icons" style="font-size: 32px; color: var(--text-primary);">public</span>
                 <div>
                     <h2 style="margin: 0; font-size: 24px;">Wikipedia</h2>
                     <p style="margin: 0; color: var(--text-secondary); font-size: 14px;">Information from {{ wikipedia_data.title }}</p>

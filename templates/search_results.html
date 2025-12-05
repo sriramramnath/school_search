@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Search Results - School Search{% endblock %}
+
+{% block content %}
+<div class="page-container">
+    <!-- Back Button -->
+    <div style="margin-bottom: var(--space-5);">
+        <a href="{% url 'school_search' %}" class="btn btn-secondary"
+            style="display: inline-flex; align-items: center; gap: var(--space-2); padding: 10px 20px; font-size: 14px;">
+            <span class="material-icons" style="font-size: 18px;">arrow_back</span> Back to Search
+        </a>
+    </div>
+
+    <!-- Results Header -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6); flex-wrap: wrap; gap: var(--space-4);">
+        <div>
+            <h1 style="font-size: 32px; margin-bottom: var(--space-2);">
+                {% if schools %}
+                {{ schools.count }} School{{ schools.count|pluralize }} Found
+                {% else %}
+                No Schools Found
+                {% endif %}
+            </h1>
+            {% if request.GET.location %}
+            <p style="color: var(--text-secondary); font-size: 16px;">
+                <span class="material-icons" style="font-size: 18px; vertical-align: middle;">location_on</span>
+                {{ request.GET.location }}
+            </p>
+            {% endif %}
+        </div>
+        {% if schools %}
+        <select name="sort" class="form-select" id="sort-select" style="width: auto; min-width: 180px;">
+            <option value="rating" {% if request.GET.sort == 'rating' %}selected{% endif %}>Sort by Rating</option>
+            <option value="distance" {% if request.GET.sort == 'distance' %}selected{% endif %}>Sort by Distance</option>
+            <option value="fees" {% if request.GET.sort == 'fees' %}selected{% endif %}>Sort by Fees</option>
+        </select>
+        {% endif %}
+    </div>
+
+    <!-- Results Grid -->
+    <div>
+        {% for school in schools %}
+        <a href="{% url 'school_detail' school.id %}" class="card result-card card-link">
+            {% if school.image %}
+            <img src="{{ school.image.url }}" alt="{{ school.name }}" class="card-image">
+            {% else %}
+            <div class="card-image" style="display: flex; align-items: center; justify-content: center; background: var(--bg-tertiary); border: 1px solid var(--border-light);">
+                <span class="material-icons" style="font-size: 64px; color: var(--text-tertiary); opacity: 0.5;">school</span>
+            </div>
+            {% endif %}
+            <div class="card-content">
+                <h3 class="card-title">{{ school.name }}</h3>
+                <p class="card-subtitle">
+                    <span class="material-icons" style="font-size: 16px; vertical-align: middle;">location_on</span>
+                    {{ school.location }} • {{ school.distance }} km
+                </p>
+                <div class="card-meta">
+                    <span class="rating-badge">
+                        {{ school.rating }} <span class="material-icons">star</span>
+                    </span>
+                    <span style="font-weight: 600; color: var(--text-primary);">₹{% if school.get_default_fee %}{{ school.get_default_fee }}{% else %}N/A{% endif %}</span>
+                    <span style="color: var(--text-secondary); font-size: 14px;">{{ school.board }}</span>
+                    {% for facility in school.facilities.all|slice:":2" %}
+                    <span style="background: var(--bg-tertiary); color: var(--text-primary); padding: 6px 12px; border-radius: var(--radius-pill); font-size: 12px; font-weight: 500; border: 1px solid var(--border-light); position: relative;">
+                        <span style="position: absolute; top: -2px; right: -2px; width: 4px; height: 4px; background: var(--accent-green); border-radius: 50%;"></span>
+                        {{ facility.name }}
+                    </span>
+                    {% endfor %}
+                </div>
+            </div>
+        </a>
+        {% empty %}
+        <div class="empty-state">
+            <span class="material-icons">search_off</span>
+            <p>No schools found matching your criteria.</p>
+            <p style="font-size: 14px; margin-top: var(--space-2);">Try adjusting your search or <a href="{% url 'school_search' %}" style="color: var(--text-primary);">search again</a>.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.getElementById('sort-select')?.addEventListener('change', function () {
+        const url = new URL(window.location);
+        url.searchParams.set('sort', this.value);
+        window.location = url;
+    });
+</script>
+{% endblock %}
+

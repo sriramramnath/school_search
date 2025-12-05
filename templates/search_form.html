@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Search Schools - School Search{% endblock %}
+
+{% block content %}
+<div class="search-form-container">
+    <div class="search-form-wrapper">
+        <h1 class="search-form-title">Where do you want to find a school?</h1>
+        
+        <form method="get" action="{% url 'school_search_results' %}" class="uber-search-form">
+            <!-- Location Input -->
+            <div class="form-field-group">
+                <div class="form-field-icon">
+                    <span class="material-icons">location_on</span>
+                </div>
+                <div class="form-field-content">
+                    <label class="form-field-label">Location or Pin Code</label>
+                    <input type="text" name="location" class="form-field-input" 
+                           placeholder="Enter location or pin code" 
+                           value="{{ request.GET.location|default:'' }}"
+                           autocomplete="off">
+                </div>
+            </div>
+
+            <!-- School Name (Optional) -->
+            <div class="form-field-group">
+                <div class="form-field-icon">
+                    <span class="material-icons">school</span>
+                </div>
+                <div class="form-field-content">
+                    <label class="form-field-label">School Name (Optional)</label>
+                    <input type="text" name="name" class="form-field-input" 
+                           placeholder="Enter school name" 
+                           value="{{ request.GET.name|default:'' }}"
+                           autocomplete="off">
+                </div>
+            </div>
+
+            <!-- Board Selection -->
+            <div class="form-field-group">
+                <div class="form-field-icon">
+                    <span class="material-icons">menu_book</span>
+                </div>
+                <div class="form-field-content">
+                    <label class="form-field-label">Board</label>
+                    <select name="board" class="form-field-select">
+                        <option value="">All Boards</option>
+                        {% for value, label in board_choices %}
+                        <option value="{{ value }}" {% if request.GET.board == value %}selected{% endif %}>{{ label }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <!-- Grade Selection -->
+            <div class="form-field-group">
+                <div class="form-field-icon">
+                    <span class="material-icons">grade</span>
+                </div>
+                <div class="form-field-content">
+                    <label class="form-field-label">Grade</label>
+                    <select name="grade" class="form-field-select">
+                        <option value="">Select Grade</option>
+                        {% for i in "123456789101112"|make_list %}
+                        <option value="{{ i }}" {% if request.GET.grade == i %}selected{% endif %}>Grade {{ i }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="uber-search-button">
+                <span>Search Schools</span>
+                <span class="material-icons">arrow_forward</span>
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+

@@ -5,10 +5,11 @@
 
 {% block content %}
 <div class="page-container">
-    <div class="card" style="padding: var(--space-6); margin-bottom: var(--space-5); background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%); border: 2px solid rgba(79, 70, 229, 0.1);">
+    <div class="card" style="padding: var(--space-6); margin-bottom: var(--space-5); background: var(--bg-secondary); border: 1px solid var(--border-light); position: relative;">
+        <div style="position: absolute; top: var(--space-4); right: var(--space-4); width: 4px; height: 4px; background: var(--accent-green); border-radius: 50%;"></div>
         <div style="display: flex; align-items: center; gap: var(--space-5);">
-            <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-lg);">
-                <span class="material-icons" style="font-size: 48px; color: white;">person</span>
+            <div style="width: 100px; height: 100px; background: var(--bg-tertiary); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: var(--layer-3); border: 1px solid var(--border-light);">
+                <span class="material-icons" style="font-size: 48px; color: var(--text-secondary);">person</span>
             </div>
             <div style="flex: 1;">
                 <h2 style="margin-bottom: var(--space-2); font-size: 28px;">{{ profile.name|default:"Your Name" }}</h2>
@@ -22,7 +23,7 @@
 
     <div class="card" style="padding: var(--space-6); margin-bottom: var(--space-5);">
         <h3 style="margin-bottom: var(--space-5); display: flex; align-items: center; gap: var(--space-2);">
-            <span class="material-icons" style="color: var(--accent-primary);">verified_user</span> Verification
+            <span class="material-icons" style="color: var(--text-primary);">verified_user</span> Verification
         </h3>
         <div style="display: flex; align-items: center; justify-content: space-between; padding: var(--space-4); background: var(--bg-secondary); border-radius: var(--radius-md);">
             <label style="display: flex; align-items: center; gap: var(--space-3); cursor: pointer;">
@@ -30,7 +31,10 @@
                     style="width: 20px; height: 20px; cursor: not-allowed;">
                 <span style="font-weight: 600; font-size: 16px;">
                     {% if profile.verified %}
-                    <span style="color: var(--success);">✓ Verified Account</span>
+                    <span style="color: var(--text-primary); display: inline-flex; align-items: center; gap: var(--space-2);">
+                        <span style="width: 6px; height: 6px; background: var(--accent-green); border-radius: 50%;"></span>
+                        Verified Account
+                    </span>
                     {% else %}
                     Not verified
                     {% endif %}
@@ -46,7 +50,7 @@
 
     <div class="card" style="padding: var(--space-6); margin-bottom: var(--space-5);">
         <h3 style="margin-bottom: var(--space-5); display: flex; align-items: center; gap: var(--space-2);">
-            <span class="material-icons" style="color: var(--accent-primary);">account_circle</span> Role
+            <span class="material-icons" style="color: var(--text-primary);">account_circle</span> Role
         </h3>
         <div style="display: flex; gap: var(--space-4);">
             <label style="flex: 1; display: flex; align-items: center; gap: var(--space-3); cursor: pointer; padding: var(--space-4); border: 2px solid var(--border-light); border-radius: var(--radius-md); transition: all var(--transition-base);">
@@ -62,7 +66,7 @@
 
     <div class="card" style="padding: var(--space-6); margin-bottom: var(--space-5);">
         <h3 style="margin-bottom: var(--space-5); display: flex; align-items: center; gap: var(--space-2);">
-            <span class="material-icons" style="color: var(--accent-primary);">language</span> Language
+            <span class="material-icons" style="color: var(--text-primary);">language</span> Language
         </h3>
         <div>
             <select class="form-select">
@@ -77,7 +81,7 @@
 
     <div class="card" style="padding: var(--space-6);">
         <h3 style="margin-bottom: var(--space-5); display: flex; align-items: center; gap: var(--space-2);">
-            <span class="material-icons" style="color: var(--accent-primary);">info</span> App Info
+            <span class="material-icons" style="color: var(--text-primary);">info</span> App Info
         </h3>
         <div style="display: flex; align-items: center; justify-content: space-between; padding: var(--space-4); background: var(--bg-secondary); border-radius: var(--radius-md);">
             <div>

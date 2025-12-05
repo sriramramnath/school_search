@@ -1,0 +1,57 @@
+[
+    {
+        "model": "curriculum.curriculum",
+        "pk": 1,
+        "fields": {
+            "name": "International Baccalaureate",
+            "abbreviation": "IB",
+            "description": "The International Baccalaureate (IB) is a globally recognized educational program that offers four high-quality and challenging educational programs for a worldwide community of schools.",
+            "subjects": "Mathematics, Sciences, Languages, Humanities, Arts, Theory of Knowledge, Extended Essay, CAS",
+            "exams": "IB Diploma Programme assessments include both internal and external assessments. Students take exams at the end of the two-year program.",
+            "info": "The IB Diploma Programme is a two-year educational program primarily aimed at students aged 16-19. It is recognized by universities worldwide.",
+            "website": "https://www.ibo.org"
+        }
+    },
+    {
+        "model": "curriculum.curriculum",
+        "pk": 2,
+        "fields": {
+            "name": "International General Certificate of Secondary Education",
+            "abbreviation": "IGCSE",
+            "description": "IGCSE is the world's most popular international qualification for 14-16 year olds. It is recognized by leading universities and employers worldwide.",
+            "subjects": "English, Mathematics, Sciences, Languages, Humanities, Arts, ICT, Business Studies",
+            "exams": "IGCSE examinations are taken at the end of the two-year course. Students typically take 7-10 subjects.",
+            "info": "IGCSE is offered by Cambridge Assessment International Education and is equivalent to UK GCSE. It provides excellent preparation for A-Levels and IB.",
+            "website": "https://www.cambridgeinternational.org"
+        }
+    },
+    {
+        "model": "curriculum.curriculum",
+        "pk": 3,
+        "fields": {
+            "name": "Central Board of Secondary Education",
+            "abbreviation": "CBSE",
+            "description": "CBSE is a national level board of education in India for public and private schools, controlled and managed by the Union Government of India.",
+            "subjects": "English, Hindi, Mathematics, Sciences, Social Sciences, Computer Science, Physical Education, Arts",
+            "exams": "CBSE conducts board examinations for Class 10 and Class 12. The exams are held annually in March.",
+            "info": "CBSE follows the NCERT curriculum and is one of the most popular education boards in India. It focuses on holistic development of students.",
+            "website": "https://www.cbse.gov.in"
+        }
+    },
+    {
+        "model": "curriculum.curriculum",
+        "pk": 4,
+        "fields": {
+            "name": "Indian Certificate of Secondary Education",
+            "abbreviation": "ICSE",
+            "description": "ICSE is an examination conducted by the Council for the Indian School Certificate Examinations, a private board of school education in India.",
+            "subjects": "English, Second Language, Mathematics, Sciences, History, Geography, Computer Studies, Arts, Physical Education",
+            "exams": "ICSE conducts examinations for Class 10 (ICSE) and Class 12 (ISC). The curriculum is comprehensive and detailed.",
+            "info": "ICSE curriculum is known for its comprehensive and detailed approach. It emphasizes English language skills and provides a strong foundation.",
+            "website": "https://www.cisce.org"
+        }
+    }
+]
+
+
+

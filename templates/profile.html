@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Profile - School Search{% endblock %}
+
+{% block content %}
+<div class="page-container">
+    <div class="card" style="padding: var(--space-6); margin-bottom: var(--space-5); background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%); border: 2px solid rgba(79, 70, 229, 0.1);">
+        <div style="display: flex; align-items: center; gap: var(--space-5);">
+            <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-lg);">
+                <span class="material-icons" style="font-size: 48px; color: white;">person</span>
+            </div>
+            <div style="flex: 1;">
+                <h2 style="margin-bottom: var(--space-2); font-size: 28px;">{{ profile.name|default:"Your Name" }}</h2>
+                <p style="margin-bottom: 0; color: var(--text-secondary); font-size: 16px; display: flex; align-items: center; gap: var(--space-2);">
+                    <span class="material-icons" style="font-size: 20px;">email</span>
+                    {{ profile.email|default:"your.email@example.com" }}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" style="padding: var(--space-6); margin-bottom: var(--space-5);">
+        <h3 style="margin-bottom: var(--space-5); display: flex; align-items: center; gap: var(--space-2);">
+            <span class="material-icons" style="color: var(--accent-primary);">verified_user</span> Verification
+        </h3>
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: var(--space-4); background: var(--bg-secondary); border-radius: var(--radius-md);">
+            <label style="display: flex; align-items: center; gap: var(--space-3); cursor: pointer;">
+                <input type="checkbox" {% if profile.verified %}checked{% endif %} disabled
+                    style="width: 20px; height: 20px; cursor: not-allowed;">
+                <span style="font-weight: 600; font-size: 16px;">
+                    {% if profile.verified %}
+                    <span style="color: var(--success);">✓ Verified Account</span>
+                    {% else %}
+                    Not verified
+                    {% endif %}
+                </span>
+            </label>
+            {% if not profile.verified %}
+            <button class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;">
+                <span class="material-icons">upload</span> Upload ID
+            </button>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="card" style="padding: var(--space-6); margin-bottom: var(--space-5);">
+        <h3 style="margin-bottom: var(--space-5); display: flex; align-items: center; gap: var(--space-2);">
+            <span class="material-icons" style="color: var(--accent-primary);">account_circle</span> Role
+        </h3>
+        <div style="display: flex; gap: var(--space-4);">
+            <label style="flex: 1; display: flex; align-items: center; gap: var(--space-3); cursor: pointer; padding: var(--space-4); border: 2px solid var(--border-light); border-radius: var(--radius-md); transition: all var(--transition-base);">
+                <input type="radio" name="role" value="Parent" {% if profile.role == 'Parent' %}checked{% endif %} style="width: 20px; height: 20px;">
+                <span style="font-weight: 600;">Parent</span>
+            </label>
+            <label style="flex: 1; display: flex; align-items: center; gap: var(--space-3); cursor: pointer; padding: var(--space-4); border: 2px solid var(--border-light); border-radius: var(--radius-md); transition: all var(--transition-base);">
+                <input type="radio" name="role" value="Student" {% if profile.role == 'Student' %}checked{% endif %} style="width: 20px; height: 20px;">
+                <span style="font-weight: 600;">Student</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="card" style="padding: var(--space-6); margin-bottom: var(--space-5);">
+        <h3 style="margin-bottom: var(--space-5); display: flex; align-items: center; gap: var(--space-2);">
+            <span class="material-icons" style="color: var(--accent-primary);">language</span> Language
+        </h3>
+        <div>
+            <select class="form-select">
+                <option value="English US" {% if profile.language == 'English US' %}selected{% endif %}>English US</option>
+                <option value="English UK">English UK</option>
+                <option value="Hindi">Hindi</option>
+                <option value="Tamil">Tamil</option>
+                <option value="Telugu">Telugu</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="card" style="padding: var(--space-6);">
+        <h3 style="margin-bottom: var(--space-5); display: flex; align-items: center; gap: var(--space-2);">
+            <span class="material-icons" style="color: var(--accent-primary);">info</span> App Info
+        </h3>
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: var(--space-4); background: var(--bg-secondary); border-radius: var(--radius-md);">
+            <div>
+                <p style="margin-bottom: var(--space-1); color: var(--text-secondary); font-size: 14px;">Version</p>
+                <p style="margin-bottom: 0; font-size: 18px; font-weight: 700;">V1.2.1</p>
+            </div>
+            <button class="btn btn-secondary">
+                <span class="material-icons">refresh</span> Update
+            </button>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,123 @@
+[
+    {
+        "model": "schools.review",
+        "pk": 1,
+        "fields": {
+            "school": 1,
+            "rating": 5,
+            "comment": "Excellent school with great facilities and dedicated teachers. My child has improved significantly.",
+            "reviewer_name": "Rajesh Kumar",
+            "verified": true,
+            "created_at": "2024-01-25T10:00:00Z"
+        }
+    },
+    {
+        "model": "schools.review",
+        "pk": 2,
+        "fields": {
+            "school": 1,
+            "rating": 4,
+            "comment": "Good school overall. The infrastructure is impressive and the curriculum is well-structured.",
+            "reviewer_name": "Priya Sharma",
+            "verified": true,
+            "created_at": "2024-01-26T10:00:00Z"
+        }
+    },
+    {
+        "model": "schools.review",
+        "pk": 3,
+        "fields": {
+            "school": 1,
+            "rating": 5,
+            "comment": "Highly recommended! The teachers are very supportive and the school provides excellent opportunities for students.",
+            "reviewer_name": "Amit Patel",
+            "verified": false,
+            "created_at": "2024-01-27T10:00:00Z"
+        }
+    },
+    {
+        "model": "schools.review",
+        "pk": 4,
+        "fields": {
+            "school": 2,
+            "rating": 5,
+            "comment": "Outstanding international curriculum. The IGCSE program is excellent and prepares students well for global opportunities.",
+            "reviewer_name": "Sarah Johnson",
+            "verified": true,
+            "created_at": "2024-01-28T10:00:00Z"
+        }
+    },
+    {
+        "model": "schools.review",
+        "pk": 5,
+        "fields": {
+            "school": 2,
+            "rating": 4,
+            "comment": "Great school with modern facilities. The teaching methodology is innovative and student-friendly.",
+            "reviewer_name": "Michael Chen",
+            "verified": true,
+            "created_at": "2024-01-29T10:00:00Z"
+        }
+    },
+    {
+        "model": "schools.review",
+        "pk": 6,
+        "fields": {
+            "school": 3,
+            "rating": 5,
+            "comment": "Best IB school in the region. The curriculum is challenging but rewarding. Excellent college placement support.",
+            "reviewer_name": "Anjali Desai",
+            "verified": true,
+            "created_at": "2024-01-30T10:00:00Z"
+        }
+    },
+    {
+        "model": "schools.review",
+        "pk": 7,
+        "fields": {
+            "school": 3,
+            "rating": 5,
+            "comment": "Amazing facilities and world-class education. The IB program is rigorous but prepares students excellently.",
+            "reviewer_name": "David Wilson",
+            "verified": true,
+            "created_at": "2024-02-01T10:00:00Z"
+        }
+    },
+    {
+        "model": "schools.review",
+        "pk": 8,
+        "fields": {
+            "school": 4,
+            "rating": 4,
+            "comment": "Good traditional school with strong academic focus. The ICSE curriculum is comprehensive.",
+            "reviewer_name": "Vikram Reddy",
+            "verified": false,
+            "created_at": "2024-02-02T10:00:00Z"
+        }
+    },
+    {
+        "model": "schools.review",
+        "pk": 9,
+        "fields": {
+            "school": 5,
+            "rating": 5,
+            "comment": "Excellent girls' school with a nurturing environment. The teachers are caring and supportive.",
+            "reviewer_name": "Meera Iyer",
+            "verified": true,
+            "created_at": "2024-02-03T10:00:00Z"
+        }
+    },
+    {
+        "model": "schools.review",
+        "pk": 10,
+        "fields": {
+            "school": 6,
+            "rating": 4,
+            "comment": "Good international school with quality education. The IGCSE program is well-implemented.",
+            "reviewer_name": "Ravi Kumar",
+            "verified": true,
+            "created_at": "2024-02-04T10:00:00Z"
+        }
+    }
+]
+

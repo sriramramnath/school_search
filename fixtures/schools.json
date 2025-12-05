@@ -1,0 +1,179 @@
+[
+    {
+        "model": "schools.school",
+        "pk": 1,
+        "fields": {
+            "name": "Delhi Public School",
+            "location": "New Delhi",
+            "pin_code": "110001",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 5.5,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.dps.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.7,
+            "fees_by_grade": "12:450000,11:420000,10:400000",
+            "facilities": [1, 2, 3, 4, 5, 6],
+            "created_at": "2024-01-15T10:00:00Z",
+            "updated_at": "2024-01-15T10:00:00Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 2,
+        "fields": {
+            "name": "The International School Bangalore",
+            "location": "Bangalore",
+            "pin_code": "560001",
+            "board": "IGCSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 8.2,
+            "bus_availability": true,
+            "syllabus": "IGCSE",
+            "website": "https://www.tisb.org",
+            "curriculum_website": "https://www.cambridgeinternational.org",
+            "rating": 4.8,
+            "fees_by_grade": "12:600000,11:580000,10:550000",
+            "facilities": [1, 2, 3, 4, 5, 6, 7, 8],
+            "created_at": "2024-01-16T10:00:00Z",
+            "updated_at": "2024-01-16T10:00:00Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 3,
+        "fields": {
+            "name": "Mumbai International School",
+            "location": "Mumbai",
+            "pin_code": "400001",
+            "board": "IB",
+            "grades_offered": "6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 12.5,
+            "bus_availability": true,
+            "syllabus": "International Baccalaureate",
+            "website": "https://www.mis.edu",
+            "curriculum_website": "https://www.ibo.org",
+            "rating": 4.9,
+            "fees_by_grade": "12:750000,11:720000,10:700000",
+            "facilities": [1, 2, 3, 4, 5, 6, 7, 8],
+            "created_at": "2024-01-17T10:00:00Z",
+            "updated_at": "2024-01-17T10:00:00Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 4,
+        "fields": {
+            "name": "Chennai Boys High School",
+            "location": "Chennai",
+            "pin_code": "600001",
+            "board": "ICSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "B",
+            "distance": 6.8,
+            "bus_availability": false,
+            "syllabus": "ICSE",
+            "website": "https://www.cbhs.edu",
+            "curriculum_website": "https://www.cisce.org",
+            "rating": 4.5,
+            "fees_by_grade": "12:350000,11:330000,10:320000",
+            "facilities": [2, 3, 4, 5, 6],
+            "created_at": "2024-01-18T10:00:00Z",
+            "updated_at": "2024-01-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 5,
+        "fields": {
+            "name": "Kolkata Girls Academy",
+            "location": "Kolkata",
+            "pin_code": "700001",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "G",
+            "distance": 4.3,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.kga.edu",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.6,
+            "fees_by_grade": "12:380000,11:360000,10:350000",
+            "facilities": [1, 2, 3, 4, 5, 6, 8],
+            "created_at": "2024-01-19T10:00:00Z",
+            "updated_at": "2024-01-19T10:00:00Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 6,
+        "fields": {
+            "name": "Hyderabad Global School",
+            "location": "Hyderabad",
+            "pin_code": "500001",
+            "board": "IGCSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 9.1,
+            "bus_availability": true,
+            "syllabus": "IGCSE",
+            "website": "https://www.hgs.edu",
+            "curriculum_website": "https://www.cambridgeinternational.org",
+            "rating": 4.7,
+            "fees_by_grade": "12:550000,11:530000,10:510000",
+            "facilities": [1, 2, 3, 4, 5, 6, 7],
+            "created_at": "2024-01-20T10:00:00Z",
+            "updated_at": "2024-01-20T10:00:00Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 7,
+        "fields": {
+            "name": "Pune Academy",
+            "location": "Pune",
+            "pin_code": "411001",
+            "board": "State",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 7.4,
+            "bus_availability": false,
+            "syllabus": "Maharashtra State Board",
+            "website": "https://www.puneacademy.edu",
+            "curriculum_website": "",
+            "rating": 4.3,
+            "fees_by_grade": "12:280000,11:270000,10:260000",
+            "facilities": [2, 3, 4, 5],
+            "created_at": "2024-01-21T10:00:00Z",
+            "updated_at": "2024-01-21T10:00:00Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 8,
+        "fields": {
+            "name": "Ahmedabad International",
+            "location": "Ahmedabad",
+            "pin_code": "380001",
+            "board": "IB",
+            "grades_offered": "6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 11.2,
+            "bus_availability": true,
+            "syllabus": "International Baccalaureate",
+            "website": "https://www.ahmedabadintl.edu",
+            "curriculum_website": "https://www.ibo.org",
+            "rating": 4.8,
+            "fees_by_grade": "12:680000,11:650000,10:630000",
+            "facilities": [1, 2, 3, 4, 5, 6, 7, 8],
+            "created_at": "2024-01-22T10:00:00Z",
+            "updated_at": "2024-01-22T10:00:00Z"
+        }
+    }
+]
+

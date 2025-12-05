@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load school_extras %}
+
+{% block title %}{{ school.name }} - School Search{% endblock %}
+
+{% block content %}
+<div class="page-container">
+    <div class="mb-4">
+        <a href="{% url 'school_search' %}" class="btn btn-secondary"
+            style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; font-size: 14px;">
+            <span class="material-icons" style="font-size: 18px;">arrow_back</span> Back
+        </a>
+    </div>
+
+    <div class="card" style="padding: 0; overflow: hidden; margin-bottom: var(--space-6);">
+        {% if school.image %}
+        <div style="width: 100%; height: 400px; background-image: url('{{ school.image.url }}'); background-size: cover; background-position: center; position: relative;">
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); padding: var(--space-6);">
+                <h1 style="margin: 0; color: white; font-size: 36px;">{{ school.name }}</h1>
+            </div>
+        </div>
+        {% else %}
+        <div style="width: 100%; height: 300px; background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: var(--space-6);">
+            <span class="material-icons" style="font-size: 80px; color: white; opacity: 0.9; margin-bottom: var(--space-4);">school</span>
+            <h1 style="margin: 0; color: white; font-size: 36px; text-align: center;">{{ school.name }}</h1>
+        </div>
+        {% endif %}
+        <div style="padding: var(--space-6);">
+
+        <div class="grid-2" style="gap: var(--space-6);">
+            <div>
+                <div style="display: flex; align-items: center; gap: var(--space-2); color: var(--text-secondary); margin-bottom: var(--space-4); padding: var(--space-3); background: var(--bg-secondary); border-radius: var(--radius-md);">
+                    <span class="material-icons" style="color: var(--accent-primary);">location_on</span>
+                    <span style="font-weight: 500;">{{ school.location }}</span>
+                </div>
+                <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); margin-bottom: var(--space-4);">
+                    <div style="flex: 1; min-width: 120px; padding: var(--space-3); background: var(--bg-secondary); border-radius: var(--radius-md);">
+                        <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: var(--space-1);">Distance</div>
+                        <div style="font-size: 18px; font-weight: 600;">{{ school.distance }} km</div>
+                    </div>
+                    {% if school.bus_availability %}
+                    <div style="flex: 1; min-width: 120px; padding: var(--space-3); background: rgba(16, 185, 129, 0.1); border-radius: var(--radius-md);">
+                        <div style="font-size: 12px; color: var(--success); margin-bottom: var(--space-1);">Bus</div>
+                        <div style="font-size: 18px; font-weight: 600; color: var(--success);">Available</div>
+                    </div>
+                    {% endif %}
+                </div>
+                <div style="padding: var(--space-4); background: var(--bg-secondary); border-radius: var(--radius-md); margin-bottom: var(--space-3);">
+                    <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: var(--space-1);">Syllabus</div>
+                    <div style="font-size: 16px; font-weight: 600;">{{ school.syllabus }}</div>
+                </div>
+                <div style="padding: var(--space-4); background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%); border-radius: var(--radius-md);">
+                    <div style="font-size: 12px; color: var(--accent-primary); margin-bottom: var(--space-1);">Fees (Grade 12)</div>
+                    <div style="font-size: 24px; font-weight: 700; color: var(--accent-primary);">₹{% with fee=school|get_fee:12 %}{% if fee %}{{ fee }}{% else %}N/A{% endif %}{% endwith %}</div>
+                </div>
+            </div>
+
+            <div>
+                <div style="text-align: center; padding: var(--space-5); background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(251, 191, 36, 0.1) 100%); border-radius: var(--radius-lg); margin-bottom: var(--space-5);">
+                    <div style="font-size: 64px; font-weight: 800; color: var(--warning); margin-bottom: var(--space-2);">{{ average_rating }}</div>
+                    <div style="display: flex; justify-content: center; color: var(--warning); margin-bottom: var(--space-2);">
+                        {% for i in "12345" %}
+                        <span class="material-icons" style="font-size: 28px;">{% if forloop.counter <= average_rating|add:"0" %}star{% else %}star_border{% endif %}</span>
+                        {% endfor %}
+                    </div>
+                    <span style="color: var(--text-secondary); font-size: 14px; font-weight: 500;">Average Rating</span>
+                </div>
+
+                <div style="padding: var(--space-4); background: var(--bg-secondary); border-radius: var(--radius-lg);">
+                    <h4 style="font-size: 16px; margin-bottom: var(--space-4);">Rating Distribution</h4>
+                    {% for rating, count, percentage in rating_distribution_list %}
+                    <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-3);">
+                        <span style="width: 40px; font-weight: 600; font-size: 14px;">{{ rating }}★</span>
+                        <div style="flex: 1; height: 8px; background: var(--bg-tertiary); border-radius: var(--radius-pill); overflow: hidden;">
+                            <div style="width: {{ percentage }}%; height: 100%; background: linear-gradient(90deg, var(--warning) 0%, #FCD34D 100%); border-radius: var(--radius-pill);"></div>
+                        </div>
+                        <span style="width: 40px; text-align: right; color: var(--text-secondary); font-weight: 600; font-size: 14px;">{{ count }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="card" style="padding: var(--space-6); margin-bottom: var(--space-6);">
+        <h2 style="margin-bottom: var(--space-5); display: flex; align-items: center; gap: var(--space-2);">
+            <span class="material-icons" style="color: var(--accent-primary);">business</span>
+            Facilities
+        </h2>
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-3);">
+            {% for facility in school.facilities.all %}
+            <div style="display: flex; align-items: center; gap: var(--space-2); padding: var(--space-3) var(--space-4); background: rgba(79, 70, 229, 0.1); border: 1px solid rgba(79, 70, 229, 0.2); border-radius: var(--radius-pill); transition: all var(--transition-base);">
+                <span style="font-size: 18px;">{{ facility.icon|default:"✓" }}</span>
+                <span style="font-weight: 600; font-size: 14px; color: var(--accent-primary);">{{ facility.name }}</span>
+            </div>
+            {% empty %}
+            <div class="empty-state" style="width: 100%; padding: var(--space-6);">
+                <span class="material-icons">info</span>
+                <p>No facilities listed.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="card" style="padding: var(--space-6); margin-bottom: var(--space-6);">
+        <h2 style="margin-bottom: var(--space-5); display: flex; align-items: center; gap: var(--space-2);">
+            <span class="material-icons" style="color: var(--accent-primary);">rate_review</span>
+            Reviews
+        </h2>
+        <div>
+            {% for review in reviews %}
+            <div style="padding: var(--space-5) 0; border-bottom: 1px solid var(--border-light); transition: background var(--transition-base); border-radius: var(--radius-md); padding-left: var(--space-3); padding-right: var(--space-3);">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-2);">
+                    <span style="font-weight: 700; font-size: 16px;">{{ review.reviewer_name }}</span>
+                    {% if review.verified %}
+                    <span style="font-size: 12px; color: var(--success); display: inline-flex; align-items: center; gap: 4px; padding: 4px 8px; background: rgba(16, 185, 129, 0.1); border-radius: var(--radius-pill);">
+                        <span class="material-icons" style="font-size: 16px;">check_circle</span> Verified
+                    </span>
+                    {% endif %}
+                </div>
+                <div style="color: var(--warning); margin-bottom: var(--space-3); display: flex; gap: 2px;">
+                    {% for i in "12345" %}
+                    <span class="material-icons" style="font-size: 20px;">{% if forloop.counter <= review.rating %}star{% else %}star_border{% endif %}</span>
+                    {% endfor %}
+                </div>
+                <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">{{ review.comment }}</p>
+            </div>
+            {% empty %}
+            <div class="empty-state" style="padding: var(--space-8);">
+                <span class="material-icons">rate_review</span>
+                <p>No reviews yet.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="card" style="padding: var(--space-6);">
+        <h3 style="margin-bottom: var(--space-5); display: flex; align-items: center; gap: var(--space-2);">
+            <span class="material-icons" style="color: var(--accent-primary);">contact_support</span>
+            Contact & Info
+        </h3>
+        <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+            {% if school.website %}
+            <a href="{{ school.website }}" target="_blank" style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4); background: var(--bg-secondary); border-radius: var(--radius-md); transition: all var(--transition-base); border: 1px solid transparent;">
+                <span class="material-icons" style="color: var(--accent-primary);">language</span>
+                <div style="flex: 1;">
+                    <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: var(--space-1);">School Website</div>
+                    <div style="font-weight: 600; color: var(--accent-primary);">{{ school.website }}</div>
+                </div>
+                <span class="material-icons" style="color: var(--text-tertiary);">open_in_new</span>
+            </a>
+            {% endif %}
+            {% if school.curriculum_website %}
+            <a href="{{ school.curriculum_website }}" target="_blank" style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4); background: var(--bg-secondary); border-radius: var(--radius-md); transition: all var(--transition-base); border: 1px solid transparent;">
+                <span class="material-icons" style="color: var(--accent-primary);">menu_book</span>
+                <div style="flex: 1;">
+                    <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: var(--space-1);">Curriculum Website</div>
+                    <div style="font-weight: 600; color: var(--accent-primary);">{{ school.curriculum_website }}</div>
+                </div>
+                <span class="material-icons" style="color: var(--text-tertiary);">open_in_new</span>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,69 @@
+[
+    {
+        "model": "schools.facility",
+        "pk": 1,
+        "fields": {
+            "name": "AC",
+            "icon": "❄️"
+        }
+    },
+    {
+        "model": "schools.facility",
+        "pk": 2,
+        "fields": {
+            "name": "Canteen",
+            "icon": "🍽️"
+        }
+    },
+    {
+        "model": "schools.facility",
+        "pk": 3,
+        "fields": {
+            "name": "Library",
+            "icon": "📚"
+        }
+    },
+    {
+        "model": "schools.facility",
+        "pk": 4,
+        "fields": {
+            "name": "Sports Complex",
+            "icon": "⚽"
+        }
+    },
+    {
+        "model": "schools.facility",
+        "pk": 5,
+        "fields": {
+            "name": "Computer Lab",
+            "icon": "💻"
+        }
+    },
+    {
+        "model": "schools.facility",
+        "pk": 6,
+        "fields": {
+            "name": "Science Lab",
+            "icon": "🔬"
+        }
+    },
+    {
+        "model": "schools.facility",
+        "pk": 7,
+        "fields": {
+            "name": "Swimming Pool",
+            "icon": "🏊"
+        }
+    },
+    {
+        "model": "schools.facility",
+        "pk": 8,
+        "fields": {
+            "name": "Auditorium",
+            "icon": "🎭"
+        }
+    }
+]
+
+
+

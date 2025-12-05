@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home - School Search{% endblock %}
+
+{% block content %}
+<div class="page-container">
+    <div class="mb-4" style="margin-bottom: var(--space-8);">
+        <h1 style="margin-bottom: var(--space-5);">Find the perfect school</h1>
+        <div class="input-group" style="max-width: 600px;">
+            <input type="text" placeholder="Enter location or school name" class="form-input" id="quick-search">
+        </div>
+    </div>
+
+    <div class="mb-4" style="margin-bottom: var(--space-8);">
+        <h2 style="margin-bottom: var(--space-5);">Recommended Schools</h2>
+        <div class="grid-2">
+            {% for school in recommended_schools %}
+            <a href="{% url 'school_detail' school.id %}" class="card card-link fade-in">
+                {% if school.image %}
+                <img src="{{ school.image.url }}" alt="{{ school.name }}" class="card-image" style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius-lg) var(--radius-lg) 0 0;">
+                {% else %}
+                <div style="width: 100%; height: 200px; background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%); display: flex; align-items: center; justify-content: center; border-radius: var(--radius-lg) var(--radius-lg) 0 0;">
+                    <span class="material-icons" style="font-size: 64px; color: white; opacity: 0.9;">school</span>
+                </div>
+                {% endif %}
+                <div style="padding: var(--space-5);">
+                    <h3 class="card-title" style="font-size: 18px; margin-bottom: var(--space-2);">{{ school.name }}</h3>
+                    <p class="card-subtitle" style="margin-bottom: var(--space-4);">
+                        <span class="material-icons" style="font-size: 16px; vertical-align: middle;">location_on</span>
+                        {{ school.location }} • {{ school.distance }} km
+                    </p>
+                    <div class="card-meta">
+                        <span class="rating-badge">
+                            {{ school.rating }} <span class="material-icons">star</span>
+                        </span>
+                        <span style="font-weight: 600; color: var(--text-primary);">₹{% if school.get_default_fee %}{{ school.get_default_fee }}{% else %}N/A{% endif %}</span>
+                    </div>
+                </div>
+            </a>
+            {% empty %}
+            <div class="empty-state" style="grid-column: 1 / -1;">
+                <span class="material-icons">school</span>
+                <p>No schools found.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="card" style="background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%); border: 2px solid rgba(79, 70, 229, 0.1); padding: var(--space-6);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-5);">
+            <div style="flex: 1;">
+                <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-2);">
+                    <span class="material-icons" style="font-size: 32px; color: var(--accent-primary);">auto_awesome</span>
+                    <h3 style="margin: 0; font-size: 24px;">AI School Picker</h3>
+                </div>
+                <p style="margin: 0; font-size: 15px; color: var(--text-secondary);">Get personalized school recommendations based on your preferences and needs</p>
+            </div>
+        </div>
+        <button class="btn btn-primary" style="width: 100%;">
+            <span class="material-icons">sparkles</span>
+            Try AI Picker
+        </button>
+    </div>
+</div>
+{% endblock %}

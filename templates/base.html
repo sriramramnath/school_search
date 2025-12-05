@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}School Search{% endblock %}</title>
+    
+    <!-- Modern Dark Mode App -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#0C0C0F">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Top App Bar (Desktop) -->
+        <header class="app-header">
+            <div class="app-logo">School Search</div>
+            <nav class="main-nav">
+                <a href="{% url 'home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                    Home
+                </a>
+                <a href="{% url 'school_search' %}" class="nav-link {% if request.resolver_match.url_name == 'school_search' %}active{% endif %}">
+                    Search
+                </a>
+                <a href="{% url 'curriculum_search' %}" class="nav-link {% if request.resolver_match.url_name == 'curriculum_search' %}active{% endif %}">
+                    Curriculum
+                </a>
+                <a href="#" class="nav-link">
+                    Favorites
+                </a>
+                <a href="{% url 'profile' %}" class="nav-link {% if request.resolver_match.url_name == 'profile' %}active{% endif %}">
+                    Profile
+                </a>
+            </nav>
+        </header>
+
+        <main class="content-area">
+            {% block content %}{% endblock %}
+        </main>
+
+        <!-- Bottom Navigation Bar (Mobile) -->
+        <nav class="bottom-nav">
+            <a href="{% url 'home' %}" class="bottom-nav-item {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                <span class="material-icons">home</span>
+                <span>Home</span>
+            </a>
+            <a href="{% url 'school_search' %}" class="bottom-nav-item {% if request.resolver_match.url_name == 'school_search' %}active{% endif %}">
+                <span class="material-icons">search</span>
+                <span>Search</span>
+            </a>
+            <a href="{% url 'curriculum_search' %}" class="bottom-nav-item {% if request.resolver_match.url_name == 'curriculum_search' %}active{% endif %}">
+                <span class="material-icons">school</span>
+                <span>Curriculum</span>
+            </a>
+            <a href="#" class="bottom-nav-item">
+                <span class="material-icons">star</span>
+                <span>Favorites</span>
+            </a>
+            <a href="{% url 'profile' %}" class="bottom-nav-item {% if request.resolver_match.url_name == 'profile' %}active{% endif %}">
+                <span class="material-icons">person</span>
+                <span>Profile</span>
+            </a>
+        </nav>
+    </div>
+
+    <script src="{% static 'js/main.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
+

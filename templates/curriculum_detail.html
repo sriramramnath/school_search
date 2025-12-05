@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ curriculum.name }} - School Search{% endblock %}
+
+{% block content %}
+<div class="page-container">
+    <div class="mb-4" style="margin-bottom: var(--space-5);">
+        <a href="{% url 'curriculum_search' %}" class="btn btn-secondary"
+            style="display: inline-flex; align-items: center; gap: var(--space-2); padding: 10px 20px; font-size: 14px;">
+            <span class="material-icons" style="font-size: 18px;">arrow_back</span> Back to Curricula
+        </a>
+    </div>
+
+    <!-- Main Curriculum Info Card -->
+    <div class="card" style="padding: 0; overflow: hidden; margin-bottom: var(--space-6);">
+        <div style="padding: var(--space-6); background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%); border-bottom: 2px solid var(--border-light);">
+            <div style="display: flex; align-items: flex-start; gap: var(--space-5); flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 250px;">
+                    <h1 style="margin-bottom: var(--space-2); font-size: 36px; color: var(--accent-primary);">{{ curriculum.name }}</h1>
+                    {% if curriculum.abbreviation %}
+                    <span style="display: inline-block; padding: 6px 16px; background: rgba(79, 70, 229, 0.2); border-radius: var(--radius-pill); font-weight: 600; font-size: 16px; color: var(--accent-primary); margin-bottom: var(--space-4);">
+                        {{ curriculum.abbreviation }}
+                    </span>
+                    {% endif %}
+                </div>
+                {% if curriculum.website %}
+                <a href="{{ curriculum.website }}" target="_blank" class="btn btn-primary" style="align-self: flex-start;">
+                    <span class="material-icons">language</span>
+                    Official Website
+                </a>
+                {% endif %}
+            </div>
+        </div>
+
+        <div style="padding: var(--space-6);">
+            {% if curriculum.description %}
+            <div style="margin-bottom: var(--space-6);">
+                <h3 style="margin-bottom: var(--space-3); display: flex; align-items: center; gap: var(--space-2);">
+                    <span class="material-icons" style="color: var(--accent-primary);">description</span>
+                    Description
+                </h3>
+                <p style="font-size: 16px; line-height: 1.8; color: var(--text-secondary);">{{ curriculum.description }}</p>
+            </div>
+            {% endif %}
+
+            <div class="grid-2" style="gap: var(--space-6);">
+                <!-- Subjects -->
+                <div class="card" style="padding: var(--space-5); background: var(--bg-secondary); border: none;">
+                    <h3 style="margin-bottom: var(--space-4); display: flex; align-items: center; gap: var(--space-2);">
+                        <span class="material-icons" style="color: var(--accent-primary);">menu_book</span>
+                        Subjects
+                    </h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: var(--space-2);">
+                        {% for subject in curriculum.get_subjects_list %}
+                        <span style="padding: 8px 16px; background: white; border-radius: var(--radius-pill); font-size: 14px; font-weight: 500; color: var(--text-primary); border: 1px solid var(--border-light);">
+                            {{ subject }}
+                        </span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Exams -->
+                {% if curriculum.exams %}
+                <div class="card" style="padding: var(--space-5); background: var(--bg-secondary); border: none;">
+                    <h3 style="margin-bottom: var(--space-4); display: flex; align-items: center; gap: var(--space-2);">
+                        <span class="material-icons" style="color: var(--accent-primary);">assignment</span>
+                        Examinations
+                    </h3>
+                    <p style="font-size: 15px; line-height: 1.7; color: var(--text-secondary); margin: 0;">{{ curriculum.exams }}</p>
+                </div>
+                {% endif %}
+            </div>
+
+            {% if curriculum.info %}
+            <div style="margin-top: var(--space-6); padding: var(--space-5); background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%); border-radius: var(--radius-lg);">
+                <h3 style="margin-bottom: var(--space-3); display: flex; align-items: center; gap: var(--space-2);">
+                    <span class="material-icons" style="color: var(--accent-primary);">info</span>
+                    Additional Information
+                </h3>
+                <p style="font-size: 15px; line-height: 1.7; color: var(--text-secondary); margin: 0;">{{ curriculum.info }}</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Wikipedia Data Section -->
+    {% if wikipedia_data %}
+    <div class="card" style="padding: var(--space-6); margin-bottom: var(--space-6); border: 2px solid rgba(79, 70, 229, 0.2);">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-5); flex-wrap: wrap; gap: var(--space-3);">
+            <div style="display: flex; align-items: center; gap: var(--space-3);">
+                <span class="material-icons" style="font-size: 32px; color: var(--accent-primary);">public</span>
+                <div>
+                    <h2 style="margin: 0; font-size: 24px;">Wikipedia</h2>
+                    <p style="margin: 0; color: var(--text-secondary); font-size: 14px;">Information from {{ wikipedia_data.title }}</p>
+                </div>
+            </div>
+            <a href="{{ wikipedia_data.page_url }}" target="_blank" class="btn btn-secondary" style="padding: 10px 20px;">
+                <span class="material-icons">open_in_new</span>
+                View on Wikipedia
+            </a>
+        </div>
+
+        <!-- Wikipedia Summary -->
+        {% if wikipedia_data.summary %}
+        <div style="margin-bottom: var(--space-5); padding: var(--space-5); background: var(--bg-secondary); border-radius: var(--radius-lg);">
+            <h3 style="margin-bottom: var(--space-3); font-size: 18px;">Summary</h3>
+            <p style="font-size: 16px; line-height: 1.8; color: var(--text-secondary); margin: 0;">{{ wikipedia_data.summary }}</p>
+        </div>
+        {% endif %}
+
+        <!-- Wikipedia Images -->
+        {% if wikipedia_data.images %}
+        <div style="margin-bottom: var(--space-5);">
+            <h3 style="margin-bottom: var(--space-4); font-size: 18px;">Images</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-4);">
+                {% for image_url in wikipedia_data.images %}
+                <div style="width: 100%; height: 200px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md);">
+                    <img src="{{ image_url }}" alt="{{ wikipedia_data.title }}" 
+                         style="width: 100%; height: 100%; object-fit: cover;"
+                         onerror="this.style.display='none'">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Wikipedia Full Content -->
+        {% if wikipedia_data.content %}
+        <div style="padding: var(--space-5); background: var(--bg-secondary); border-radius: var(--radius-lg);">
+            <h3 style="margin-bottom: var(--space-4); font-size: 18px;">More Information</h3>
+            <div style="font-size: 15px; line-height: 1.8; color: var(--text-secondary); white-space: pre-line;">{{ wikipedia_data.content }}</div>
+        </div>
+        {% endif %}
+    </div>
+    {% else %}
+    <!-- No Wikipedia Data Available -->
+    <div class="card" style="padding: var(--space-6); margin-bottom: var(--space-6); background: var(--bg-secondary);">
+        <div style="text-align: center; padding: var(--space-6);">
+            <span class="material-icons" style="font-size: 48px; color: var(--text-tertiary); margin-bottom: var(--space-3); display: block;">public</span>
+            <p style="color: var(--text-secondary); margin: 0;">Wikipedia information is not available for this curriculum at the moment.</p>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+

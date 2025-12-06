@@ -144,7 +144,8 @@ a:hover {
 }
 
 .content-area:has(.home-container) {
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 /* Left Sidebar (Desktop) */
@@ -250,20 +251,20 @@ a:hover {
 
 /* Home Page Styles */
 .home-container {
-    height: calc(100vh - 64px);
-    max-height: calc(100vh - 64px);
+    min-height: calc(100vh - 64px);
     display: flex;
     flex-direction: column;
-    gap: var(--space-4);
-    padding: var(--space-5);
-    overflow: hidden;
+    gap: 48vh;
+    padding: var(--space-6);
+    overflow-y: auto;
+    overflow-x: hidden;
     box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
     .home-container {
-        height: calc(100vh - 140px);
-        max-height: calc(100vh - 140px);
+        min-height: calc(100vh - 140px);
+        gap: 10vh;
     }
 }
 
@@ -312,11 +313,32 @@ a:hover {
 .carousel-section {
     flex: 1;
     min-height: 0;
-    max-height: 100%;
     display: flex;
     flex-direction: column;
-    gap: var(--space-2);
-    overflow: hidden;
+    width: 100%;
+    margin-bottom: 36vh;
+}
+
+.carousel-section:last-child {
+    margin-bottom: 0;
+}
+
+.carousel-section-header {
+    width: 100%;
+    padding: 0 var(--space-5);
+    margin-bottom: var(--space-5);
+}
+
+.carousel-section-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    width: 100%;
+}
+
+.carousel-section-pagination {
+    width: 100%;
+    padding: 0 var(--space-4);
 }
 
 .carousel-title {
@@ -324,31 +346,71 @@ a:hover {
     font-weight: 600;
     color: var(--text-primary);
     margin: 0;
-    padding: 0 var(--space-2);
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
 }
 
 .carousel-container {
     position: relative;
     flex: 1;
     min-height: 0;
-    max-height: 100%;
-    overflow: hidden;
+    overflow: visible;
+    padding-bottom: 0;
+    width: 100%;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Swiper Carousel Styles */
+.swiper {
+    width: 100%;
+    height: auto;
+    padding: var(--space-4) var(--space-4) var(--space-4) var(--space-4);
+    overflow: visible;
+    box-sizing: border-box;
+    margin: 0;
+    position: relative;
+}
+
+.swiper-wrapper {
+    display: flex;
+    padding-left: 0;
+    padding-right: 0;
+    box-sizing: border-box;
+    align-items: stretch;
+    margin: 0;
+    gap: 0;
+}
+
+.swiper-slide {
+    width: auto !important;
+    flex-shrink: 0;
+    display: flex;
+    align-items: stretch;
+    box-sizing: border-box;
+    margin: 0;
 }
 
 .carousel-scroll {
     display: flex;
     gap: var(--space-3);
     overflow-x: auto;
-    overflow-y: hidden;
+    overflow-y: visible;
     scroll-behavior: smooth;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    padding: var(--space-4) var(--space-3);
-    margin: calc(-1 * var(--space-3));
-    padding-bottom: var(--space-8);
+    padding: var(--space-6) calc(var(--space-4) + 16px);
+    margin: calc(-1 * var(--space-4) - 16px);
+    padding-bottom: var(--space-12);
     -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    scroll-padding: var(--space-3);
+    scroll-snap-type: none;
+    min-height: 0;
 }
 
 .carousel-scroll::-webkit-scrollbar {
@@ -357,7 +419,9 @@ a:hover {
 
 
 .carousel-item {
-    flex: 0 0 260px;
+    width: 260px;
+    min-width: 260px;
+    max-width: 260px;
     background: var(--bg-secondary);
     border: 1px solid var(--border-light);
     border-radius: var(--radius-lg);
@@ -366,12 +430,34 @@ a:hover {
     display: flex;
     flex-direction: column;
     text-decoration: none;
-    height: auto;
+    height: 320px;
+    min-height: 320px;
+    max-height: 320px;
     cursor: pointer;
-    scroll-snap-align: center;
-    scroll-snap-stop: always;
-    opacity: 0.5;
-    transform: scale(0.95);
+    opacity: 0.7;
+    transform: scale(0.98);
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.swiper-slide-active .carousel-item {
+    opacity: 1;
+    transform: scale(1);
+    border-color: var(--accent-green);
+}
+
+.swiper-slide {
+    width: auto !important;
+    height: auto;
+}
+
+.swiper-slide .carousel-item {
+    width: 260px !important;
+    min-width: 260px !important;
+    max-width: 260px !important;
+    height: 320px !important;
+    min-height: 320px !important;
+    max-height: 320px !important;
 }
 
 .carousel-item:active {
@@ -385,13 +471,16 @@ a:hover {
 
 .carousel-item.active {
     opacity: 1;
-    transform: scale(1.05);
+    transform: scale(1);
     border-color: var(--accent-green);
-    box-shadow: var(--layer-3);
+    box-shadow: var(--layer-2);
 }
 
 .curriculum-item {
     justify-content: center;
+    height: 320px !important;
+    min-height: 320px !important;
+    max-height: 320px !important;
 }
 
 .curriculum-item .carousel-item-content {
@@ -416,11 +505,17 @@ a:hover {
 }
 
 .carousel-item-title {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--text-primary);
     margin: 0;
     line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 0;
 }
 
 .carousel-item-desc {
@@ -435,12 +530,16 @@ a:hover {
 }
 
 .school-item {
-    min-height: 280px;
+    min-height: 320px;
+    max-height: 320px;
+    height: 320px;
 }
 
 .carousel-item-image {
     width: 100%;
-    height: 180px;
+    height: 140px;
+    min-height: 140px;
+    max-height: 140px;
     object-fit: cover;
     background: var(--bg-tertiary);
     flex-shrink: 0;
@@ -448,7 +547,9 @@ a:hover {
 
 .carousel-item-image-placeholder {
     width: 100%;
-    height: 180px;
+    height: 140px;
+    min-height: 140px;
+    max-height: 140px;
     background: var(--bg-tertiary);
     display: flex;
     align-items: center;
@@ -468,15 +569,21 @@ a:hover {
     flex-direction: column;
     gap: var(--space-2);
     flex: 1;
+    overflow: hidden;
+    min-height: 0;
 }
 
 .carousel-item-subtitle {
-    font-size: 14px;
+    font-size: 12px;
     color: var(--text-secondary);
     margin: 0;
     display: flex;
     align-items: center;
     gap: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .carousel-item-meta {
@@ -485,6 +592,16 @@ a:hover {
     justify-content: space-between;
     margin-top: auto;
     padding-top: var(--space-2);
+    flex-shrink: 0;
+    gap: var(--space-2);
+}
+
+.carousel-item-meta > * {
+    flex-shrink: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .rating-badge-small {
@@ -538,16 +655,23 @@ a:hover {
 }
 
 /* Carousel Pagination Dots */
-.carousel-pagination {
+.carousel-pagination,
+.swiper-pagination {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-3) 0;
-    margin-top: var(--space-2);
+    gap: var(--space-4);
+    padding: 0;
+    margin: 0;
+    position: relative;
+    bottom: auto;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 10;
 }
 
-.carousel-dot {
+.carousel-dot,
+.swiper-pagination-bullet {
     width: 8px;
     height: 8px;
     border-radius: 50%;
@@ -556,9 +680,12 @@ a:hover {
     cursor: pointer;
     border: none;
     padding: 0;
+    opacity: 1;
+    margin: 0 var(--space-1);
 }
 
-.carousel-dot.active {
+.carousel-dot.active,
+.swiper-pagination-bullet-active {
     width: 24px;
     height: 8px;
     border-radius: var(--radius-pill);
@@ -569,6 +696,7 @@ a:hover {
 .custom-dropdown {
     position: relative;
     width: 100%;
+    z-index: 9999;
 }
 
 .custom-dropdown-trigger {
@@ -616,7 +744,7 @@ a:hover {
     border: 1px solid var(--border-light);
     border-radius: var(--radius-md);
     box-shadow: var(--layer-4);
-    z-index: 1000;
+    z-index: 10000;
     max-height: 300px;
     overflow-y: auto;
     display: none;
@@ -703,6 +831,7 @@ a:hover {
 
 @media (max-width: 768px) {
     .home-container {
+        height: calc(100vh - 140px);
         padding: var(--space-4);
     gap: var(--space-4);
     }
@@ -712,16 +841,25 @@ a:hover {
     }
     
     .carousel-item {
-        flex: 0 0 220px;
+        width: 260px !important;
+        min-width: 260px !important;
+        max-width: 260px !important;
+        height: 320px !important;
+        min-height: 320px !important;
+        max-height: 320px !important;
     }
     
     .school-item {
-        min-height: 260px;
+        min-height: 320px !important;
+        max-height: 320px !important;
+        height: 320px !important;
     }
     
     .carousel-item-image,
     .carousel-item-image-placeholder {
-        height: 150px;
+        height: 140px !important;
+        min-height: 140px !important;
+        max-height: 140px !important;
     }
     
     .carousel-nav {
@@ -730,26 +868,6 @@ a:hover {
     
     .carousel-scroll {
         gap: var(--space-3);
-    }
-}
-
-@media (max-width: 768px) {
-    .home-container {
-        height: calc(100vh - 140px);
-        padding: var(--space-4);
-        gap: var(--space-4);
-    }
-    
-    .greeting-text {
-        font-size: 24px;
-    }
-    
-    .carousel-item {
-        flex: 0 0 240px;
-    }
-    
-    .carousel-nav {
-        display: none;
     }
 }
 
@@ -809,6 +927,13 @@ a:hover {
     padding: var(--space-2) 0 calc(var(--space-2) + env(safe-area-inset-bottom));
     z-index: 1000;
     box-shadow: var(--layer-2);
+    overflow: hidden;
+}
+
+.bottom-nav::before,
+.bottom-nav::after {
+    display: none !important;
+    content: none !important;
 }
 
 @media (max-width: 768px) {
@@ -839,6 +964,28 @@ a:hover {
     border-radius: var(--radius-md);
     transition: all var(--transition-smooth);
     position: relative;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    outline: none;
+}
+
+.bottom-nav-item span:not(.material-icons) {
+    display: block;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    line-height: 1.2;
+    position: relative;
+    z-index: 1;
+}
+
+.bottom-nav-item::after,
+.bottom-nav-item::before {
+    display: none !important;
+    content: none !important;
 }
 
 .bottom-nav-item:hover {
@@ -1056,7 +1203,7 @@ button:active,
     transition: all var(--transition-smooth);
     border-radius: var(--radius-lg);
     margin-bottom: var(--space-4);
-    background: rgba(0, 255, 136, 0.25);
+    background: var(--bg-secondary);
     box-shadow: var(--layer-1);
     border: 1px solid var(--border-light);
     position: relative;
@@ -1072,7 +1219,7 @@ button:active,
 .result-card:hover {
     box-shadow: var(--layer-3);
     border-color: var(--accent-green);
-    background: rgba(0, 255, 136, 0.35);
+    background: var(--bg-secondary);
     transform: translateY(-4px);
 }
 

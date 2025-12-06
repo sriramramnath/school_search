@@ -99,7 +99,7 @@
                             <span class="rating-badge">
                                 {{ school.rating }} <span class="material-icons">star</span>
                             </span>
-                            <span style="font-weight: 600; color: var(--text-primary);">₹{% if school.get_default_fee %}{{ school.get_default_fee }}{% else %}N/A{% endif %}</span>
+                            <span style="font-weight: 600; color: var(--text-primary);">₹{% if school.default_fee %}{{ school.default_fee }}{% else %}N/A{% endif %}</span>
                             {% for facility in school.facilities.all|slice:":2" %}
                             <span style="background: var(--bg-tertiary); color: var(--text-primary); padding: 6px 12px; border-radius: var(--radius-pill); font-size: 12px; font-weight: 500; border: 1px solid var(--border-light);">
                                 {{ facility.name }}

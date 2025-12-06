@@ -31,14 +31,14 @@ class School(models.Model):
         ('C', 'Co-ed'),
     ]
     
-    name = models.CharField(max_length=200)
-    location = models.CharField(max_length=200)
-    pin_code = models.CharField(max_length=10)
-    board = models.CharField(max_length=50, choices=BOARD_CHOICES)
-    grades_offered = models.CharField(max_length=100, help_text="Comma-separated grades (e.g., '1,2,3,4,5,6,7,8,9,10,11,12')")
+    name = models.CharField(max_length=200, db_index=True)
+    location = models.CharField(max_length=200, db_index=True)
+    pin_code = models.CharField(max_length=10, db_index=True)
+    board = models.CharField(max_length=50, choices=BOARD_CHOICES, db_index=True)
+    grades_offered = models.CharField(max_length=100, db_index=True, help_text="Comma-separated grades (e.g., '1,2,3,4,5,6,7,8,9,10,11,12')")
     co_ed_type = models.CharField(max_length=1, choices=CO_ED_CHOICES, default='C')
-    distance = models.DecimalField(max_digits=5, decimal_places=2, help_text="Distance in km")
-    bus_availability = models.BooleanField(default=False)
+    distance = models.DecimalField(max_digits=5, decimal_places=2, db_index=True, help_text="Distance in km")
+    bus_availability = models.BooleanField(default=False, db_index=True)
     syllabus = models.CharField(max_length=100)
     website = models.URLField(blank=True)
     curriculum_website = models.URLField(blank=True)
@@ -46,7 +46,8 @@ class School(models.Model):
         max_digits=3, 
         decimal_places=1, 
         validators=[MinValueValidator(0), MaxValueValidator(5)],
-        default=0.0
+        default=0.0,
+        db_index=True
     )
     image = models.ImageField(upload_to='schools/', blank=True, null=True)
     

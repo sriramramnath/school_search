@@ -38,8 +38,13 @@ class SchoolFilter(FilterSet):
 
 def home_view(request):
     """Home page with recommended schools and curricula"""
-    recommended_schools = School.objects.all().order_by('-rating')[:10]
+    recommended_schools = School.objects.select_related().prefetch_related('facilities').order_by('-rating')[:10]
     curricula = Curriculum.objects.all()[:10]
+    
+    # Pre-calculate fees for each school to avoid repeated method calls
+    for school in recommended_schools:
+        school.default_fee = school.get_default_fee()
+    
     context = {
         'recommended_schools': recommended_schools,
         'curricula': curricula,
@@ -57,7 +62,7 @@ def school_search_view(request):
 
 def school_search_results_view(request):
     """School search results page"""
-    schools = School.objects.all().annotate(
+    schools = School.objects.prefetch_related('facilities').annotate(
         review_count=Count('reviews')
     )
     
@@ -92,8 +97,14 @@ def school_search_results_view(request):
     else:
         schools = schools.order_by('-rating', 'name')
     
+    # Evaluate queryset once and pre-calculate fees
+    schools_list = list(schools)
+    for school in schools_list:
+        school.default_fee = school.get_default_fee()
+    
     context = {
-        'schools': schools,
+        'schools': schools_list,
+        'schools_count': len(schools_list),
         'board_choices': School.BOARD_CHOICES,
     }
     return render(request, 'search_results.html', context)
@@ -101,14 +112,16 @@ def school_search_results_view(request):
 
 def school_detail_view(request, school_id):
     """School detail page"""
-    school = get_object_or_404(School, pk=school_id)
+    school = get_object_or_404(School.objects.prefetch_related('facilities'), pk=school_id)
     reviews = Review.objects.filter(school=school).order_by('-created_at')
     
-    # Calculate rating distribution
-    rating_dist = {}
-    total_reviews = reviews.count()
-    for i in range(1, 6):
-        rating_dist[i] = reviews.filter(rating=i).count()
+    # Calculate rating distribution efficiently in one query
+    rating_dist_data = reviews.values('rating').annotate(count=Count('id')).order_by('-rating')
+    rating_dist = {i: 0 for i in range(1, 6)}
+    total_reviews = 0
+    for item in rating_dist_data:
+        rating_dist[item['rating']] = item['count']
+        total_reviews += item['count']
     
     # Convert to list of tuples for easier template iteration
     rating_dist_list = [(i, rating_dist[i], rating_dist[i] / total_reviews * 100 if total_reviews > 0 else 0) 
@@ -116,6 +129,9 @@ def school_detail_view(request, school_id):
     
     # Get average rating
     avg_rating = reviews.aggregate(Avg('rating'))['rating__avg'] or 0
+    
+    # Pre-calculate fee
+    school.default_fee = school.get_default_fee()
     
     context = {
         'school': school,

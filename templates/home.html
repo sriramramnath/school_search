@@ -27,69 +27,85 @@
 
     <!-- Curricula Carousel -->
     <div class="carousel-section">
-        <h2 class="carousel-title">Curricula</h2>
-        <div class="carousel-container">
-            <div class="carousel-scroll" id="curricula-carousel" data-carousel="curricula">
-                {% for curriculum in curricula %}
-                <a href="{% url 'curriculum_detail' curriculum.id %}" class="carousel-item curriculum-item" data-index="{{ forloop.counter0 }}">
-                    <div class="carousel-item-content">
-                        {% if curriculum.abbreviation %}
-                        <div class="curriculum-abbr">{{ curriculum.abbreviation }}</div>
-                        {% endif %}
-                        <h3 class="carousel-item-title">{{ curriculum.name }}</h3>
-                        {% if curriculum.description %}
-                        <p class="carousel-item-desc">{{ curriculum.description|truncatewords:15 }}</p>
-                        {% endif %}
+        <div class="carousel-section-header">
+            <h2 class="carousel-title">Curricula</h2>
+        </div>
+        <div class="carousel-section-content">
+            <div class="carousel-container">
+                <div class="swiper" id="curricula-carousel">
+                    <div class="swiper-wrapper">
+                        {% for curriculum in curricula %}
+                        <div class="swiper-slide">
+                            <a href="{% url 'curriculum_detail' curriculum.id %}" class="carousel-item curriculum-item">
+                                <div class="carousel-item-content">
+                                    {% if curriculum.abbreviation %}
+                                    <div class="curriculum-abbr">{{ curriculum.abbreviation }}</div>
+                                    {% endif %}
+                                    <h3 class="carousel-item-title">{{ curriculum.name }}</h3>
+                                    {% if curriculum.description %}
+                                    <p class="carousel-item-desc">{{ curriculum.description|truncatewords:15 }}</p>
+                                    {% endif %}
+                                </div>
+                            </a>
+                        </div>
+                        {% empty %}
+                        <div class="empty-state-small">No curricula available</div>
+                        {% endfor %}
                     </div>
-                </a>
-                {% empty %}
-                <div class="empty-state-small">No curricula available</div>
-                {% endfor %}
+                </div>
             </div>
-            <div class="carousel-pagination" id="curricula-pagination"></div>
-            <button class="carousel-nav carousel-nav-right" onclick="scrollCarousel('curricula-carousel', 300)">
-                <span class="material-icons">chevron_right</span>
-            </button>
+            <div class="carousel-section-pagination">
+                <div class="swiper-pagination" id="curricula-pagination"></div>
+            </div>
         </div>
     </div>
 
     <!-- Schools Carousel -->
     <div class="carousel-section">
-        <h2 class="carousel-title">Recommended Schools</h2>
-        <div class="carousel-container">
-            <div class="carousel-scroll" id="schools-carousel" data-carousel="schools">
-                {% for school in recommended_schools %}
-                <a href="{% url 'school_detail' school.id %}" class="carousel-item school-item" data-index="{{ forloop.counter0 }}">
-                    {% if school.image %}
-                    <img src="{{ school.image.url }}" alt="{{ school.name }}" class="carousel-item-image">
-                    {% else %}
-                    <div class="carousel-item-image-placeholder">
-                        <span class="material-icons">school</span>
-                    </div>
-                    {% endif %}
-                    <div class="carousel-item-content">
-                        <h3 class="carousel-item-title">{{ school.name }}</h3>
-                        <p class="carousel-item-subtitle">
-                            <span class="material-icons" style="font-size: 14px;">location_on</span>
-                            {{ school.location }}
-                        </p>
-                        <div class="carousel-item-meta">
-                            <span class="rating-badge-small">
-                                <span class="material-icons" style="font-size: 14px;">star</span>
-                                {{ school.rating }}
-                            </span>
-                            <span style="font-weight: 600;">₹{% if school.get_default_fee %}{{ school.get_default_fee }}{% else %}N/A{% endif %}</span>
+        <div class="carousel-section-header">
+            <h2></h2>
+            <h2></h2>
+            <h2 class="carousel-title">Recommended Schools</h2>
+        </div>
+        <div class="carousel-section-content">
+            <div class="carousel-container">
+                <div class="swiper" id="schools-carousel">
+                    <div class="swiper-wrapper">
+                        {% for school in recommended_schools %}
+                        <div class="swiper-slide">
+                            <a href="{% url 'school_detail' school.id %}" class="carousel-item school-item">
+                                {% if school.image %}
+                                <img src="{{ school.image.url }}" alt="{{ school.name }}" class="carousel-item-image">
+                                {% else %}
+                                <div class="carousel-item-image-placeholder">
+                                    <span class="material-icons">school</span>
+                                </div>
+                                {% endif %}
+                                <div class="carousel-item-content">
+                                    <h3 class="carousel-item-title">{{ school.name }}</h3>
+                                    <p class="carousel-item-subtitle">
+                                        <span class="material-icons" style="font-size: 14px;">location_on</span>
+                                        {{ school.location }}
+                                    </p>
+                                    <div class="carousel-item-meta">
+                                        <span class="rating-badge-small">
+                                            <span class="material-icons" style="font-size: 14px;">star</span>
+                                            {{ school.rating }}
+                                        </span>
+                                        <span style="font-weight: 600;">₹{% if school.default_fee %}{{ school.default_fee }}{% else %}N/A{% endif %}</span>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
+                        {% empty %}
+                        <div class="empty-state-small">No schools available</div>
+                        {% endfor %}
                     </div>
-                </a>
-                {% empty %}
-                <div class="empty-state-small">No schools available</div>
-                {% endfor %}
+                </div>
             </div>
-            <div class="carousel-pagination" id="schools-pagination"></div>
-            <button class="carousel-nav carousel-nav-right" onclick="scrollCarousel('schools-carousel', 300)">
-                <span class="material-icons">chevron_right</span>
-            </button>
+            <div class="carousel-section-pagination">
+                <div class="swiper-pagination" id="schools-pagination"></div>
+            </div>
         </div>
     </div>
 </div>
@@ -97,197 +113,75 @@
 
 {% block extra_js %}
 <script>
-function scrollCarousel(carouselId, distance) {
-    const carousel = document.getElementById(carouselId);
-    if (carousel) {
-        carousel.scrollBy({
-            left: distance,
-            behavior: 'smooth'
-        });
-    }
-}
-
-// Initialize carousels with infinite scroll, lazy loading, and active state
 document.addEventListener('DOMContentLoaded', function() {
-    const carousels = ['curricula-carousel', 'schools-carousel'];
+    // Initialize Curricula Carousel
+    const curriculaSwiper = new Swiper('#curricula-carousel', {
+        slidesPerView: 'auto',
+        spaceBetween: 24,
+        loop: true,
+        freeMode: true,
+        grabCursor: true,
+        centeredSlides: false,
+        pagination: {
+            el: '#curricula-pagination',
+            clickable: true,
+            renderBullet: function (index, className) {
+                return '<span class="' + className + ' carousel-dot"></span>';
+            },
+        },
+        breakpoints: {
+            320: {
+                slidesPerView: 'auto',
+                spaceBetween: 24,
+            },
+            480: {
+                slidesPerView: 'auto',
+                spaceBetween: 24,
+            },
+            768: {
+                slidesPerView: 'auto',
+                spaceBetween: 24,
+            },
+            1024: {
+                slidesPerView: 'auto',
+                spaceBetween: 24,
+            },
+        },
+    });
     
-    carousels.forEach(carouselId => {
-        const carousel = document.getElementById(carouselId);
-        const paginationId = carouselId.replace('-carousel', '-pagination');
-        const pagination = document.getElementById(paginationId);
-        
-        if (!carousel || !pagination) return;
-        
-        const items = carousel.querySelectorAll('.carousel-item');
-        const itemCount = items.length;
-        
-        if (itemCount === 0) return;
-        
-        // Clone items for infinite scroll
-        const firstItem = items[0].cloneNode(true);
-        const lastItem = items[itemCount - 1].cloneNode(true);
-        carousel.insertBefore(lastItem, items[0]);
-        carousel.appendChild(firstItem);
-        
-        // Create pagination dots for original items only
-        items.forEach((_, index) => {
-            const dot = document.createElement('button');
-            dot.className = 'carousel-dot';
-            dot.setAttribute('data-index', index);
-            dot.addEventListener('click', () => {
-                const targetItem = items[index];
-                targetItem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-            });
-            pagination.appendChild(dot);
-        });
-        
-        // Scroll to first real item
-        carousel.scrollLeft = items[0].offsetLeft - carousel.offsetLeft;
-        
-        // Set first item as active
-        if (items[0]) {
-            items[0].classList.add('active');
-        }
-        if (pagination.children[0]) {
-            pagination.children[0].classList.add('active');
-        }
-        
-        // Detect which card is in center and update active state
-        function updateActiveItem() {
-            const carouselRect = carousel.getBoundingClientRect();
-            const carouselCenter = carouselRect.left + carouselRect.width / 2;
-            
-            let closestItem = null;
-            let closestDistance = Infinity;
-            let closestIndex = -1;
-            
-            // Check all items including clones
-            const allItems = carousel.querySelectorAll('.carousel-item');
-            allItems.forEach((item) => {
-                const itemRect = item.getBoundingClientRect();
-                const itemCenter = itemRect.left + itemRect.width / 2;
-                const distance = Math.abs(carouselCenter - itemCenter);
-                
-                if (distance < closestDistance) {
-                    closestDistance = distance;
-                    closestItem = item;
-                    // Find original index
-                    const dataIndex = item.getAttribute('data-index');
-                    if (dataIndex !== null) {
-                        closestIndex = parseInt(dataIndex);
-                    } else {
-                        // It's a clone, find matching original
-                        const itemContent = item.querySelector('.carousel-item-title')?.textContent;
-                        items.forEach((origItem, idx) => {
-                            if (origItem.querySelector('.carousel-item-title')?.textContent === itemContent) {
-                                closestIndex = idx;
-                            }
-                        });
-                    }
-                }
-            });
-            
-            if (closestItem && closestIndex >= 0) {
-                // Remove active from all items
-                allItems.forEach(item => item.classList.remove('active'));
-                Array.from(pagination.children).forEach(dot => dot.classList.remove('active'));
-                
-                // Add active to closest item
-                closestItem.classList.add('active');
-                if (pagination.children[closestIndex]) {
-                    pagination.children[closestIndex].classList.add('active');
-                }
-            }
-        }
-        
-        // Lazy loading: load images as they come into view
-        const imageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    if (img.dataset.src) {
-                        img.src = img.dataset.src;
-                        img.removeAttribute('data-src');
-                        imageObserver.unobserve(img);
-                    }
-                }
-            });
-        }, { root: carousel, rootMargin: '50px' });
-        
-        // Observe all images in carousel
-        carousel.querySelectorAll('img[data-src]').forEach(img => {
-            imageObserver.observe(img);
-        });
-        
-        // Infinite scroll - continuous loop
-        let isScrolling = false;
-        let autoScroll = null;
-        
-        function setupInfiniteScroll() {
-            const scrollWidth = carousel.scrollWidth;
-            const clientWidth = carousel.clientWidth;
-            
-            // If scrolled to clone at start, jump to end
-            if (carousel.scrollLeft <= 0) {
-                isScrolling = true;
-                carousel.scrollLeft = scrollWidth - clientWidth * 2;
-                setTimeout(() => { isScrolling = false; }, 50);
-            }
-            // If scrolled to clone at end, jump to start
-            else if (carousel.scrollLeft >= scrollWidth - clientWidth) {
-                isScrolling = true;
-                carousel.scrollLeft = clientWidth;
-                setTimeout(() => { isScrolling = false; }, 50);
-            }
-            
-            updateActiveItem();
-        }
-        
-        carousel.addEventListener('scroll', () => {
-            if (!isScrolling) {
-                setupInfiniteScroll();
-            }
-        });
-        
-        // Auto-scroll continuously (paused by default, user can scroll manually)
-        function startAutoScroll() {
-            if (autoScroll) clearInterval(autoScroll);
-            autoScroll = setInterval(() => {
-                if (!isScrolling && !isPaused && document.visibilityState === 'visible') {
-                    carousel.scrollBy({ left: 0.5, behavior: 'auto' });
-                }
-            }, 30); // Very slow continuous scroll
-        }
-        
-        // Pause auto-scroll on hover/interaction
-        let isPaused = false;
-        let pauseTimeout = null;
-        
-        function pauseScroll() {
-            isPaused = true;
-            if (autoScroll) clearInterval(autoScroll);
-        }
-        
-        function resumeScroll() {
-            isPaused = false;
-            startAutoScroll();
-        }
-        
-        carousel.addEventListener('mouseenter', pauseScroll);
-        carousel.addEventListener('mouseleave', () => {
-            pauseTimeout = setTimeout(resumeScroll, 1000);
-        });
-        carousel.addEventListener('touchstart', pauseScroll);
-        carousel.addEventListener('touchend', () => {
-            if (pauseTimeout) clearTimeout(pauseTimeout);
-            pauseTimeout = setTimeout(resumeScroll, 3000);
-        });
-        
-        // Start auto-scroll after a delay
-        setTimeout(resumeScroll, 2000);
-        
-        // Initial update
-        updateActiveItem();
+    // Initialize Schools Carousel
+    const schoolsSwiper = new Swiper('#schools-carousel', {
+        slidesPerView: 'auto',
+        spaceBetween: 24,
+        loop: true,
+        freeMode: true,
+        grabCursor: true,
+        centeredSlides: false,
+        pagination: {
+            el: '#schools-pagination',
+            clickable: true,
+            renderBullet: function (index, className) {
+                return '<span class="' + className + ' carousel-dot"></span>';
+            },
+        },
+        breakpoints: {
+            320: {
+                slidesPerView: 'auto',
+                spaceBetween: 24,
+            },
+            480: {
+                slidesPerView: 'auto',
+                spaceBetween: 24,
+            },
+            768: {
+                slidesPerView: 'auto',
+                spaceBetween: 24,
+            },
+            1024: {
+                slidesPerView: 'auto',
+                spaceBetween: 24,
+            },
+        },
     });
 });
 </script>

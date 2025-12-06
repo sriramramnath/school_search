@@ -17,8 +17,8 @@
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6); flex-wrap: wrap; gap: var(--space-4);">
         <div>
             <h1 style="font-size: 32px; margin-bottom: var(--space-2);">
-                {% if schools %}
-                {{ schools.count }} School{{ schools.count|pluralize }} Found
+                {% if schools_count %}
+                {{ schools_count }} School{{ schools_count|pluralize }} Found
                 {% else %}
                 No Schools Found
                 {% endif %}
@@ -60,7 +60,7 @@
                     <span class="rating-badge">
                         {{ school.rating }} <span class="material-icons">star</span>
                     </span>
-                    <span style="font-weight: 600; color: var(--text-primary);">₹{% if school.get_default_fee %}{{ school.get_default_fee }}{% else %}N/A{% endif %}</span>
+                    <span style="font-weight: 600; color: var(--text-primary);">₹{% if school.default_fee %}{{ school.default_fee }}{% else %}N/A{% endif %}</span>
                     <span style="color: var(--text-secondary); font-size: 14px;">{{ school.board }}</span>
                     {% for facility in school.facilities.all|slice:":2" %}
                     <span style="background: var(--bg-tertiary); color: var(--text-primary); padding: 6px 12px; border-radius: var(--radius-pill); font-size: 12px; font-weight: 500; border: 1px solid var(--border-light);">

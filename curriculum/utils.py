@@ -13,6 +13,7 @@ except ImportError:
 
 from typing import Dict, Optional
 import re
+from django.core.cache import cache
 
 
 def clean_html(text: str) -> str:
@@ -28,7 +29,7 @@ def clean_html(text: str) -> str:
 
 def get_wikipedia_data(page_title: Optional[str] = None, search_term: Optional[str] = None) -> Optional[Dict]:
     """
-    Fetch data from Wikipedia
+    Fetch data from Wikipedia with caching
     
     Args:
         page_title: Exact Wikipedia page title
@@ -39,6 +40,14 @@ def get_wikipedia_data(page_title: Optional[str] = None, search_term: Optional[s
     """
     if not WIKIPEDIA_AVAILABLE:
         return None
+    
+    # Create cache key
+    cache_key = f"wikipedia_{page_title or search_term or 'none'}"
+    
+    # Try to get from cache first
+    cached_data = cache.get(cache_key)
+    if cached_data is not None:
+        return cached_data
     
     try:
         # Set language to English
@@ -84,7 +93,7 @@ def get_wikipedia_data(page_title: Optional[str] = None, search_term: Optional[s
         # Get images if available
         images = page.images[:3] if page.images else []
         
-        return {
+        result = {
             'title': page.title,
             'url': page.url,
             'summary': clean_html(summary),
@@ -92,6 +101,10 @@ def get_wikipedia_data(page_title: Optional[str] = None, search_term: Optional[s
             'images': images,
             'page_url': page.url,
         }
+        
+        # Cache for 24 hours (86400 seconds)
+        cache.set(cache_key, result, 86400)
+        return result
     
     except Exception as e:
         print(f"Error fetching Wikipedia data: {e}")

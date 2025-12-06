@@ -35,12 +35,12 @@
                     <span style="font-weight: 500;">{{ school.location }}</span>
                 </div>
                 <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); margin-bottom: var(--space-4);">
-                    <div style="flex: 1; min-width: 120px; padding: var(--space-3); background: var(--bg-secondary); border-radius: var(--radius-md);">
+                    <div style="flex: 1; min-width: 120px; padding: var(--space-3); background: var(--bg-secondary); border-radius: var(--radius-md); border: 1px solid rgba(0, 255, 136, 0.25);">
                         <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: var(--space-1);">Distance</div>
                         <div style="font-size: 18px; font-weight: 600;">{{ school.distance }} km</div>
                     </div>
                     {% if school.bus_availability %}
-                    <div style="flex: 1; min-width: 120px; padding: var(--space-3); background: var(--bg-secondary); border-radius: var(--radius-md); border-left: 2px solid var(--accent-green);">
+                    <div style="flex: 1; min-width: 120px; padding: var(--space-3); background: var(--bg-secondary); border-radius: var(--radius-md); border: 1px solid rgba(0, 255, 136, 0.25);">
                         <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: var(--space-1);">Bus</div>
                         <div style="font-size: 18px; font-weight: 600; color: var(--text-primary);">Available</div>
                     </div>
@@ -52,7 +52,7 @@
                 </div>
                 <div style="padding: var(--space-4); background: var(--bg-secondary); border-radius: var(--radius-md); border: 1px solid var(--border-light);">
                     <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: var(--space-1);">Fees (Grade 12)</div>
-                    <div style="font-size: 24px; font-weight: 700; color: var(--text-primary);">₹{% with fee=school|get_fee:12 %}{% if fee %}{{ fee }}{% else %}N/A{% endif %}{% endwith %}</div>
+                    <div style="font-size: 24px; font-weight: 700; color: var(--text-primary);">₹{% if school.default_fee %}{{ school.default_fee }}{% else %}N/A{% endif %}</div>
                 </div>
             </div>
 

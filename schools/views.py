@@ -123,3 +123,8 @@ def school_detail_view(request, school_id):
         'average_rating': round(avg_rating, 1) if avg_rating else school.rating,
     }
     return render(request, 'school_detail.html', context)
+
+
+def ai_picker_view(request):
+    """AI Picker page"""
+    return render(request, 'ai_picker.html')

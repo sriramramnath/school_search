@@ -22,8 +22,7 @@
     <div class="app-container">
         <!-- Top App Bar (Desktop) -->
         <header class="app-header">
-            <div class="app-logo">School Search</div>
-            <nav class="main-nav">
+            <nav class="main-nav" style="margin: 0 auto;">
                 <a href="{% url 'home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
                     Home
                 </a>
@@ -33,8 +32,8 @@
                 <a href="{% url 'curriculum_search' %}" class="nav-link {% if request.resolver_match.url_name == 'curriculum_search' %}active{% endif %}">
                     Curriculum
                 </a>
-                <a href="#" class="nav-link">
-                    Favorites
+                <a href="{% url 'ai_picker' %}" class="nav-link {% if request.resolver_match.url_name == 'ai_picker' %}active{% endif %}">
+                    AI Picker
                 </a>
                 <a href="{% url 'profile' %}" class="nav-link {% if request.resolver_match.url_name == 'profile' %}active{% endif %}">
                     Profile
@@ -60,9 +59,9 @@
                 <span class="material-icons">school</span>
                 <span>Curriculum</span>
             </a>
-            <a href="#" class="bottom-nav-item">
-                <span class="material-icons">star</span>
-                <span>Favorites</span>
+            <a href="{% url 'ai_picker' %}" class="bottom-nav-item {% if request.resolver_match.url_name == 'ai_picker' %}active{% endif %}">
+                <span class="material-icons">auto_awesome</span>
+                <span>AI Picker</span>
             </a>
             <a href="{% url 'profile' %}" class="bottom-nav-item {% if request.resolver_match.url_name == 'profile' %}active{% endif %}">
                 <span class="material-icons">person</span>

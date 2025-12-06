@@ -92,8 +92,7 @@
                             </span>
                             <span style="font-weight: 600; color: var(--text-primary);">₹{% if school.get_default_fee %}{{ school.get_default_fee }}{% else %}N/A{% endif %}</span>
                             {% for facility in school.facilities.all|slice:":2" %}
-                            <span style="background: var(--bg-tertiary); color: var(--text-primary); padding: 6px 12px; border-radius: var(--radius-pill); font-size: 12px; font-weight: 500; border: 1px solid var(--border-light); position: relative;">
-                                <span style="position: absolute; top: -2px; right: -2px; width: 3px; height: 3px; background: var(--accent-green); border-radius: 50%;"></span>
+                            <span style="background: var(--bg-tertiary); color: var(--text-primary); padding: 6px 12px; border-radius: var(--radius-pill); font-size: 12px; font-weight: 500; border: 1px solid var(--border-light);">
                                 {{ facility.name }}
                             </span>
                             {% endfor %}

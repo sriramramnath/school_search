@@ -5,8 +5,8 @@
 
 {% block content %}
 <div class="page-container">
-    <div class="mb-4" style="margin-bottom: var(--space-8);">
-        <h1 style="margin-bottom: var(--space-5);">Search for a curriculum</h1>
+    <div class="mb-4" style="margin-bottom: var(--space-5);">
+        <h1 style="margin-bottom: var(--space-4);">Search for a curriculum</h1>
         <form method="get" action="{% url 'curriculum_search' %}" style="display: flex; gap: var(--space-3); max-width: 600px;">
             <input type="text" name="q" value="{{ search_query }}" placeholder="Search for a curriculum"
                 class="form-input" style="flex: 1;">
@@ -19,58 +19,15 @@
 
     <div class="grid-2">
         {% for curriculum in curricula %}
-        <a href="{% url 'curriculum_detail' curriculum.id %}" class="card fade-in card-link" style="padding: var(--space-6);">
-            <div style="margin-bottom: var(--space-5);">
-                <h2 style="font-size: 24px; margin-bottom: var(--space-2); color: var(--text-primary);">{{ curriculum.name }}</h2>
+        <a href="{% url 'curriculum_detail' curriculum.id %}" class="card fade-in card-link" style="padding: var(--space-4);">
+            <div style="margin-bottom: var(--space-3);">
+                <h2 style="font-size: 18px; margin-bottom: var(--space-2); color: var(--text-primary);">{{ curriculum.name }}</h2>
                 {% if curriculum.abbreviation %}
-                <span style="color: var(--text-secondary); font-weight: 600; font-size: 14px; padding: 4px 12px; background: var(--bg-tertiary); border-radius: var(--radius-pill); display: inline-block; border: 1px solid var(--border-light);">{{ curriculum.abbreviation }}</span>
+                <span style="color: var(--text-secondary); font-weight: 600; font-size: 12px; padding: 3px 10px; background: var(--bg-tertiary); border-radius: var(--radius-pill); display: inline-block; border: 1px solid var(--border-light);">{{ curriculum.abbreviation }}</span>
                 {% endif %}
             </div>
-
             {% if curriculum.description %}
-            <p style="color: var(--text-secondary); margin-bottom: var(--space-5); line-height: 1.6; font-size: 15px;">{{ curriculum.description }}</p>
-            {% endif %}
-
-            <div style="font-size: 14px;">
-                <div style="margin-bottom: var(--space-5); padding: var(--space-4); background: var(--bg-secondary); border-radius: var(--radius-md);">
-                    <strong style="display: block; margin-bottom: var(--space-3); font-size: 15px; color: var(--text-primary);">Subjects:</strong>
-                    <div style="display: flex; flex-wrap: wrap; gap: var(--space-2);">
-                        {% for subject in curriculum.get_subjects_list %}
-                        <span style="padding: 6px 12px; background: white; border-radius: var(--radius-pill); font-size: 13px; font-weight: 500; color: var(--text-primary); border: 1px solid var(--border-light);">{{ subject }}</span>
-                        {% endfor %}
-                    </div>
-                </div>
-
-                {% if curriculum.exams %}
-                <div style="margin-bottom: var(--space-4); padding: var(--space-4); background: var(--bg-secondary); border-radius: var(--radius-md);">
-                    <strong style="display: block; margin-bottom: var(--space-2); font-size: 15px; color: var(--text-primary);">Exams:</strong>
-                    <p style="color: var(--text-secondary); margin: 0; line-height: 1.6;">{{ curriculum.exams }}</p>
-                </div>
-                {% endif %}
-
-                {% if curriculum.info %}
-                <div style="margin-bottom: var(--space-4); padding: var(--space-4); background: var(--bg-secondary); border-radius: var(--radius-md);">
-                    <strong style="display: block; margin-bottom: var(--space-2); font-size: 15px; color: var(--text-primary);">Info:</strong>
-                    <p style="color: var(--text-secondary); margin: 0; line-height: 1.6;">{{ curriculum.info }}</p>
-                </div>
-                {% endif %}
-            </div>
-
-            {% if curriculum.website %}
-            <div style="margin-top: var(--space-5); padding-top: var(--space-5); border-top: 2px solid var(--border-light);">
-                <div style="display: inline-flex; align-items: center; gap: var(--space-2); color: var(--text-primary); font-weight: 600; padding: var(--space-3) var(--space-4); background: var(--bg-secondary); border-radius: var(--radius-md); border: 1px solid var(--border-light);">
-                    <span class="material-icons" style="font-size: 20px;">link</span>
-                    View Details
-                </div>
-            </div>
-            {% else %}
-            <div style="margin-top: var(--space-5); padding-top: var(--space-5); border-top: 1px solid var(--border-light);">
-                <div style="display: inline-flex; align-items: center; gap: var(--space-2); color: var(--text-primary); font-weight: 600; padding: var(--space-3) var(--space-4); background: var(--bg-secondary); border-radius: var(--radius-md); border: 1px solid var(--border-light); position: relative;">
-                    <span style="position: absolute; top: var(--space-2); right: var(--space-2); width: 3px; height: 3px; background: var(--accent-green); border-radius: 50%;"></span>
-                    <span class="material-icons" style="font-size: 20px;">arrow_forward</span>
-                    View Details
-                </div>
-            </div>
+            <p style="color: var(--text-secondary); margin: 0; line-height: 1.5; font-size: 13px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">{{ curriculum.description }}</p>
             {% endif %}
         </a>
         {% empty %}

@@ -5,12 +5,6 @@
 
 {% block content %}
 <div class="page-container">
-    <div class="mb-4" style="margin-bottom: var(--space-8);">
-        <h1 style="margin-bottom: var(--space-5);">Find the perfect school</h1>
-        <div class="input-group" style="max-width: 600px;">
-            <input type="text" placeholder="Enter location or school name" class="form-input" id="quick-search">
-        </div>
-    </div>
 
     <div class="mb-4" style="margin-bottom: var(--space-8);">
         <h2 style="margin-bottom: var(--space-5);">Recommended Schools</h2>
@@ -45,23 +39,6 @@
             </div>
             {% endfor %}
         </div>
-    </div>
-
-    <div class="card" style="background: var(--bg-secondary); border: 1px solid var(--border-light); padding: var(--space-6); position: relative;">
-        <div style="position: absolute; top: var(--space-4); right: var(--space-4); width: 4px; height: 4px; background: var(--accent-green); border-radius: 50%;"></div>
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-5);">
-            <div style="flex: 1;">
-                <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-2);">
-                    <span class="material-icons" style="font-size: 32px; color: var(--text-primary);">auto_awesome</span>
-                    <h3 style="margin: 0; font-size: 24px;">AI School Picker</h3>
-                </div>
-                <p style="margin: 0; font-size: 15px; color: var(--text-secondary);">Get personalized school recommendations based on your preferences and needs</p>
-            </div>
-        </div>
-        <button class="btn btn-primary" style="width: 100%;">
-            <span class="material-icons">sparkles</span>
-            Try AI Picker
-        </button>
     </div>
 </div>
 {% endblock %}

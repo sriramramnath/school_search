@@ -41,13 +41,28 @@
         </div>
 
         <div style="text-align: center;">
-            <button class="btn btn-primary" style="padding: 16px 32px; font-size: 16px;" disabled>
+            <button id="upgrade-btn" class="btn btn-primary" style="padding: 16px 32px; font-size: 16px;">
                 <span class="material-icons">lock</span>
                 Upgrade to Plus for Early Access
             </button>
+            <div id="upgrade-message" style="display: none; margin-top: var(--space-4); padding: var(--space-4); background: var(--bg-tertiary); border-radius: var(--radius-md); border: 1px solid var(--border-light); color: var(--text-secondary);">
+                The plus tier is not available in this region
+            </div>
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.getElementById('upgrade-btn')?.addEventListener('click', function() {
+    const message = document.getElementById('upgrade-message');
+    if (message) {
+        message.style.display = 'block';
+        message.style.animation = 'fadeInUp 300ms ease-out';
+    }
+});
+</script>
 {% endblock %}
 
 

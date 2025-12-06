@@ -104,4 +104,49 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         lastTouchEnd = now;
     }, false);
+    
+    // Page slide transitions
+    const contentArea = document.querySelector('.content-area');
+    if (contentArea) {
+        // Add slide-in animation on page load
+        contentArea.style.animation = 'slideInRight 300ms ease-out';
+    }
+    
+    // Add slide transition for navigation links
+    const navLinks = document.querySelectorAll('a[href]:not([href^="#"]):not([href^="javascript:"]):not([target="_blank"])');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Only apply to internal navigation
+            const href = this.getAttribute('href');
+            if (href && !href.startsWith('http') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
+                // Add slide-out animation
+                if (contentArea) {
+                    contentArea.style.animation = 'slideOutLeft 200ms ease-in';
+                }
+            }
+        });
+    });
+    
+    // Fix select dropdown styling - ensure selected options don't show red background
+    const selectElements = document.querySelectorAll('.form-field-select, .form-select');
+    selectElements.forEach(select => {
+        // Remove any inline styles that might cause red background
+        select.style.colorScheme = 'dark';
+        
+        // When select is opened, ensure proper styling
+        select.addEventListener('focus', function() {
+            this.style.outline = 'none';
+            this.style.borderColor = 'var(--accent-green)';
+        });
+        
+        // When option is selected, apply proper styling
+        select.addEventListener('change', function() {
+            const selectedOption = this.options[this.selectedIndex];
+            if (selectedOption) {
+                // Ensure the selected option is properly styled
+                this.style.color = 'var(--text-primary)';
+                this.style.backgroundColor = 'transparent';
+            }
+        });
+    });
 });

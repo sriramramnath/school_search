@@ -20,3 +20,23 @@ def get_fee(school, grade):
     except (ValueError, AttributeError):
         return None
 
+
+@register.filter
+def facility_icon(facility_name):
+    """Map facility name to Material Icon"""
+    icon_map = {
+        'AC': 'ac_unit',
+        'Canteen': 'restaurant',
+        'Library': 'menu_book',
+        'Sports Complex': 'sports_soccer',
+        'Computer Lab': 'computer',
+        'Science Lab': 'science',
+        'Swimming Pool': 'pool',
+        'Auditorium': 'theater_comedy',
+    }
+    # Case-insensitive lookup
+    for key, icon in icon_map.items():
+        if key.lower() in facility_name.lower():
+            return icon
+    return 'check_circle'  # Default icon
+

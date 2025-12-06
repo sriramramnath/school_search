@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.db.models import Q, Avg, Count
 from django_filters import FilterSet, CharFilter, ChoiceFilter, BooleanFilter, NumberFilter
 from .models import School, Facility, Review
+from curriculum.models import Curriculum
 
 
 class SchoolFilter(FilterSet):
@@ -36,10 +37,12 @@ class SchoolFilter(FilterSet):
 
 
 def home_view(request):
-    """Home page with recommended schools"""
-    recommended_schools = School.objects.all().order_by('-rating')[:6]
+    """Home page with recommended schools and curricula"""
+    recommended_schools = School.objects.all().order_by('-rating')[:10]
+    curricula = Curriculum.objects.all()[:10]
     context = {
         'recommended_schools': recommended_schools,
+        'curricula': curricula,
     }
     return render(request, 'home.html', context)
 

@@ -20,26 +20,26 @@
 </head>
 <body>
     <div class="app-container">
-        <!-- Top App Bar (Desktop) -->
-        <header class="app-header">
-            <nav class="main-nav" style="margin: 0 auto;">
-                <a href="{% url 'home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
-                    Home
+        <!-- Left Sidebar (Desktop) -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="{% url 'home' %}" class="sidebar-item {% if request.resolver_match.url_name == 'home' %}active{% endif %}" title="Home">
+                    <span class="material-icons">home</span>
                 </a>
-                <a href="{% url 'school_search' %}" class="nav-link {% if request.resolver_match.url_name == 'school_search' %}active{% endif %}">
-                    Search
+                <a href="{% url 'school_search' %}" class="sidebar-item {% if request.resolver_match.url_name == 'school_search' %}active{% endif %}" title="Search">
+                    <span class="material-icons">search</span>
                 </a>
-                <a href="{% url 'curriculum_search' %}" class="nav-link {% if request.resolver_match.url_name == 'curriculum_search' %}active{% endif %}">
-                    Curriculum
+                <a href="{% url 'curriculum_search' %}" class="sidebar-item {% if request.resolver_match.url_name == 'curriculum_search' %}active{% endif %}" title="Curriculum">
+                    <span class="material-icons">school</span>
                 </a>
-                <a href="{% url 'ai_picker' %}" class="nav-link {% if request.resolver_match.url_name == 'ai_picker' %}active{% endif %}">
-                    AI Picker
+                <a href="{% url 'ai_picker' %}" class="sidebar-item {% if request.resolver_match.url_name == 'ai_picker' %}active{% endif %}" title="AI Picker">
+                    <span class="material-icons">auto_awesome</span>
                 </a>
-                <a href="{% url 'profile' %}" class="nav-link {% if request.resolver_match.url_name == 'profile' %}active{% endif %}">
-                    Profile
+                <a href="{% url 'profile' %}" class="sidebar-item {% if request.resolver_match.url_name == 'profile' %}active{% endif %}" title="Profile">
+                    <span class="material-icons">person</span>
                 </a>
             </nav>
-        </header>
+        </aside>
 
         <main class="content-area">
             {% block content %}{% endblock %}
@@ -71,6 +71,7 @@
     </div>
 
     <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/custom-components.js' %}"></script>
     {% block extra_js %}{% endblock %}
 </body>
 </html>

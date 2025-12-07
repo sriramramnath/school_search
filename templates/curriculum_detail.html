@@ -89,49 +89,6 @@
         </div>
     </div>
 
-    <!-- Wikipedia Data Section - Markdown Style -->
-    {% if wikipedia_data %}
-    <div class="card" style="padding: var(--space-6); margin-bottom: var(--space-6); border: 1px solid var(--border-light);">
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-6); flex-wrap: wrap; gap: var(--space-3); padding-bottom: var(--space-4); border-bottom: 1px solid var(--border-light);">
-            <div style="display: flex; align-items: center; gap: var(--space-3);">
-                <span class="material-icons" style="font-size: 32px; color: var(--text-primary);">public</span>
-                <div>
-                    <h2 style="margin: 0; font-size: 24px; font-weight: 600;">{{ wikipedia_data.title }}</h2>
-                    <p style="margin: 0; color: var(--text-secondary); font-size: 14px;">From Wikipedia, the free encyclopedia</p>
-                </div>
-            </div>
-            <a href="{{ wikipedia_data.page_url }}" target="_blank" class="btn btn-secondary" style="padding: 10px 20px;">
-                <span class="material-icons">open_in_new</span>
-                View on Wikipedia
-            </a>
-        </div>
-
-        <!-- Wikipedia Content - Markdown Style -->
-        {% if wikipedia_data.summary %}
-        <div style="margin-bottom: var(--space-6);">
-            <div style="font-size: 16px; line-height: 1.8; color: var(--text-secondary);">
-                {{ wikipedia_data.summary }}
-            </div>
-        </div>
-        {% endif %}
-
-        {% if wikipedia_data.content %}
-        <div style="border-top: 1px solid var(--border-light); padding-top: var(--space-6);">
-            <div style="font-size: 15px; line-height: 1.8; color: var(--text-secondary); white-space: pre-wrap; font-family: var(--font-family);">
-                {{ wikipedia_data.content }}
-            </div>
-        </div>
-        {% endif %}
-    </div>
-    {% else %}
-    <!-- No Wikipedia Data Available -->
-    <div class="card" style="padding: var(--space-6); margin-bottom: var(--space-6); background: var(--bg-secondary); border: 1px solid var(--border-light);">
-        <div style="text-align: center; padding: var(--space-6);">
-            <span class="material-icons" style="font-size: 48px; color: var(--text-tertiary); margin-bottom: var(--space-3); display: block; opacity: 0.5;">public</span>
-            <p style="color: var(--text-secondary); margin: 0;">Wikipedia information is not available for this curriculum at the moment.</p>
-        </div>
-    </div>
-    {% endif %}
 </div>
 
 {% endblock %}

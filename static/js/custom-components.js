@@ -1,9 +1,49 @@
 // Custom Dropdown and Radio Button Components
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize custom dropdowns
-    document.querySelectorAll('select.form-select, select.form-field-select').forEach(select => {
-        createCustomDropdown(select);
+    // Initialize Choices.js for form-select only (keep form-field-select native)
+    document.querySelectorAll('select.form-select').forEach(select => {
+        // Skip if already initialized
+        if (select.hasAttribute('data-choice')) {
+            return;
+        }
+        
+        const choices = new Choices(select, {
+            searchEnabled: false,
+            itemSelectText: '',
+            shouldSort: false,
+            classNames: {
+                containerOuter: 'choices choices-select',
+                containerInner: 'choices__inner',
+                input: 'choices__input',
+                inputCloned: 'choices__input--cloned',
+                list: 'choices__list',
+                listItems: 'choices__list--multiple',
+                listSingle: 'choices__list--single',
+                listDropdown: 'choices__list--dropdown',
+                item: 'choices__item',
+                itemSelectable: 'choices__item--selectable',
+                itemDisabled: 'choices__item--disabled',
+                itemChoice: 'choices__item--choice',
+                placeholder: 'choices__placeholder',
+                group: 'choices__group',
+                groupHeading: 'choices__heading',
+                button: 'choices__button',
+                activeState: 'is-active',
+                focusState: 'is-focused',
+                openState: 'is-open',
+                disabledState: 'is-disabled',
+                highlightedState: 'is-highlighted',
+                selectedState: 'is-selected',
+                flippedState: 'is-flipped',
+                loadingState: 'is-loading',
+                noResults: 'has-no-results',
+                noChoices: 'has-no-choices'
+            }
+        });
+        
+        // Mark as initialized
+        select.setAttribute('data-choice', 'true');
     });
     
     // Initialize custom radio buttons
@@ -11,78 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
         createCustomRadio(radio);
     });
 });
-
-function createCustomDropdown(select) {
-    // Create wrapper
-    const wrapper = document.createElement('div');
-    wrapper.className = 'custom-dropdown';
-    
-    // Create trigger
-    const trigger = document.createElement('div');
-    trigger.className = 'custom-dropdown-trigger';
-    const selectedOption = select.options[select.selectedIndex];
-    trigger.innerHTML = `
-        <span class="custom-dropdown-text">${selectedOption ? selectedOption.text : 'Select...'}</span>
-        <span class="material-icons">expand_more</span>
-    `;
-    
-    // Create menu
-    const menu = document.createElement('div');
-    menu.className = 'custom-dropdown-menu';
-    
-    // Create options
-    Array.from(select.options).forEach((option, index) => {
-        const optionEl = document.createElement('div');
-        optionEl.className = 'custom-dropdown-option';
-        if (option.selected) optionEl.classList.add('selected');
-        optionEl.textContent = option.text;
-        optionEl.dataset.value = option.value;
-        
-        optionEl.addEventListener('click', () => {
-            select.value = option.value;
-            select.dispatchEvent(new Event('change', { bubbles: true }));
-            trigger.querySelector('.custom-dropdown-text').textContent = option.text;
-            menu.querySelectorAll('.custom-dropdown-option').forEach(opt => opt.classList.remove('selected'));
-            optionEl.classList.add('selected');
-            trigger.classList.remove('active');
-            menu.classList.remove('active');
-        });
-        
-        menu.appendChild(optionEl);
-    });
-    
-    // Toggle menu
-    trigger.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const isActive = trigger.classList.contains('active');
-        
-        // Close all other dropdowns
-        document.querySelectorAll('.custom-dropdown-trigger').forEach(t => {
-            t.classList.remove('active');
-            t.nextElementSibling?.classList.remove('active');
-        });
-        
-        if (!isActive) {
-            trigger.classList.add('active');
-            menu.classList.add('active');
-        }
-    });
-    
-    // Close on outside click
-    document.addEventListener('click', (e) => {
-        if (!wrapper.contains(e.target)) {
-            trigger.classList.remove('active');
-            menu.classList.remove('active');
-        }
-    });
-    
-    // Replace select with custom dropdown
-    select.style.display = 'none';
-    wrapper.appendChild(trigger);
-    wrapper.appendChild(menu);
-    select.parentNode.insertBefore(wrapper, select);
-    wrapper.appendChild(select);
-}
 
 function createCustomRadio(radio) {
     // Create wrapper

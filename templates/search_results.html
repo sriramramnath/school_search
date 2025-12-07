@@ -52,10 +52,15 @@
             {% endif %}
             <div class="card-content">
                 <h3 class="card-title">{{ school.name }}</h3>
-                <p class="card-subtitle">
-                    <span class="material-icons" style="font-size: 16px; vertical-align: middle;">location_on</span>
-                    {{ school.location }} • {{ school.distance }} km
-                </p>
+                        <p class="card-subtitle">
+                            <span class="material-icons" style="font-size: 16px; vertical-align: middle;">location_on</span>
+                            {{ school.location }}
+                            {% if school.calculated_distance %}
+                            • {{ school.calculated_distance }} km from you
+                            {% elif school.distance %}
+                            • {{ school.distance }} km
+                            {% endif %}
+                        </p>
                 <div class="card-meta">
                     <span class="rating-badge">
                         {{ school.rating }} <span class="material-icons">star</span>

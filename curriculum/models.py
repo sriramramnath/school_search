@@ -19,13 +19,10 @@ class Curriculum(models.Model):
         """Return subjects as a list"""
         return [s.strip() for s in self.subjects.split(',') if s.strip()]
     
-    def get_wikipedia_search_term(self):
-        """Get search term for Wikipedia"""
-        if self.wikipedia_page:
-            return self.wikipedia_page
-        if self.abbreviation:
-            return f"{self.name} ({self.abbreviation})"
-        return self.name
+    def get_absolute_url(self):
+        """Get absolute URL for curriculum detail page"""
+        from django.urls import reverse
+        return reverse('curriculum_detail', args=[str(self.id)])
     
     class Meta:
         verbose_name_plural = "Curricula"

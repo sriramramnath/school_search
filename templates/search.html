@@ -11,7 +11,7 @@
             <div class="card" style="padding: var(--space-5); position: sticky; top: 88px;">
                 <h2 style="font-size: 20px; margin-bottom: var(--space-5);">Filters</h2>
 
-            <form method="get" action="{% url 'school_search' %}">
+            <form method="get" action="{% url 'school_search' %}" id="filter-form">
                 <div class="mb-4">
                     <label class="form-label">School Name</label>
                     <input type="text" name="name" value="{{ filter.form.name.value|default:'' }}"
@@ -19,14 +19,16 @@
                 </div>
 
                 <div class="mb-4">
-                    <label class="form-label">Board</label>
-                    <select name="board" class="form-select">
-                        <option value="">All Boards</option>
+                    <label class="form-label">Curriculum/Board</label>
+                    <div class="filter-chips">
                         {% for value, label in board_choices %}
-                        <option value="{{ value }}" {% if filter.form.board.value == value %}selected{% endif %}>{{ label
-                            }}</option>
+                        <label class="filter-chip">
+                            <input type="checkbox" name="board" value="{{ value }}" 
+                                   {% if value in selected_boards %}checked{% endif %}>
+                            <span>{{ label }}</span>
+                        </label>
                         {% endfor %}
-                    </select>
+                    </div>
                 </div>
 
                 <div class="mb-4">
@@ -49,9 +51,85 @@
                 </div>
 
                 <div class="mb-4">
-                    <label class="form-label">Location</label>
-                    <input type="text" name="pin_code" value="{{ filter.form.pin_code.value|default:'' }}"
-                        placeholder="Pin code" class="form-input">
+                    <label class="form-label">Your Pin Code</label>
+                    <input type="text" name="user_pin_code" value="{{ user_pin_code|default:'' }}"
+                        placeholder="Enter your pin code" class="form-input" maxlength="6" pattern="[0-9]{6}">
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">Distance from Your Home</label>
+                    <div class="filter-chips">
+                        <label class="filter-chip">
+                            <input type="checkbox" name="distance" value="5" 
+                                   {% if '5' in selected_distances %}checked{% endif %}>
+                            <span>Within 5 km</span>
+                        </label>
+                        <label class="filter-chip">
+                            <input type="checkbox" name="distance" value="10" 
+                                   {% if '10' in selected_distances %}checked{% endif %}>
+                            <span>Within 10 km</span>
+                        </label>
+                        <label class="filter-chip">
+                            <input type="checkbox" name="distance" value="20" 
+                                   {% if '20' in selected_distances %}checked{% endif %}>
+                            <span>Within 20 km</span>
+                        </label>
+                        <label class="filter-chip">
+                            <input type="checkbox" name="distance" value="50" 
+                                   {% if '50' in selected_distances %}checked{% endif %}>
+                            <span>Within 50 km</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">Star Rating</label>
+                    <div class="filter-chips">
+                        {% for i in "12345" %}
+                        <label class="filter-chip">
+                            <input type="checkbox" name="rating" value="{{ i }}" 
+                                   {% if i in selected_ratings %}checked{% endif %}>
+                            <span>{{ i }}★</span>
+                        </label>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">Bus Availability</label>
+                    <div class="filter-chips">
+                        <label class="filter-chip">
+                            <input type="checkbox" name="bus" value="yes" 
+                                   {% if 'yes' in selected_bus %}checked{% endif %}>
+                            <span>Yes</span>
+                        </label>
+                        <label class="filter-chip">
+                            <input type="checkbox" name="bus" value="no" 
+                                   {% if 'no' in selected_bus %}checked{% endif %}>
+                            <span>No</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">School Type</label>
+                    <div class="filter-chips">
+                        <label class="filter-chip">
+                            <input type="checkbox" name="co_ed_type" value="C" 
+                                   {% if 'C' in selected_co_ed %}checked{% endif %}>
+                            <span>Co-ed</span>
+                        </label>
+                        <label class="filter-chip">
+                            <input type="checkbox" name="co_ed_type" value="B" 
+                                   {% if 'B' in selected_co_ed %}checked{% endif %}>
+                            <span>Boys</span>
+                        </label>
+                        <label class="filter-chip">
+                            <input type="checkbox" name="co_ed_type" value="G" 
+                                   {% if 'G' in selected_co_ed %}checked{% endif %}>
+                            <span>Girls</span>
+                        </label>
+                    </div>
                 </div>
 
                 <button type="submit" class="btn btn-primary" style="width: 100%;">Apply Filters</button>
@@ -65,8 +143,8 @@
         <div style="flex: 1;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6); flex-wrap: wrap; gap: var(--space-4);">
                 <h1 style="font-size: 32px; margin-bottom: 0; flex: 1; min-width: 200px;">
-                    {% if filter.form.board.value %}
-                    {{ filter.form.board.value }} Schools
+                    {% if schools_count %}
+                    {{ schools_count }} School{{ schools_count|pluralize }} Found
                     {% else %}
                     All Schools
                     {% endif %}
@@ -93,7 +171,12 @@
                         <h3 class="card-title">{{ school.name }}</h3>
                         <p class="card-subtitle">
                             <span class="material-icons" style="font-size: 16px; vertical-align: middle;">location_on</span>
-                            {{ school.location }} • {{ school.distance }} km
+                            {{ school.location }}
+                            {% if school.calculated_distance %}
+                            • {{ school.calculated_distance }} km from you
+                            {% elif school.distance %}
+                            • {{ school.distance }} km
+                            {% endif %}
                         </p>
                         <div class="card-meta">
                             <span class="rating-badge">

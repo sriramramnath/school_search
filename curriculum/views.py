@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
+from django.http import JsonResponse
 from .models import Curriculum
-from .utils import get_wikipedia_data, search_wikipedia_page_title
 
 
 def curriculum_search_view(request):
@@ -17,6 +17,19 @@ def curriculum_search_view(request):
             Q(description__icontains=search_query)
         )
     
+    # If AJAX request, return JSON
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        results = []
+        for curriculum in curricula:
+            results.append({
+                'id': curriculum.id,
+                'name': curriculum.name,
+                'abbreviation': curriculum.abbreviation or '',
+                'description': curriculum.description or '',
+                'url': curriculum.get_absolute_url() if hasattr(curriculum, 'get_absolute_url') else f'/curriculum/{curriculum.id}/',
+            })
+        return JsonResponse({'curricula': results})
+    
     context = {
         'curricula': curricula,
         'search_query': search_query,
@@ -25,28 +38,10 @@ def curriculum_search_view(request):
 
 
 def curriculum_detail_view(request, curriculum_id):
-    """Curriculum detail page with Wikipedia integration"""
+    """Curriculum detail page"""
     curriculum = get_object_or_404(Curriculum, pk=curriculum_id)
-    
-    # Fetch Wikipedia data
-    wikipedia_data = None
-    search_term = curriculum.get_wikipedia_search_term()
-    
-    if curriculum.wikipedia_page:
-        # Use stored Wikipedia page title
-        wikipedia_data = get_wikipedia_data(page_title=curriculum.wikipedia_page)
-    else:
-        # Try to auto-detect Wikipedia page
-        page_title = search_wikipedia_page_title(curriculum.name, curriculum.abbreviation)
-        if page_title:
-            wikipedia_data = get_wikipedia_data(page_title=page_title)
-    
-    # If still no data, try with search term
-    if not wikipedia_data:
-        wikipedia_data = get_wikipedia_data(search_term=search_term)
     
     context = {
         'curriculum': curriculum,
-        'wikipedia_data': wikipedia_data,
     }
     return render(request, 'curriculum_detail.html', context)

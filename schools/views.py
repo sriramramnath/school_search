@@ -3,6 +3,7 @@ from django.db.models import Q, Avg, Count
 from django_filters import FilterSet, CharFilter, ChoiceFilter, BooleanFilter, NumberFilter
 from .models import School, Facility, Review
 from curriculum.models import Curriculum
+from .utils import calculate_distance
 
 
 class SchoolFilter(FilterSet):
@@ -52,10 +53,24 @@ def home_view(request):
     return render(request, 'home.html', context)
 
 
+
+
 def school_search_view(request):
     """School search form page (Uber-style)"""
+    # Get selected values from query params for form state (if user comes back to form)
+    selected_boards = request.GET.getlist('board', [])
+    selected_ratings = request.GET.getlist('rating', [])
+    selected_bus = request.GET.getlist('bus', [])
+    selected_co_ed = request.GET.getlist('co_ed_type', [])
+    distance_max = request.GET.get('distance_max', '50')
+    
     context = {
         'board_choices': School.BOARD_CHOICES,
+        'selected_boards': selected_boards,
+        'selected_ratings': selected_ratings,
+        'selected_bus': selected_bus,
+        'selected_co_ed': selected_co_ed,
+        'distance_max': distance_max,
     }
     return render(request, 'search_form.html', context)
 
@@ -67,45 +82,93 @@ def school_search_results_view(request):
     )
     
     # Get search parameters
-    location = request.GET.get('location', '')
     name = request.GET.get('name', '')
-    board = request.GET.get('board', '')
+    boards = request.GET.getlist('board')  # Multiple boards
     grade = request.GET.get('grade', '')
+    user_pin_code = request.GET.get('user_pin_code', '').strip()
+    distance_max = request.GET.get('distance_max', '50')  # Distance slider max value
+    ratings = request.GET.getlist('rating')  # Multiple ratings (1-5)
+    bus_availability = request.GET.getlist('bus')  # Multiple bus options
+    co_ed_types = request.GET.getlist('co_ed_type')  # Multiple co-ed types
     
     # Apply filters
-    if location:
-        schools = schools.filter(
-            Q(location__icontains=location) | 
-            Q(pin_code__icontains=location)
-        )
-    
     if name:
         schools = schools.filter(name__icontains=name)
     
-    if board:
-        schools = schools.filter(board=board)
+    if boards:
+        schools = schools.filter(board__in=boards)
     
     if grade:
         schools = schools.filter(grades_offered__icontains=grade)
     
-    # Get sorting parameter
-    sort_by = request.GET.get('sort', 'rating')
-    if sort_by == 'distance':
-        schools = schools.order_by('distance')
-    elif sort_by == 'fees':
-        schools = schools.order_by('fees_by_grade')
-    else:
-        schools = schools.order_by('-rating', 'name')
+    if ratings:
+        # Filter by exact star ratings (e.g., 2* means rating >= 2.0 and < 3.0)
+        rating_conditions = Q()
+        for rating in ratings:
+            try:
+                rating_int = int(rating)
+                if 1 <= rating_int <= 5:
+                    # Match ratings in the range [rating_int, rating_int + 1)
+                    rating_conditions |= Q(rating__gte=rating_int) & Q(rating__lt=rating_int + 1.0)
+            except (ValueError, TypeError):
+                pass
+        if rating_conditions:
+            schools = schools.filter(rating_conditions)
     
-    # Evaluate queryset once and pre-calculate fees
+    if bus_availability:
+        if 'yes' in bus_availability and 'no' not in bus_availability:
+            schools = schools.filter(bus_availability=True)
+        elif 'no' in bus_availability and 'yes' not in bus_availability:
+            schools = schools.filter(bus_availability=False)
+        # If both yes and no are selected, show all (no filter)
+    
+    if co_ed_types:
+        schools = schools.filter(co_ed_type__in=co_ed_types)
+    
+    # Evaluate queryset and calculate distances if user pin code is provided
     schools_list = list(schools)
-    for school in schools_list:
-        school.default_fee = school.get_default_fee()
+    
+    # Calculate distances from user's location for each school
+    if user_pin_code:
+        for school in schools_list:
+            distance = calculate_distance(user_pin_code, school.pin_code)
+            school.calculated_distance = round(distance, 1) if distance else None
+            school.default_fee = school.get_default_fee()
+    else:
+        for school in schools_list:
+            school.calculated_distance = None
+            school.default_fee = school.get_default_fee()
+    
+    # Filter by distance if distance_max is provided and user pin code is provided
+    if distance_max and user_pin_code:
+        try:
+            max_distance = float(distance_max)
+            filtered_schools = []
+            for school in schools_list:
+                if school.calculated_distance is not None and school.calculated_distance <= max_distance:
+                    filtered_schools.append(school)
+            schools_list = filtered_schools
+        except (ValueError, TypeError):
+            pass
+    
+    # Sort results
+    sort_by = request.GET.get('sort', 'rating')
+    if sort_by == 'distance' and user_pin_code:
+        # Sort by calculated distance
+        schools_list = sorted(schools_list, key=lambda s: s.calculated_distance if s.calculated_distance is not None else float('inf'))
+    elif sort_by == 'distance':
+        # Fallback to stored distance
+        schools_list = sorted(schools_list, key=lambda s: float(s.distance) if s.distance else float('inf'))
+    elif sort_by == 'fees':
+        schools_list = sorted(schools_list, key=lambda s: s.default_fee if s.default_fee else float('inf'))
+    else:
+        schools_list = sorted(schools_list, key=lambda s: (float(s.rating) if s.rating else 0, s.name), reverse=True)
     
     context = {
         'schools': schools_list,
         'schools_count': len(schools_list),
         'board_choices': School.BOARD_CHOICES,
+        'user_pin_code': user_pin_code,
     }
     return render(request, 'search_results.html', context)
 
@@ -146,4 +209,38 @@ def school_detail_view(request, school_id):
 
 def ai_picker_view(request):
     """AI Picker page"""
-    return render(request, 'ai_picker.html')
+    # List of all countries in the world
+    all_countries = [
+        'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda',
+        'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain',
+        'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia',
+        'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso',
+        'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon', 'Canada', 'Central African Republic',
+        'Chad', 'Chile', 'China', 'Colombia', 'Comoros', 'Congo', 'Costa Rica', 'Croatia',
+        'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic',
+        'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Eswatini',
+        'Ethiopia', 'Fiji', 'Finland', 'France', 'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana',
+        'Greece', 'Grenada', 'Guatemala', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Honduras',
+        'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy',
+        'Jamaica', 'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Kosovo', 'Kuwait',
+        'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein',
+        'Lithuania', 'Luxembourg', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta',
+        'Marshall Islands', 'Mauritania', 'Mauritius', 'Mexico', 'Micronesia', 'Moldova', 'Monaco',
+        'Mongolia', 'Montenegro', 'Morocco', 'Mozambique', 'Myanmar', 'Namibia', 'Nauru', 'Nepal',
+        'Netherlands', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'North Korea', 'North Macedonia',
+        'Norway', 'Oman', 'Pakistan', 'Palau', 'Palestine', 'Panama', 'Papua New Guinea', 'Paraguay',
+        'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania', 'Russia', 'Rwanda',
+        'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines', 'Samoa', 'San Marino',
+        'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone',
+        'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Korea',
+        'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname', 'Sweden', 'Switzerland', 'Syria',
+        'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', 'Timor-Leste', 'Togo', 'Tonga', 'Trinidad and Tobago',
+        'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates',
+        'United Kingdom', 'United States', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Vatican City', 'Venezuela',
+        'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'
+    ]
+    
+    context = {
+        'all_countries': all_countries,
+    }
+    return render(request, 'ai_picker.html', context)

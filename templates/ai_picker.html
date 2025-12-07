@@ -50,224 +50,21 @@
 </div>
 
 <!-- Full Screen Upgrade Modal -->
-<div id="upgrade-modal" class="upgrade-modal" style="display: none;">
-    <div class="upgrade-modal-content">
-        <button id="close-upgrade-modal" class="upgrade-modal-close">
+<div id="upgrade-modal" class="upgrade-modal-fullscreen" style="display: none;">
+    <div class="upgrade-modal-content-fullscreen">
+        <button class="upgrade-modal-close-fullscreen" id="close-upgrade-modal">
             <span class="material-icons">close</span>
         </button>
-        <div class="upgrade-modal-header">
-            <div style="width: 80px; height: 80px; background: var(--bg-tertiary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-5); border: 1px solid var(--border-light);">
-                <span class="material-icons" style="font-size: 48px; color: var(--accent-green);">lock</span>
+        <div class="upgrade-modal-header-fullscreen">
+            <h2>Plus Tier Not Available</h2>
+            <p>The Plus tier is not available in the following countries:</p>
+        </div>
+        <div class="upgrade-modal-body-fullscreen">
+            <div class="countries-list-fullscreen">
+                {% for country in all_countries %}
+                <div class="country-item-fullscreen">{{ country }}</div>
+                {% endfor %}
             </div>
-            <h2 style="font-size: 32px; margin-bottom: var(--space-3); text-align: center;">Plus Not Available</h2>
-            <p style="color: var(--text-secondary); font-size: 18px; text-align: center; margin-bottom: var(--space-8);">
-                The plus tier is not available in the following regions:
-            </p>
-        </div>
-        <div class="upgrade-modal-body">
-            <ul class="regions-list">
-                <li>Afghanistan</li>
-                <li>Albania</li>
-                <li>Algeria</li>
-                <li>Andorra</li>
-                <li>Angola</li>
-                <li>Antigua and Barbuda</li>
-                <li>Argentina</li>
-                <li>Armenia</li>
-                <li>Australia</li>
-                <li>Austria</li>
-                <li>Azerbaijan</li>
-                <li>Bahamas</li>
-                <li>Bahrain</li>
-                <li>Bangladesh</li>
-                <li>Barbados</li>
-                <li>Belarus</li>
-                <li>Belgium</li>
-                <li>Belize</li>
-                <li>Benin</li>
-                <li>Bhutan</li>
-                <li>Bolivia</li>
-                <li>Bosnia and Herzegovina</li>
-                <li>Botswana</li>
-                <li>Brazil</li>
-                <li>Brunei Darussalam</li>
-                <li>Bulgaria</li>
-                <li>Burkina Faso</li>
-                <li>Burundi</li>
-                <li>Cabo Verde</li>
-                <li>Cambodia</li>
-                <li>Cameroon</li>
-                <li>Canada</li>
-                <li>Central African Republic</li>
-                <li>Chad</li>
-                <li>Chile</li>
-                <li>China</li>
-                <li>Colombia</li>
-                <li>Comoros</li>
-                <li>Congo (Brazzaville)</li>
-                <li>Congo (Kinshasa)</li>
-                <li>Costa Rica</li>
-                <li>Côte d'Ivoire</li>
-                <li>Croatia</li>
-                <li>Cuba</li>
-                <li>Cyprus</li>
-                <li>Czechia</li>
-                <li>Denmark</li>
-                <li>Djibouti</li>
-                <li>Dominica</li>
-                <li>Dominican Republic</li>
-                <li>Ecuador</li>
-                <li>Egypt</li>
-                <li>El Salvador</li>
-                <li>Equatorial Guinea</li>
-                <li>Eritrea</li>
-                <li>Estonia</li>
-                <li>Eswatini</li>
-                <li>Ethiopia</li>
-                <li>Fiji</li>
-                <li>Finland</li>
-                <li>France</li>
-                <li>Gabon</li>
-                <li>Gambia</li>
-                <li>Georgia</li>
-                <li>Germany</li>
-                <li>Ghana</li>
-                <li>Greece</li>
-                <li>Grenada</li>
-                <li>Guatemala</li>
-                <li>Guinea</li>
-                <li>Guinea-Bissau</li>
-                <li>Guyana</li>
-                <li>Haiti</li>
-                <li>Honduras</li>
-                <li>Hungary</li>
-                <li>Iceland</li>
-                <li>India</li>
-                <li>Indonesia</li>
-                <li>Iran</li>
-                <li>Iraq</li>
-                <li>Ireland</li>
-                <li>Israel</li>
-                <li>Italy</li>
-                <li>Jamaica</li>
-                <li>Japan</li>
-                <li>Jordan</li>
-                <li>Kazakhstan</li>
-                <li>Kenya</li>
-                <li>Kiribati</li>
-                <li>Korea (North)</li>
-                <li>Korea (South)</li>
-                <li>Kuwait</li>
-                <li>Kyrgyzstan</li>
-                <li>Laos</li>
-                <li>Latvia</li>
-                <li>Lebanon</li>
-                <li>Lesotho</li>
-                <li>Liberia</li>
-                <li>Libya</li>
-                <li>Liechtenstein</li>
-                <li>Lithuania</li>
-                <li>Luxembourg</li>
-                <li>Madagascar</li>
-                <li>Malawi</li>
-                <li>Malaysia</li>
-                <li>Maldives</li>
-                <li>Mali</li>
-                <li>Malta</li>
-                <li>Marshall Islands</li>
-                <li>Mauritania</li>
-                <li>Mauritius</li>
-                <li>Mexico</li>
-                <li>Micronesia</li>
-                <li>Moldova</li>
-                <li>Monaco</li>
-                <li>Mongolia</li>
-                <li>Montenegro</li>
-                <li>Morocco</li>
-                <li>Mozambique</li>
-                <li>Myanmar</li>
-                <li>Namibia</li>
-                <li>Nauru</li>
-                <li>Nepal</li>
-                <li>Netherlands</li>
-                <li>New Zealand</li>
-                <li>Nicaragua</li>
-                <li>Niger</li>
-                <li>Nigeria</li>
-                <li>North Macedonia</li>
-                <li>Norway</li>
-                <li>Oman</li>
-                <li>Pakistan</li>
-                <li>Palau</li>
-                <li>Palestine</li>
-                <li>Panama</li>
-                <li>Papua New Guinea</li>
-                <li>Paraguay</li>
-                <li>Peru</li>
-                <li>Philippines</li>
-                <li>Poland</li>
-                <li>Portugal</li>
-                <li>Qatar</li>
-                <li>Romania</li>
-                <li>Russian Federation</li>
-                <li>Rwanda</li>
-                <li>Saint Kitts and Nevis</li>
-                <li>Saint Lucia</li>
-                <li>Saint Vincent and the Grenadines</li>
-                <li>Samoa</li>
-                <li>San Marino</li>
-                <li>Sao Tome and Principe</li>
-                <li>Saudi Arabia</li>
-                <li>Senegal</li>
-                <li>Serbia</li>
-                <li>Seychelles</li>
-                <li>Sierra Leone</li>
-                <li>Singapore</li>
-                <li>Slovakia</li>
-                <li>Slovenia</li>
-                <li>Solomon Islands</li>
-                <li>Somalia</li>
-                <li>South Africa</li>
-                <li>South Sudan</li>
-                <li>Spain</li>
-                <li>Sri Lanka</li>
-                <li>Sudan</li>
-                <li>Suriname</li>
-                <li>Sweden</li>
-                <li>Switzerland</li>
-                <li>Syria</li>
-                <li>Taiwan</li>
-                <li>Tajikistan</li>
-                <li>Tanzania</li>
-                <li>Thailand</li>
-                <li>Timor-Leste</li>
-                <li>Togo</li>
-                <li>Tonga</li>
-                <li>Trinidad and Tobago</li>
-                <li>Tunisia</li>
-                <li>Turkey</li>
-                <li>Turkmenistan</li>
-                <li>Tuvalu</li>
-                <li>Uganda</li>
-                <li>Ukraine</li>
-                <li>United Arab Emirates</li>
-                <li>United Kingdom</li>
-                <li>United States of America</li>
-                <li>Uruguay</li>
-                <li>Uzbekistan</li>
-                <li>Vanuatu</li>
-                <li>Vatican City</li>
-                <li>Venezuela</li>
-                <li>Vietnam</li>
-                <li>Yemen</li>
-                <li>Zambia</li>
-                <li>Zimbabwe</li>
-            </ul>
-        </div>
-        <div class="upgrade-modal-footer">
-            <button id="close-upgrade-btn" class="btn btn-primary" style="padding: 16px 32px; font-size: 16px;">
-                Got it
-            </button>
         </div>
     </div>
 </div>
@@ -278,44 +75,30 @@
 document.addEventListener('DOMContentLoaded', function() {
     const upgradeBtn = document.getElementById('upgrade-btn');
     const upgradeModal = document.getElementById('upgrade-modal');
-    const closeModalBtn = document.getElementById('close-upgrade-modal');
-    const closeBtn = document.getElementById('close-upgrade-btn');
+    const closeModal = document.getElementById('close-upgrade-modal');
     
-    function openModal() {
-        if (upgradeModal) {
+    if (upgradeBtn && upgradeModal) {
+        upgradeBtn.addEventListener('click', function() {
             upgradeModal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
-            upgradeModal.style.animation = 'fadeIn 300ms ease-out';
-        }
+        });
     }
     
-    function closeModal() {
+    function closeUpgradeModal() {
         if (upgradeModal) {
-            upgradeModal.style.animation = 'fadeOut 300ms ease-out';
-            setTimeout(() => {
-                upgradeModal.style.display = 'none';
-                document.body.style.overflow = '';
-            }, 300);
+            upgradeModal.style.display = 'none';
+            document.body.style.overflow = '';
         }
     }
     
-    if (upgradeBtn) {
-        upgradeBtn.addEventListener('click', openModal);
+    if (closeModal) {
+        closeModal.addEventListener('click', closeUpgradeModal);
     }
     
-    if (closeModalBtn) {
-        closeModalBtn.addEventListener('click', closeModal);
-    }
-    
-    if (closeBtn) {
-        closeBtn.addEventListener('click', closeModal);
-    }
-    
-    // Close on background click
     if (upgradeModal) {
         upgradeModal.addEventListener('click', function(e) {
             if (e.target === upgradeModal) {
-                closeModal();
+                closeUpgradeModal();
             }
         });
     }
@@ -323,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Close on Escape key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && upgradeModal && upgradeModal.style.display === 'flex') {
-            closeModal();
+            closeUpgradeModal();
         }
     });
 });

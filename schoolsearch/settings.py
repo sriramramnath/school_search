@@ -102,8 +102,29 @@ WSGI_APPLICATION = 'schoolsearch.wsgi.application'
 DATABASE_URL = config('DATABASE_URL', default='')
 if DATABASE_URL:
     # Use DATABASE_URL if provided (e.g., from Supabase connection string)
+    # For serverless (Vercel), use shorter connection max age and enable connection pooling
+    # If using Supabase, prefer transaction mode pooler (port 6543) over session mode (port 5432)
+    # Transaction mode is better for serverless functions
+    
+    # Check if we should use transaction mode pooler
+    # If DATABASE_URL uses port 5432 (session mode), try to convert to transaction mode
+    if 'pooler.supabase.com:5432' in DATABASE_URL:
+        # Replace session mode pooler with transaction mode pooler
+        DATABASE_URL = DATABASE_URL.replace(':5432', ':6543')
+    
     DATABASES = {
-        'default': dj_database_url.parse(DATABASE_URL, conn_max_age=600)
+        'default': dj_database_url.parse(
+            DATABASE_URL, 
+            conn_max_age=60,  # Shorter for serverless - close connections faster
+            conn_health_checks=True,  # Enable connection health checks
+        )
+    }
+    
+    # Additional connection pool settings for serverless
+    DATABASES['default']['CONN_MAX_AGE'] = 60  # 60 seconds max connection age
+    DATABASES['default']['OPTIONS'] = {
+        'connect_timeout': 10,
+        'options': '-c statement_timeout=30000'  # 30 second statement timeout
     }
 else:
     # Fall back to individual DB_* variables or SQLite

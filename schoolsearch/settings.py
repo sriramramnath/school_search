@@ -30,29 +30,20 @@ DEBUG = config('DEBUG', default=True, cast=bool)
 # Handle ALLOWED_HOSTS - allow Vercel domains
 import os
 
+# Start with base allowed hosts
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '.vercel.app',  # Matches all *.vercel.app domains (e.g., school-search-eight.vercel.app)
+    '.now.sh',      # Matches all *.now.sh domains (legacy Vercel)
+]
+
+# If ALLOWED_HOSTS env var is set, use it but still add Vercel domains
 ALLOWED_HOSTS_STR = config('ALLOWED_HOSTS', default='')
 if ALLOWED_HOSTS_STR:
-    ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
-else:
-    # Base allowed hosts
-    ALLOWED_HOSTS = [
-        'localhost',
-        '127.0.0.1',
-    ]
-    
-    # Always allow Vercel domains (the leading dot matches all subdomains)
-    # This pattern matches: *.vercel.app (e.g., school-search-eight.vercel.app)
-    ALLOWED_HOSTS.extend([
-        '.vercel.app',  # Matches all *.vercel.app domains
-        '.now.sh',      # Matches all *.now.sh domains (legacy Vercel)
-    ])
-    
-    # When on Vercel, be extra permissive - add any vercel.app domain dynamically
-    # This is a workaround in case the .vercel.app pattern isn't working
-    if os.environ.get('VERCEL') or os.environ.get('VERCEL_URL'):
-        # Add a catch-all for vercel.app domains
-        # Note: Django's .vercel.app should work, but adding explicit check as backup
-        pass
+    # Merge with existing Vercel domains
+    env_hosts = config('ALLOWED_HOSTS', cast=Csv())
+    ALLOWED_HOSTS = list(set(ALLOWED_HOSTS + env_hosts))  # Combine and remove duplicates
 
 
 # Application definition

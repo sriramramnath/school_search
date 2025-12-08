@@ -32,10 +32,25 @@ ALLOWED_HOSTS_STR = config('ALLOWED_HOSTS', default='')
 if ALLOWED_HOSTS_STR:
     ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 else:
-    # For Vercel, we need to allow the vercel.app domain
-    # This will be set via environment variable in production
-    # For now, allow all (Vercel handles routing)
-    ALLOWED_HOSTS = ['*']
+    # For Vercel, allow all vercel.app and now.sh domains
+    # The leading dot allows all subdomains (e.g., *.vercel.app)
+    # In production, set ALLOWED_HOSTS env var with your specific domain for better security
+    ALLOWED_HOSTS = [
+        '.vercel.app',  # Matches all *.vercel.app domains
+        '.now.sh',      # Matches all *.now.sh domains (legacy Vercel)
+        'localhost',
+        '127.0.0.1',
+    ]
+    
+    # If running on Vercel, also check VERCEL_URL environment variable
+    import os
+    vercel_url = os.environ.get('VERCEL_URL')
+    if vercel_url:
+        # Extract hostname from VERCEL_URL (format: https://domain.vercel.app)
+        from urllib.parse import urlparse
+        parsed = urlparse(f'https://{vercel_url}' if not vercel_url.startswith('http') else vercel_url)
+        if parsed.hostname:
+            ALLOWED_HOSTS.append(parsed.hostname)
 
 
 # Application definition

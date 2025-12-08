@@ -42,6 +42,7 @@ class School(models.Model):
     syllabus = models.CharField(max_length=100)
     website = models.URLField(blank=True)
     curriculum_website = models.URLField(blank=True)
+    google_maps_link = models.URLField(blank=True, help_text="Google Maps URL for the school location")
     rating = models.DecimalField(
         max_digits=3, 
         decimal_places=1, 

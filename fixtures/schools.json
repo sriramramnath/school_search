@@ -3,177 +3,5069 @@
         "model": "schools.school",
         "pk": 1,
         "fields": {
-            "name": "Delhi Public School",
-            "location": "New Delhi",
-            "pin_code": "110001",
+            "name": "A.A. Public School",
+            "location": "17/8, ANDIAPPAN GRAMANI STREET, ROYAPURAM, CHENNAI, Gramani Street, Royapuram - 600013",
+            "pin_code": "600013",
             "board": "CBSE",
             "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
             "co_ed_type": "C",
-            "distance": 5.5,
-            "bus_availability": true,
+            "distance": 2.6,
+            "bus_availability": false,
             "syllabus": "CBSE",
-            "website": "https://www.dps.org",
+            "website": "https://www.aapscbse.com",
             "curriculum_website": "https://www.cbse.gov.in",
-            "rating": 4.7,
-            "fees_by_grade": "12:450000,11:420000,10:400000",
-            "facilities": [1, 2, 3, 4, 5, 6],
-            "created_at": "2024-01-15T10:00:00Z",
-            "updated_at": "2024-01-15T10:00:00Z"
+            "rating": 4.2,
+            "fees_by_grade": "12:323783,11:305281,10:296030",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
         }
     },
     {
         "model": "schools.school",
         "pk": 2,
         "fields": {
-            "name": "The International School Bangalore",
-            "location": "Bangalore",
-            "pin_code": "560001",
-            "board": "IGCSE",
+            "name": "Achariya Siksha Mandir",
+            "location": "# 329, 20th street, Astalakshmi Nagar, Alapakkam, Chennai- 600116, - 600116",
+            "pin_code": "600116",
+            "board": "CBSE",
             "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
             "co_ed_type": "C",
-            "distance": 8.2,
+            "distance": 4.0,
             "bus_availability": true,
-            "syllabus": "IGCSE",
-            "website": "https://www.tisb.org",
-            "curriculum_website": "https://www.cambridgeinternational.org",
-            "rating": 4.8,
-            "fees_by_grade": "12:600000,11:580000,10:550000",
-            "facilities": [1, 2, 3, 4, 5, 6, 7, 8],
-            "created_at": "2024-01-16T10:00:00Z",
-            "updated_at": "2024-01-16T10:00:00Z"
+            "syllabus": "CBSE",
+            "website": "https://www.achariya.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.0,
+            "fees_by_grade": "12:377452,11:355883,10:345099",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
         }
     },
     {
         "model": "schools.school",
         "pk": 3,
         "fields": {
-            "name": "Mumbai International School",
-            "location": "Mumbai",
-            "pin_code": "400001",
-            "board": "IB",
-            "grades_offered": "6,7,8,9,10,11,12",
+            "name": "Acharya Mahashraman Terapanth Jain Public School",
+            "location": "57 & 58/1, THATTANKULAM ROAD, MADHAVARAM, CHENNAI, TAMILNADU, - 600060",
+            "pin_code": "600060",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
             "co_ed_type": "C",
-            "distance": 12.5,
+            "distance": 6.6,
             "bus_availability": true,
-            "syllabus": "International Baccalaureate",
-            "website": "https://www.mis.edu",
-            "curriculum_website": "https://www.ibo.org",
-            "rating": 4.9,
-            "fees_by_grade": "12:750000,11:720000,10:700000",
-            "facilities": [1, 2, 3, 4, 5, 6, 7, 8],
-            "created_at": "2024-01-17T10:00:00Z",
-            "updated_at": "2024-01-17T10:00:00Z"
+            "syllabus": "CBSE",
+            "website": "https://www.amtjainpublicschool.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:285171,11:268876,10:260728",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
         }
     },
     {
         "model": "schools.school",
         "pk": 4,
         "fields": {
-            "name": "Chennai Boys High School",
-            "location": "Chennai",
-            "pin_code": "600001",
-            "board": "ICSE",
+            "name": "Aditya Vidyashram Gurugram Campus E Techno School",
+            "location": "POONAMALLE-AVADI MAIN ROAD, VEERAGHAVAPURAM, THIRUVERKADU, - 600077",
+            "pin_code": "600077",
+            "board": "CBSE",
             "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
-            "co_ed_type": "B",
-            "distance": 6.8,
-            "bus_availability": false,
-            "syllabus": "ICSE",
-            "website": "https://www.cbhs.edu",
-            "curriculum_website": "https://www.cisce.org",
-            "rating": 4.5,
-            "fees_by_grade": "12:350000,11:330000,10:320000",
-            "facilities": [2, 3, 4, 5, 6],
-            "created_at": "2024-01-18T10:00:00Z",
-            "updated_at": "2024-01-18T10:00:00Z"
+            "co_ed_type": "C",
+            "distance": 2.1,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://chennai.adityacbse.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:371660,11:350422,10:339803",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
         }
     },
     {
         "model": "schools.school",
         "pk": 5,
         "fields": {
-            "name": "Kolkata Girls Academy",
-            "location": "Kolkata",
-            "pin_code": "700001",
+            "name": "Agarwal Vidyalaya And Junior College",
+            "location": "NO.54, EVK SAMPATH ROAD, VEPERY, CHENNAI, - 600007",
+            "pin_code": "600007",
             "board": "CBSE",
             "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
-            "co_ed_type": "G",
-            "distance": 4.3,
-            "bus_availability": true,
+            "co_ed_type": "C",
+            "distance": 9.7,
+            "bus_availability": false,
             "syllabus": "CBSE",
-            "website": "https://www.kga.edu",
+            "website": "https://www.agarwalvidyalaya.com",
             "curriculum_website": "https://www.cbse.gov.in",
-            "rating": 4.6,
-            "fees_by_grade": "12:380000,11:360000,10:350000",
-            "facilities": [1, 2, 3, 4, 5, 6, 8],
-            "created_at": "2024-01-19T10:00:00Z",
-            "updated_at": "2024-01-19T10:00:00Z"
+            "rating": 4.0,
+            "fees_by_grade": "12:382004,11:360176,10:349261",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
         }
     },
     {
         "model": "schools.school",
         "pk": 6,
         "fields": {
-            "name": "Hyderabad Global School",
-            "location": "Hyderabad",
-            "pin_code": "500001",
-            "board": "IGCSE",
+            "name": "Agr Global School",
+            "location": "42/8A, MURPHY DASS ROAD, BABY NAGAR, VELACHERY, CHENNAI -600042, - 600042",
+            "pin_code": "600042",
+            "board": "CBSE",
             "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
             "co_ed_type": "C",
-            "distance": 9.1,
+            "distance": 18.8,
             "bus_availability": true,
-            "syllabus": "IGCSE",
-            "website": "https://www.hgs.edu",
-            "curriculum_website": "https://www.cambridgeinternational.org",
+            "syllabus": "CBSE",
+            "website": "https://www.agrglobalschool.com",
+            "curriculum_website": "https://www.cbse.gov.in",
             "rating": 4.7,
-            "fees_by_grade": "12:550000,11:530000,10:510000",
-            "facilities": [1, 2, 3, 4, 5, 6, 7],
-            "created_at": "2024-01-20T10:00:00Z",
-            "updated_at": "2024-01-20T10:00:00Z"
+            "fees_by_grade": "12:482948,11:455351,10:441553",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
         }
     },
     {
         "model": "schools.school",
         "pk": 7,
         "fields": {
-            "name": "Pune Academy",
-            "location": "Pune",
-            "pin_code": "411001",
-            "board": "State",
+            "name": "Al - Hira Model School",
+            "location": "No. 16, B.N. REDDY ROAD T. NAGAR, CHENNAI - 600017, - 600017",
+            "pin_code": "600017",
+            "board": "CBSE",
             "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
             "co_ed_type": "C",
-            "distance": 7.4,
-            "bus_availability": false,
-            "syllabus": "Maharashtra State Board",
-            "website": "https://www.puneacademy.edu",
-            "curriculum_website": "",
-            "rating": 4.3,
-            "fees_by_grade": "12:280000,11:270000,10:260000",
-            "facilities": [2, 3, 4, 5],
-            "created_at": "2024-01-21T10:00:00Z",
-            "updated_at": "2024-01-21T10:00:00Z"
+            "distance": 15.3,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.al-hiramodelschool.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.0,
+            "fees_by_grade": "12:375319,11:353872,10:343149",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
         }
     },
     {
         "model": "schools.school",
         "pk": 8,
         "fields": {
-            "name": "Ahmedabad International",
-            "location": "Ahmedabad",
-            "pin_code": "380001",
+            "name": "Alpha School",
+            "location": "No: 16, 3RD CROSS STREET, WEST CIT NAGAR, CHENNAI, - 600035",
+            "pin_code": "600035",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 7.4,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.alphagroup.edu",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:320585,11:302266,10:293106",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 9,
+        "fields": {
+            "name": "Amrita Vidyalayam",
+            "location": "Amrita Road, 200 ft Bypass - Service Road, Kovur, - 600128",
+            "pin_code": "600128",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 6.8,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.kovur.avchennai.edu.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.5,
+            "fees_by_grade": "12:340912,11:321431,10:311691",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 10,
+        "fields": {
+            "name": "Apex Pon Vidyashram",
+            "location": "No.42,Thirugnana Sampanthar Street,Srinivasa Nagar,, Velachery, Chennai., - 600091",
+            "pin_code": "600091",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 18.8,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.ponvidyashram.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.2,
+            "fees_by_grade": "12:326979,11:308295,10:298952",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 11,
+        "fields": {
+            "name": "Army Public School, Chennai",
+            "location": "Army Public School, 60 Feet Road, Nandambakkam, chennai - 600 089., - 600089",
+            "pin_code": "600089",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 17.7,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.apschennai.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.5,
+            "fees_by_grade": "12:318587,11:300382,10:291280",
+            "facilities": [
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 12,
+        "fields": {
+            "name": "Arsha Vidya Mandir",
+            "location": "114 VALACHERY ROAD GUINDY CHENNAI TAMIL NADU, - 600032",
+            "pin_code": "600032",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 8.2,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.arshavidyamandir.edu.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.5,
+            "fees_by_grade": "12:337081,11:317819,10:308188",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 13,
+        "fields": {
+            "name": "Asan Memorial Senior Secondary School",
+            "location": "COCHIN HOUSE 1-ANDERSON ROAD CHENNAI TAMIL NADU, - 600006",
+            "pin_code": "600006",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 11.1,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.asancbse.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.2,
+            "fees_by_grade": "12:360880,11:340258,10:329948",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 14,
+        "fields": {
+            "name": "B V Bhavan's Rajaji Vidyashram",
+            "location": "485 KILPAUK GARDEN ROAD KILPAUK CHENNAI TAMIL NADU, - 600010",
+            "pin_code": "600010",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 8.0,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.bvbchennai.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:354295,11:334050,10:323927",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 15,
+        "fields": {
+            "name": "Babaji Vidhyashram",
+            "location": "- 600119",
+            "pin_code": "600119",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 13.7,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.babajividhyashram.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.0,
+            "fees_by_grade": "12:384827,11:362837,10:351842",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 16,
+        "fields": {
+            "name": "Bala Vidya Mandir Senior Secondary School",
+            "location": "iv-main road gandhi nagar adyar. chennai tamil nadu, - 600020",
+            "pin_code": "600020",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 11.7,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.balavidyamandir.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.2,
+            "fees_by_grade": "12:370445,11:349277,10:338693",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 17,
+        "fields": {
+            "name": "Bhaarath Public Cbse School",
+            "location": "AMARAVATHI PUDHUR- AARAVAYAL MAIN ROAD, NEAR KADERI AMBAL MILLS, AARAVAYAL, DEVAKOTTAI TALUK, SIVAGANGA DISTRICT-630314., - 630314",
+            "pin_code": "630314",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 21.8,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.bhaarath.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.5,
+            "fees_by_grade": "12:344677,11:324982,10:315134",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 18,
+        "fields": {
+            "name": "Bhaktavatsalam Vidyashram",
+            "location": "PERIYAR NAGAR KORATTUR CHENNAI TAMIL NADU, - 600080",
+            "pin_code": "600080",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 16.7,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.bvcbse.ac.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.2,
+            "fees_by_grade": "12:333677,11:314610,10:305076",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 19,
+        "fields": {
+            "name": "Bharath Senior Secondary School",
+            "location": "121 kamaraj avenue adyar chennai tamil nadu, - 600020",
+            "pin_code": "600020",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 8.1,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.bharathschool.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:376309,11:354806,10:344054",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 20,
+        "fields": {
+            "name": "Bharati Vidyalaya Sr. Secondary School",
+            "location": "721, Sholinganallur - Medavakkam High Road, Perumbakkam, Kanchipuram, - 600100",
+            "pin_code": "600100",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 16.7,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.bharathividyalayasss.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:335891,11:316697,10:307100",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 21,
+        "fields": {
+            "name": "Bodhi International School",
+            "location": "Sakthi Nagar, Azhagapuri Bus Stop, Madurai-Thondi main Road, Kollangudi, Kalaiyarkovil Taluk,, - 630551",
+            "pin_code": "630551",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 14.2,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.bodhischool.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:480355,11:452906,10:439181",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 22,
+        "fields": {
+            "name": "C V R D E Secondary School",
+            "location": "Dr Alagappa Road Purasawalkam, - 600084",
+            "pin_code": "600084",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 3.3,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.csiewartglobal.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.5,
+            "fees_by_grade": "12:336525,11:317295,10:307680",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 23,
+        "fields": {
+            "name": "Chathrapathy Shivaji D A V School",
+            "location": "13 CIRCULAR ROAD U.I COLONY KODAMBAKKAM CHENNAI TAMIL NADU, - 600024",
+            "pin_code": "600024",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 19.5,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.csdavschool.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:319844,11:301568,10:292429",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 24,
+        "fields": {
+            "name": "Chettinad Vidyashram",
+            "location": "CHETTINAD HOUSE GREENWAYS ROAD R.A PURAM CHENNAI TAMIL NADU, - 600028",
+            "pin_code": "600028",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 22.1,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "http://chettinadvidyashram.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:333553,11:314493,10:304963",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 25,
+        "fields": {
+            "name": "Chinmaya Vidyalaya",
+            "location": "CHINMAYA NAGAR STAGE-II VIRUGAMBAKKAM CHENNAI TAMIL NADU, - 600092",
+            "pin_code": "600092",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 9.2,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.chinmayavidyalayaschennai.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:329080,11:310275,10:300873",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 26,
+        "fields": {
+            "name": "Chinmaya Vidyalaya",
+            "location": "PLOT NO. 5063 Z BLOCK BELLY AREA ANNA NAGAR WEST CHENNAI, - 600040",
+            "pin_code": "600040",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 7.2,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.chinmayavidyalayaschennai.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:323470,11:304986,10:295744",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 27,
+        "fields": {
+            "name": "Chinmaya Vidyalaya",
+            "location": "TAPOVANAM 9-B TAYLORS ROAD KILPAUK CHENNAI TAMIL NADU, - 600010",
+            "pin_code": "600010",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 16.5,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.chinmayavidyalayaschennai.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.5,
+            "fees_by_grade": "12:319969,11:301685,10:292543",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 28,
+        "fields": {
+            "name": "D A V Boys Senior Secondary School",
+            "location": "212-213 LLOYDS ROAD GOPALAPURAM CHENNAI TAMIL NADU, - 600086",
+            "pin_code": "600086",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "B",
+            "distance": 17.4,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://bgpm.davchennai.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:331660,11:312708,10:303232",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 29,
+        "fields": {
+            "name": "D A V Girls Senior Secondary School",
+            "location": "182 LLOYDS ROAD GOPALAPURAM CHENNAI TAMIL NADU, - 600086",
+            "pin_code": "600086",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "G",
+            "distance": 20.0,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.davchennai.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:348086,11:328196,10:318250",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 30,
+        "fields": {
+            "name": "D A V Public School",
+            "location": "NO 19 SITARAM NAGAR VELACHERY CHENNAI TAMIL NADU, - 600042",
+            "pin_code": "600042",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 12.7,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://davpsvelacherychennai.edu.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:310185,11:292460,10:283598",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 31,
+        "fields": {
+            "name": "D. A. V Secondary School, Mogappair.",
+            "location": "BLOCK NO. 12, MOGAPPAIR EAST, - 600037",
+            "pin_code": "600037",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 9.8,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://schools.davchennai.org/DAVsecmgp",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:343183,11:323573,10:313767",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 32,
+        "fields": {
+            "name": "D. A. V. Baba School",
+            "location": "R-62, II AVENUE, TNHB COLONY,VELACHERY, - 600042",
+            "pin_code": "600042",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 8.4,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.davbabaschools.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.5,
+            "fees_by_grade": "12:344531,11:324844,10:315000",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 33,
+        "fields": {
+            "name": "Dave Baba Vidyalaya",
+            "location": "16 Vandikaran street velacherry chennai-600042, - 600042",
+            "pin_code": "600042",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 3.2,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.davebabavidyalaya.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:353522,11:333321,10:323220",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 34,
+        "fields": {
+            "name": "Don Bosco School of Excellence",
+            "location": "No. 53, Pantheon Road, Egmore,, - 600008",
+            "pin_code": "600008",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 5.8,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.dbschoolofexcellence.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:374408,11:353013,10:342316",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 35,
+        "fields": {
+            "name": "Everwin Public School",
+            "location": "8 II MN ROAD AYYAVU NAGAR MADURAVOYAL, - 600095",
+            "pin_code": "600095",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 24.7,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.everwinschool.net",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.5,
+            "fees_by_grade": "12:307375,11:289811,10:281028",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 36,
+        "fields": {
+            "name": "Everwin Vidhyashram",
+            "location": "M-9, MEENAKSHI NAGAR, KOLATHUR., - 600099",
+            "pin_code": "600099",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 24.9,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.everwinschool.net",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:382012,11:360182,10:349268",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 37,
+        "fields": {
+            "name": "Global International School",
+            "location": "M.Kovilpatti, Muraiyur(po) Thiruppattur - Singampunari Road, - 630505",
+            "pin_code": "630505",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 15.3,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.myglobalschool.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.6,
+            "fees_by_grade": "12:497652,11:469215,10:454996",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 38,
+        "fields": {
+            "name": "Guru Shree Santhivijay Jain Vidyalay",
+            "location": "96 VEPERY HIGH ROAD CHENNAI TAMIL NADU, - 600007",
+            "pin_code": "600007",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 24.1,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.gssjainvidyalya.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:326020,11:307390,10:298075",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 39,
+        "fields": {
+            "name": "Hindustan International School",
+            "location": "KCG Nagar, Rajiv Gandhi Salai, Karapakkam,, - 600097",
+            "pin_code": "600097",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 4.8,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://hindustanschools.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:430903,11:406280,10:393968",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                8
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 40,
+        "fields": {
+            "name": "Icf Vidyaniketan",
+            "location": "ICF VIDYANIKETAN APPRENTICE AVENUE ICF COLONY,SYNERGY ROAD OFF:KONNUR HIGH ROAD CHENNAI, - 600038",
+            "pin_code": "600038",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 23.5,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.icfvidyaniketan.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:351594,11:331503,10:321458",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 41,
+        "fields": {
+            "name": "Jaigopal Garodia Vivekananda Vidyalaya",
+            "location": "AVADI-POONAMALLEE ROAD VIVEKANANDA NAGAR AVADI CHENNAI TAMIL NADU, - 600054",
+            "pin_code": "600054",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 8.9,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.jgvvavadi.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:362018,11:341331,10:330988",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 42,
+        "fields": {
+            "name": "Jain Vidyaashram",
+            "location": "150 OTHAWADAI STREET PUZHAL, DISTT CHENNAI, TAMILNADU-600066, - 600066",
+            "pin_code": "600066",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 24.9,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.jainvidyaashram.edu.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:384891,11:362897,10:351901",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 43,
+        "fields": {
+            "name": "Jawahar Vidyalaya Senior Secondary School",
+            "location": "IV - AVENUE ASHOK NAGAR CHENNAI TAMIL NADU, - 600083",
+            "pin_code": "600083",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 22.2,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.jawaharvidyalaya.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:376660,11:355137,10:344375",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 44,
+        "fields": {
+            "name": "Jeppiaar School",
+            "location": "JEPPIAAR NAGAR, RAJIV GANDHI SALAI - OMR,Chennai, - 600119",
+            "pin_code": "600119",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 24.7,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://htttp://jeppiaarschool.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.0,
+            "fees_by_grade": "12:357817,11:337370,10:327147",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 45,
+        "fields": {
+            "name": "Kalaimagal Vidyalaya High School",
+            "location": "C L R I CAMPUS ADYAR CHENNAI TAMIL NADU, - 600020",
+            "pin_code": "600020",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 23.6,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "http://www.chennaiclri.kvs.ac.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:361437,11:340783,10:330456",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 46,
+        "fields": {
+            "name": "Kendriya Vidyalaya",
+            "location": "C E C R I CAMPUS KARAIKUDI P. MUTHURAMALINGAM DISTT. TAMIL NADU, - 630006",
+            "pin_code": "630006",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 15.9,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.karaikudicecri.kvs.ac.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.2,
+            "fees_by_grade": "12:300657,11:283477,10:274887",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 47,
+        "fields": {
+            "name": "Kendriya Vidyalaya",
+            "location": "I I T CAMPUS CHENNAI TAMIL NADU, - 600036",
+            "pin_code": "600036",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 22.8,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.chennaiiit.kvs.ac.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:314277,11:296318,10:287339",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 48,
+        "fields": {
+            "name": "Kendriya Vidyalaya",
+            "location": "GILL NAGAR CHENNAI TAMIL NADU, - 600094",
+            "pin_code": "600094",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 19.7,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://chennaigillnagar.kvs.ac.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.2,
+            "fees_by_grade": "12:283723,11:267510,10:259404",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 49,
+        "fields": {
+            "name": "Kendriya Vidyalaya",
+            "location": "H V F AVADI CHENNAI TAMIL NADU TAMIL NADU, - 600054",
+            "pin_code": "600054",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 2.2,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.avadihvf.kvs.ac.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.5,
+            "fees_by_grade": "12:310444,11:292704,10:283834",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 50,
+        "fields": {
+            "name": "Kendriya Vidyalaya",
+            "location": "DR. NATESAN SALAI ASHOK NAGAR CHENNAI TAMIL NADU, - 600083",
+            "pin_code": "600083",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 15.4,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://chennaiashoknagar.kvs.ac.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.2,
+            "fees_by_grade": "12:336079,11:316874,10:307272",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 51,
+        "fields": {
+            "name": "Kendriya Vidyalaya",
+            "location": "ISLAND GROUND PALLAVAN SALAI CHENNAI TAMIL NADU, - 600002",
+            "pin_code": "600002",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 21.8,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "http://islandgrounds.kvs.ac.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.2,
+            "fees_by_grade": "12:333655,11:314589,10:305056",
+            "facilities": [
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 52,
+        "fields": {
+            "name": "Kendriya Vidyalaya",
+            "location": "D G Q A COMPLEX PAZHAVANTHANGAL CHENNAI TAMIL NADU, - 600114",
+            "pin_code": "600114",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 22.3,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.chennaidgicomplex.kvs.ac.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:332647,11:313638,10:304134",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 53,
+        "fields": {
+            "name": "Kendriya Vidyalaya",
+            "location": "MANDAPAM CAMP MARINE FISHERIES POST RAMANATHAPURAM DISTT. TAMIL NADU, - 623520",
+            "pin_code": "623520",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 24.5,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.mandapamcamp.kvs.ac.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.5,
+            "fees_by_grade": "12:337970,11:318657,10:309001",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 54,
+        "fields": {
+            "name": "Kendriya Vidyalaya",
+            "location": "G P R A CAMPUS TIRUMANGALAM ANNA NAGAR CHENNAI, TAMILNADU, - 600040",
+            "pin_code": "600040",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 23.4,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.kvannanagar.tn.nic.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.5,
+            "fees_by_grade": "12:304427,11:287031,10:278333",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 55,
+        "fields": {
+            "name": "Kendriya Vidyalaya No. 1",
+            "location": "a f s tambaram selaiyur chennai tamil nadu, - 600073",
+            "pin_code": "600073",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 4.5,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://no1tambaram.kvs.ac.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.5,
+            "fees_by_grade": "12:333104,11:314070,10:304552",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 56,
+        "fields": {
+            "name": "Kendriya Vidyalaya No. 2",
+            "location": "AFS MADAMBAKKAM CAMP SELAIYUR PO CHENNAI TAMIL NADU, - 600046",
+            "pin_code": "600046",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 9.0,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.kv2tambaram.tn.nic.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.2,
+            "fees_by_grade": "12:312499,11:294642,10:285713",
+            "facilities": [
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 57,
+        "fields": {
+            "name": "Kola Saraswathi Vaishnav Senior Secondary Scho",
+            "location": "NO.22 BARNABY ROAD KILPAUK CHENNAI TAMIL NADU, - 600010",
+            "pin_code": "600010",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 21.9,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.kolasaraswathi.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:337978,11:318665,10:309008",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 58,
+        "fields": {
+            "name": "Kolaperumal Chetty Vaishnav S S Scho",
+            "location": "437 E V R PERIYAR HIGH ROAD ARUMBAKKAM CHENNAI TAMIL NADU, - 600106",
+            "pin_code": "600106",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 14.3,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "http://www.kpcvs.co.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:383680,11:361755,10:350793",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 59,
+        "fields": {
+            "name": "Krm Public School",
+            "location": "Block No. 11.(T.S.No.32/1 (Part) 37/1,37/2,37/3,37/4,37/5) Shanthi Nagar 2nd Lane, Sembium Village, M H Road, Perambur, Chennai-600011., - 600011",
+            "pin_code": "600011",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 8.1,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.krmpublicschool.edu.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:344139,11:324474,10:314641",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 60,
+        "fields": {
+            "name": "Kulapati Dr. S Balakrishna Joshi Gurrukulam",
+            "location": "NO 13 1 2nd streetV V nagar Kolathur Chennai 600 099, - 600009",
+            "pin_code": "600009",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 13.8,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "http://kbjgschool.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:357434,11:337009,10:326797",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 61,
+        "fields": {
+            "name": "Lalchand Milapchand Dadha School",
+            "location": "6 KRISHNAPURAM CHOOLAIMEDU CHENNAI TAMIL NADU, - 600094",
+            "pin_code": "600094",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 23.3,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.lmdadhaschool.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:315118,11:297111,10:288108",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 62,
+        "fields": {
+            "name": "M. G. R Adarsh School",
+            "location": "MOGAPPAIR EAST, CHENNAI, - 600037",
+            "pin_code": "600037",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 3.6,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.mgradarshschool.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.2,
+            "fees_by_grade": "12:340495,11:321038,10:311310",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 63,
+        "fields": {
+            "name": "Mahalashmi Vidhya Mandhir",
+            "location": "No.14-A, 6th Street, Collectorate Colony, Aminjikarai,, - 600029",
+            "pin_code": "600029",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 8.9,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.mvmaminjikarai.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.2,
+            "fees_by_grade": "12:365382,11:344503,10:334064",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 64,
+        "fields": {
+            "name": "Maharishi School of Excellence",
+            "location": "P.T.C. Colony, Pallavanagar, Thiruverkadu, Chennai, - 600077",
+            "pin_code": "600077",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 11.7,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://msechennai.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:323910,11:305400,10:296146",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 65,
+        "fields": {
+            "name": "Maharishi Vidya Mandir",
+            "location": "4/13,R.T.MUDALI STREET CHOOLAI, CHENNAI-600112, - 600112",
+            "pin_code": "600112",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 14.6,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "http://mvmskpd.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:336066,11:316862,10:307260",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 66,
+        "fields": {
+            "name": "Maharishi Vidya Mandir",
+            "location": "28 DR. GURUSWAMY ROAD CHETPET CHENNAI TAMIL NADU, - 600031",
+            "pin_code": "600031",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 12.7,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.maharishividyamandirch.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:360829,11:340210,10:329901",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 67,
+        "fields": {
+            "name": "Mahatma Gandhi Vidyalaya",
+            "location": "15-22A, THANIKACHALAM ROAD,T NAGAR, - 600017",
+            "pin_code": "600017",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 5.9,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.mahatmagandhividyalaya.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:370721,11:349537,10:338945",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 68,
+        "fields": {
+            "name": "Marg Vidhyalaya",
+            "location": "147 Lic nagar 1st street, Pallikaranai, Chennai - 600100., - 600100",
+            "pin_code": "600100",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 19.3,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://margvidhyalaya.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:372289,11:351015,10:340379",
+            "facilities": [
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 69,
+        "fields": {
+            "name": "Mcc Public School",
+            "location": "78, HARRINGTON ROAD, CHETPET, CHENNAI, - 600031",
+            "pin_code": "600031",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 12.9,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.mccpublicschool.edu.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:298925,11:281843,10:273302",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 70,
+        "fields": {
+            "name": "Metro English Medium School",
+            "location": "9 VELLALA STREET KODAMBAKKAM MADRAS TAMIL NADU, - 600024",
+            "pin_code": "600024",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 18.0,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.metroschool.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:328610,11:309832,10:300443",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 71,
+        "fields": {
+            "name": "N S P Vidhyapeetam",
+            "location": "274, MTH ROAD, VILLIVAKKAM, CHENNAI - 600049, - 600049",
+            "pin_code": "600049",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 19.7,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.nspvidhyapeetam.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.2,
+            "fees_by_grade": "12:367567,11:346563,10:336061",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 72,
+        "fields": {
+            "name": "Narayana Etechno School",
+            "location": "No.240-D, ‘B’ Block, Samy Ramalinga Colony,3rd Cross Road, Ponniamman medu, Chennai- 110 (Near Kolathur Vazhathoppu.), - 600110",
+            "pin_code": "600110",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 3.2,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.narayanaschools.in/chennai/kolathur",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:351257,11:331185,10:321149",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 73,
+        "fields": {
+            "name": "Narayana Etechno School",
+            "location": "No.51, New Kumaran Nagar Road, Sozhinganallur, Chennai - 600119. (Behind Pushkar Ramaniyam apartments.), - 600119",
+            "pin_code": "600119",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 24.7,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.narayanaschools.in/chennai/sholinganal",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.5,
+            "fees_by_grade": "12:361730,11:341060,10:330724",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 74,
+        "fields": {
+            "name": "Narayana E-Techno School",
+            "location": "PLOT NO:R-96,S.NO:100/3B1,MUTHAMIZH NAGAR,KODUNGAIYUR-PH-2, - 600118",
+            "pin_code": "600118",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 13.6,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://WWW.NARAYANAGROUP.COM",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:365349,11:344472,10:334033",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 75,
+        "fields": {
+            "name": "Narayana E-Techno School",
+            "location": "NO:66/67,BASIN BRIDGE ROAD, CHENNAI, - 600021",
+            "pin_code": "600021",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 8.0,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "http://www.narayanaschools.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:348227,11:328328,10:318379",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 76,
+        "fields": {
+            "name": "Narayana E-Techno School",
+            "location": "Chennai TN 600041, - 600041",
+            "pin_code": "600041",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 8.3,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "http://www.narayanaschools.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:358872,11:338365,10:328111",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 77,
+        "fields": {
+            "name": "Narayana E-Techno School",
+            "location": "NO.1, 1ST STREET, KAMADHENU NAGAR, MOGAPPAIR EAST, CHENNAI-600037., - 600037",
+            "pin_code": "600037",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 5.2,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.narayanaschools.in/chennai/mogappair",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:352810,11:332650,10:322569",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 78,
+        "fields": {
+            "name": "Narayana E-Techno School",
+            "location": "551 PH Road, Near Shan Royal Hotel, Arumbakkam, - 600106",
+            "pin_code": "600106",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 14.5,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "http://www.narayanaschools.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:343531,11:323901,10:314086",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 79,
+        "fields": {
+            "name": "Narayana Olympiad School",
+            "location": "No. 220 / 6 Om Shakthi Nagar, Chettiar Agaram, Vanagaram Village, Porur, Chennai 116., - 600116",
+            "pin_code": "600116",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 18.0,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://WWW.NARAYANASCHOOLS.IN/PORUR",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:355885,11:335549,10:325381",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 80,
+        "fields": {
+            "name": "Narayana Olympiad School",
+            "location": "7/2, Conron Smith Road, Gopalapuram, Chennai, Tamil Nadu 600086, - 600086",
+            "pin_code": "600086",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 19.3,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.narayanaschools.in/chennai/gopalapuram",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.5,
+            "fees_by_grade": "12:339623,11:320216,10:310512",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 81,
+        "fields": {
+            "name": "Nathella Vidhyodaya",
+            "location": "NSC STREET, VENKATAPURAM,, - 600053",
+            "pin_code": "600053",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 15.9,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.nathellavidhyodaya.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:353229,11:333044,10:322952",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 82,
+        "fields": {
+            "name": "National Public School",
+            "location": "228 AVVAI SHANMUGAM ROAD GOPALAPURAM CHENNAI TAMIL NADU, - 600086",
+            "pin_code": "600086",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 17.6,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.npschennai.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.2,
+            "fees_by_grade": "12:304676,11:287266,10:278561",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 83,
+        "fields": {
+            "name": "Nehruji Central Higher Secondary School",
+            "location": "10/3 SIVAGANGAI MELUR MAIN ROAD, IDAYAMELUR, SIVAGANGAI DISTRICT, - 630561",
+            "pin_code": "630561",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 2.6,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.nchsschool.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:358557,11:338068,10:327824",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 84,
+        "fields": {
+            "name": "Ordnance Clothing Factory School",
+            "location": "AVADI CHENNAI TAMIL NADU, - 600054",
+            "pin_code": "600054",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 12.6,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://ocfschoolavadi.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.2,
+            "fees_by_grade": "12:324498,11:305956,10:296684",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 85,
+        "fields": {
+            "name": "P S B B Senior Secondary School",
+            "location": "11 ALAGIRISAMY SALAI K K NAGAR CHENNAI TAMIL NADU, - 600078",
+            "pin_code": "600078",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 10.7,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.psbbschools.ac.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:368286,11:347241,10:336718",
+            "facilities": [
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 86,
+        "fields": {
+            "name": "P S B B Senior Secondary School",
+            "location": "NO.7 LAKE AREA FIRST MAIN ROAD NUNGAMBAKKAM CHENNAI TAMIL NADU, - 600034",
+            "pin_code": "600034",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 14.4,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.psbbschools.ac.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.2,
+            "fees_by_grade": "12:316356,11:298279,10:289240",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 87,
+        "fields": {
+            "name": "P S Senior Secondary School",
+            "location": "15 ALARMELMANGAPURAM MYLAPORE CHENNAI TAMIL NADU, - 600004",
+            "pin_code": "600004",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 19.3,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.pssenior.edu.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:360622,11:340015,10:329712",
+            "facilities": [
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 88,
+        "fields": {
+            "name": "P. N. D. Adarsh Vidyalaya School",
+            "location": "ROYAPETTAH, CHENNAI, - 600014",
+            "pin_code": "600014",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 17.4,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.pndadarsh.school",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:323835,11:305330,10:296078",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 89,
+        "fields": {
+            "name": "Padmashree School",
+            "location": "Vanasakthi Nagar Extn., Kolathur, - 600099",
+            "pin_code": "600099",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 16.0,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.padmashreeschool.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:326745,11:308074,10:298738",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 90,
+        "fields": {
+            "name": "Pon Vidyashram",
+            "location": "PORUR MAXWORTH NAGAR PHASE II, MUGALIVAKKAM, KOLAPPAKAM, CHENNAI 602101, - 600125",
+            "pin_code": "602101",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 2.6,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.ponvidyashram.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:322566,11:304134,10:294918",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 91,
+        "fields": {
+            "name": "Pon Vidyashram",
+            "location": "SAPTHAGIRI NAGAR ARCOT ROAD, VALASARAVAKKAM CHENNAI, TAMILNADU, - 600008",
+            "pin_code": "600008",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 3.7,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.ponvidyashram.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:365051,11:344190,10:333760",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 92,
+        "fields": {
+            "name": "Pon Vidyashram Unique School,",
+            "location": "VIDYASHRAM GARDENS OPP VGP GOLDEN BEACH EAST COAST ROAD INJAMBAKKAM CHENNAI TAMIL NADU, - 600041",
+            "pin_code": "600041",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 15.8,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.ponvidyashram.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.5,
+            "fees_by_grade": "12:374520,11:353119,10:342418",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 93,
+        "fields": {
+            "name": "Prince Srivari Vidyalaya",
+            "location": "93 COLLEGE ROAD, NANGANALLUR, - 600114",
+            "pin_code": "600114",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 10.5,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.psvvnn.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.2,
+            "fees_by_grade": "12:344986,11:325272,10:315416",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 94,
+        "fields": {
+            "name": "Railway Higher Secondary School",
+            "location": "english medium, no. 26 siruvallur main road, perambur , chennai- 600011, - 600011",
+            "pin_code": "600011",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 24.1,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:322387,11:303965,10:294754",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 95,
+        "fields": {
+            "name": "Reserve Bank Staff Quarters School",
+            "location": "r b i staff qtrs besant nagar chennai tamil nadu, - 600090",
+            "pin_code": "600090",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 24.2,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.rbischoolchennai.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:366365,11:345430,10:334962",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 96,
+        "fields": {
+            "name": "Rmt International School",
+            "location": "NO.3, THIRUVALLUVAR SALAI, KUMARAN NAGAR, SEMMANCHERY, SOLINGANALLUR, - 600119",
+            "pin_code": "600119",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 18.8,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.rmtis.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.6,
+            "fees_by_grade": "12:449137,11:423472,10:410639",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                7
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 97,
+        "fields": {
+            "name": "Rudrappasamy School",
+            "location": "Karukku Main Road, Patravakkam,Tamilnadu, Chennai - 600053., - 600053",
+            "pin_code": "600053",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 16.0,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.rudraschools.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.0,
+            "fees_by_grade": "12:347529,11:327670,10:317741",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 98,
+        "fields": {
+            "name": "S M K Vidhyashram",
+            "location": "92/1&9, 8th Block, Muthamizh Nagar, 1st Main Road, North Avenue Road, Kodungaiyur, Chennai, - 600118",
+            "pin_code": "600118",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 20.4,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.smkvidhyashram.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:329848,11:310999,10:301575",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 99,
+        "fields": {
+            "name": "S P D H Sindhi Model Senior Secondary School",
+            "location": "1 DAMODARA STREET KELLYS. CHENNAI TAMIL NADU, - 600010",
+            "pin_code": "600010",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 23.8,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.sindhimodel.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:315710,11:297669,10:288649",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 100,
+        "fields": {
+            "name": "Sairam Vidyalaya",
+            "location": "No: 5, Madipakkam Main Road, Madipakkam., - 600091",
+            "pin_code": "600091",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 16.9,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.sairamschool.edu.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:363342,11:342580,10:332198",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 101,
+        "fields": {
+            "name": "San Academy",
+            "location": "1A, 200 Feet Radial Road, Narayanapuram, Pallikaranai, - 600100",
+            "pin_code": "600100",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 9.0,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.sanacademy.edu.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:363425,11:342657,10:332274",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 102,
+        "fields": {
+            "name": "San Academy",
+            "location": "S. No: 647/1, AGS Colony, 1st Street & 3rd Street, Pallikaranai,, - 600100",
+            "pin_code": "600100",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 8.2,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.sanacademy.edu.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:364199,11:343388,10:332982",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                7,
+                8
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 103,
+        "fields": {
+            "name": "Sana Model School",
+            "location": "GOPARASANALLUR MAIN ROAD, GOPARASANALLUR VILLAGE, KATTUPAKKAM, CHENNAI,, - 600008",
+            "pin_code": "600008",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 7.0,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.sanamodelschool.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:327960,11:309219,10:299849",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 104,
+        "fields": {
+            "name": "Saraswathi Vidyalaya",
+            "location": "238 ARCOT ROAD, - 600026",
+            "pin_code": "600026",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 4.3,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://WWW.SVGROUP.ORG",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:334809,11:315677,10:306111",
+            "facilities": [
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 105,
+        "fields": {
+            "name": "Sboa Global School",
+            "location": "R 15/1 6th Street, C Sector, W-Block, Annanagar West Extension., - 600101",
+            "pin_code": "600101",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 8.3,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.sboaglobalschool.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.5,
+            "fees_by_grade": "12:458106,11:431928,10:418840",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                7,
+                8
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 106,
+        "fields": {
+            "name": "Scope Global School",
+            "location": "No: 380, CHURCH ROAD, MOGAPPAIR EAST, CHENNAI-600037, - 600037",
+            "pin_code": "600037",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 15.2,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.scopeschoolonline.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:488917,11:460979,10:447010",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                7,
+                8
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 107,
+        "fields": {
+            "name": "Sherwood Hall Senior Secondary School",
+            "location": "4 HARRINGTON ROAD 13TH AVENUE CHETPET CHENNAI TAMIL NADU, - 600031",
+            "pin_code": "600031",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 11.2,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.sherwoodhallschool.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:372548,11:351259,10:340615",
+            "facilities": [
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 108,
+        "fields": {
+            "name": "Shraddha Children Academy",
+            "location": "No.1,Venkateswara Garden, Kottivakkam, - 600041",
+            "pin_code": "600041",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 9.0,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.shraddhaacademy.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:354398,11:334147,10:324021",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 109,
+        "fields": {
+            "name": "Shree Raaja Rajan School",
+            "location": "No-1,SKM Building, T.T.Nagar Ist Street, Karaikudi-630001, Sivagangai District., - 630001",
+            "pin_code": "630001",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 12.4,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.shreeraajarajanschool.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:351580,11:331489,10:321444",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 110,
+        "fields": {
+            "name": "Shri B S Mootha Girls Senior Secondary School",
+            "location": "80 brindavan street west mambalam chennai tamil nadu, - 600033",
+            "pin_code": "600033",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "G",
+            "distance": 16.0,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.sbsmschooledu.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.5,
+            "fees_by_grade": "12:358471,11:337987,10:327745",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 111,
+        "fields": {
+            "name": "Shri Krishnaswamy Vidyashram",
+            "location": "914A, J-BLOCK, 15TH STREET, VAIGAI COLONY, ANNA NAGAR WEST, CHENNAI, TAMILNADU, - 600040",
+            "pin_code": "600040",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 5.6,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.skvcbse.edu.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.0,
+            "fees_by_grade": "12:361229,11:340588,10:330267",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 112,
+        "fields": {
+            "name": "Shrine Vailankanni Senior Secondary School",
+            "location": "NO.5 DHANDAPANI STREET T.NAGAR CHENNAI TAMIL NADU, - 600017",
+            "pin_code": "600017",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 8.7,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.vailankanni.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:356566,11:336191,10:326003",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 113,
+        "fields": {
+            "name": "Sir Mutha School",
+            "location": "#7, \"SHENSTONE PARK\", HARRINGTON ROAD, CHETPUT, CHENNAI, - 600031",
+            "pin_code": "600031",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 23.2,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.sirmuthaschool.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:363116,11:342367,10:331992",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 114,
+        "fields": {
+            "name": "Sir Sivaswami Kalalaya Senior Secondary School",
+            "location": "5 SUNDARESWARAR STREET MYLAPORE CHENNAI TAMIL NADU, - 600004",
+            "pin_code": "600004",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 14.5,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.sirsivaswamikalalaya.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.5,
+            "fees_by_grade": "12:344759,11:325059,10:315208",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 115,
+        "fields": {
+            "name": "Smt Durgadevi Choudhari V Vidyalaya",
+            "location": "SAKTHIVEL NAGAR S R P COLONY JAWAHAR NAGAR CHENNAI TAMIL NADU, - 600082",
+            "pin_code": "600082",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 9.1,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.jgvvsvn.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:326614,11:307950,10:298619",
+            "facilities": [
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 116,
+        "fields": {
+            "name": "Smt K N Shah and P. M Chetty V Vidyalay",
+            "location": "125, THULASINGAM STREET, PERAMBUR, CHENNAI, TAMIL NADU-600011, - 600011",
+            "pin_code": "600011",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 18.1,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.sknspmcvv.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:363207,11:342452,10:332075",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 117,
+        "fields": {
+            "name": "Smt Mohini Saraogi Vivekananda Vidyalaya",
+            "location": "JOTHI NAGAR,, THIRUVOTTIYUR, - 600019",
+            "pin_code": "600019",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 11.9,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.smsvv.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:317790,11:299630,10:290551",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 118,
+        "fields": {
+            "name": "Smt Narbada Devi J Agarwal V Vidyala",
+            "location": "MAHAKAVI BHARATHI NAGAR III MAIN ROAD VYASARPADI CHENNAI TAMIL NADU, - 600039",
+            "pin_code": "600039",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 15.2,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.sndjavv.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.5,
+            "fees_by_grade": "12:373517,11:352173,10:341501",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 119,
+        "fields": {
+            "name": "Spartan Exclusive School",
+            "location": "11th BLOCK, MOGAPPAIR EAST, CHENNAI, - 600037",
+            "pin_code": "600037",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 19.4,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.spartanschools.com/exclusive",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:317816,11:299655,10:290574",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 120,
+        "fields": {
+            "name": "Sree Narayana Mission Senior Secondary School",
+            "location": "54 easwaran koil street west mambalam chennai tamil nadu, - 600033",
+            "pin_code": "600033",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 16.6,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.snmsss.net",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.0,
+            "fees_by_grade": "12:355973,11:335631,10:325461",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 121,
+        "fields": {
+            "name": "Sri Bala Vidyalaya School",
+            "location": "MADHAVARAM HIGH ROAD, SHANTHI NAGAR, PERAMBUR, - 600011",
+            "pin_code": "600011",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 21.7,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.sbvschools.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:361909,11:341228,10:330888",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 122,
+        "fields": {
+            "name": "Sri Chaitanya School",
+            "location": "NO.4,TRUST CROSS STREET, MANDAVELIPAKKAM, CHENNAI, - 600028",
+            "pin_code": "600028",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 14.7,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.srichaitanyaschool.net",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.2,
+            "fees_by_grade": "12:371949,11:350695,10:340068",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 123,
+        "fields": {
+            "name": "Sri Chaitanya Techno School",
+            "location": "S.No 10/6,MGR SALAI,ECR,PALAVAKKAM,CHENNAI-600041, - 600041",
+            "pin_code": "600041",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 13.8,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.srichaitanyatechnoschoolpalavakkam.net",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:343292,11:323675,10:313867",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 124,
+        "fields": {
+            "name": "Sri Chaitanya Techno School",
+            "location": "Plot No 12/1A,Thiruvalluvar Salai,Ramapuram,Chennai, - 600089",
+            "pin_code": "600089",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 10.3,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.srichaitanyaschoolramapuram.net",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:328130,11:309380,10:300005",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 125,
+        "fields": {
+            "name": "Sri Chaitanya Techno School",
+            "location": "No.132, Pillayar koil street, Kasi estate, Jafferkhanpet., - 600083",
+            "pin_code": "600083",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 23.3,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "http://srichaitanyatechnoschoolkknagar.net",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:353445,11:333248,10:323150",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 126,
+        "fields": {
+            "name": "Sri Chaitanya Techno School",
+            "location": "NO 8/89 WEST MADHA STREET ROYAPURAM, - 600013",
+            "pin_code": "600013",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 7.5,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "http://srichaitanyatechnoschoolroyapuram.net",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:357621,11:337185,10:326967",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 127,
+        "fields": {
+            "name": "Sri Jawanthraj Tejraj Surana Jain Vidyalaya",
+            "location": "NO. 2 BADRIAN GARDEN LANE, PARK TOWN CHENNAI TAMIL NADU, - 600003",
+            "pin_code": "600003",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 23.0,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.suranaschool.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:384457,11:362488,10:351504",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 128,
+        "fields": {
+            "name": "Sri Ram Dayal Khemka Vivekananda Vidyalaya Junior College",
+            "location": "ELLAI AMMAN KOIL STREET THIRUVOTTIYUR CHENNAI TAMIL NADU, - 600019",
+            "pin_code": "600019",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 13.7,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.srdkvv.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:365162,11:344295,10:333862",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 129,
+        "fields": {
+            "name": "Sri Ram Vidhya Mandir School (Cbse)",
+            "location": "KOTTAMEDU VILLAGE & P.O.-602024,NEAR PUDUCHATRAM,Poonamalle High road,Via.Thirunindravur, - 602024",
+            "pin_code": "602024",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 10.8,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://WWW.Sriramvmscbse.edu.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:353588,11:333383,10:323280",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 130,
+        "fields": {
+            "name": "Sri Sankara Senior Secondary School",
+            "location": "9 VASANTHA PRESS ROAD ADYAR CHENNAI TAMIL NADU, - 600020",
+            "pin_code": "600020",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 20.2,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.srisankaraschools.org/seniorsecondary",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.5,
+            "fees_by_grade": "12:334337,11:315232,10:305679",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 131,
+        "fields": {
+            "name": "Sri Sarada Secondary School",
+            "location": "NO.1 SECOND STREET GOPALAPURAM CHENNAI TAMIL NADU, - 600086",
+            "pin_code": "600086",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 8.9,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.sunshinesrisarada.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.5,
+            "fees_by_grade": "12:334798,11:315667,10:306101",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 132,
+        "fields": {
+            "name": "Sri Sathya Sai Institute of Educare",
+            "location": "nemilichery chromepet chennai tamil nadu, - 600044",
+            "pin_code": "600044",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 9.9,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "http://www.sssieducare.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:352700,11:332546,10:322469",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 133,
+        "fields": {
+            "name": "Sri Sushwani Matha Jain Vidyalaya",
+            "location": "#11 KUTTI THAMBIRAN STREET, PULIANTHOPE, CHENNAI CITY, TAMILNADU, - 600012",
+            "pin_code": "600012",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 18.0,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.ssm.edu.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:328205,11:309451,10:300073",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 134,
+        "fields": {
+            "name": "Sri Vidhya Academy International Residential School",
+            "location": "sokkanallur, pattabiram road,, - 600072",
+            "pin_code": "600072",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 18.2,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.svairs.net",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:477268,11:449995,10:436359",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 135,
+        "fields": {
+            "name": "Sri Vimala Vidyalaya",
+            "location": "Plot No.29,Amman Nagar Annex,Amman Nagar, Ramapuram,, - 600078",
+            "pin_code": "600078",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 13.6,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.srivimalavidyalaya.co.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:317591,11:299443,10:290369",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 136,
+        "fields": {
+            "name": "St. Bedes Academy",
+            "location": "37, Santhome High Road,, - 600004",
+            "pin_code": "600004",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 12.5,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.stbedesacademy.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:351816,11:331712,10:321660",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                8
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 137,
+        "fields": {
+            "name": "St. Brittos Academy",
+            "location": "r-3/3 netaji road velachary chennai, - 600042",
+            "pin_code": "600042",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 17.9,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.stbrittosacademy.edu.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.6,
+            "fees_by_grade": "12:338699,11:319345,10:309667",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 138,
+        "fields": {
+            "name": "St. Christophers Academy",
+            "location": "63, E.V.K. Sampath Road, Vepery, Chennai, Tamilnadu - 600097., - 600007",
+            "pin_code": "600097",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 19.5,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.christophersacademy.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.2,
+            "fees_by_grade": "12:365310,11:344435,10:333997",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 139,
+        "fields": {
+            "name": "St. John's English School",
+            "location": "SECOND CROSS STREET NEAR C P W D QTRS. BESANT NAGAR CHENNAI TAMIL NADU, - 600090",
+            "pin_code": "600090",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 12.0,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://sjbn.edu.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:367273,11:346286,10:335793",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 140,
+        "fields": {
+            "name": "St. John's International Residential School",
+            "location": "PALANJUR, POONAMALLEE, P.O. CHENNAI TAMILNADU, - 602103",
+            "pin_code": "602103",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 22.8,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.sjirsindia.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.6,
+            "fees_by_grade": "12:472654,11:445645,10:432140",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6,
+                8
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 141,
+        "fields": {
+            "name": "St. Johns Public School",
+            "location": "lake- bund road, off perumbakkam main road, jalladianpet, medavakkam, chennai- 600 100, - 600100",
+            "pin_code": "600100",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 20.2,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.sjps.edu.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.1,
+            "fees_by_grade": "12:319153,11:300916,10:291797",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 142,
+        "fields": {
+            "name": "St. John's Senior Secondary School",
+            "location": "30/2 SOUTH CANAL BANK ROAD MANDAVELI CHENNAI TAMIL NADU, - 600028",
+            "pin_code": "600028",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 23.0,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.stjohnscbse.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.2,
+            "fees_by_grade": "12:331858,11:312894,10:303413",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 143,
+        "fields": {
+            "name": "St. Johns Universal School",
+            "location": "4/194, East Coast Road, Palavakkam, Chennai - 600041, - 600041",
+            "pin_code": "600041",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 20.5,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.sjus.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:315657,11:297620,10:288601",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 144,
+        "fields": {
+            "name": "St. Joseph International School",
+            "location": "Mother Virgin Garden, Kodikottai, Rameshwaram (Road), MaviduthiKottai (Post), Devakottai (Vai), Sivagangai (District) – 630303, - 630303",
+            "pin_code": "630303",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 15.5,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.sjiskkt.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:440946,11:415749,10:403151",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 145,
+        "fields": {
+            "name": "St. Joseph International School",
+            "location": "Pilloor - Nallakulam Madurai main road Sivagangai- 630 562, - 630562",
+            "pin_code": "630562",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 7.5,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.stxavierschoolsvg.iin",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.5,
+            "fees_by_grade": "12:453471,11:427559,10:414602",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 146,
+        "fields": {
+            "name": "Sujay Public School",
+            "location": "MEDAVAKKAM, MEDAVAKKAM, - 600100",
+            "pin_code": "600100",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 15.0,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.sujaypublicschool.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.5,
+            "fees_by_grade": "12:300792,11:283604,10:275010",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 147,
+        "fields": {
+            "name": "Sunshine Chennai Senior Secondary School",
+            "location": "86/2,AGS Colony, Puzhithivakkam,Madipakkam,, - 600091",
+            "pin_code": "600091",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 22.8,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://WWW.SUNSHINESCHOOL.IN",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:349770,11:329784,10:319790",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 148,
+        "fields": {
+            "name": "Swamys School",
+            "location": "Plot No .145 to 152, Narasimhan Street, Gurusamy Nagar, Madanandapuram, - 600125",
+            "pin_code": "600125",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 16.3,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "http://brindaven.swamysschool.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:359563,11:339016,10:328743",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 149,
+        "fields": {
+            "name": "Swamys School",
+            "location": "Plot No 23 to 29, 41 to 49, Rajeswari Street, Santhosh Nagar, Madanandapuram, - 600125",
+            "pin_code": "600125",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 22.8,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "http://pushpanjali.swamysschool.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.2,
+            "fees_by_grade": "12:358977,11:338464,10:328207",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 150,
+        "fields": {
+            "name": "Swamys School",
+            "location": "Mangaiyarkarasi Street, Santhosh Nagar, Madanandapuram, Chennai - 600125., - 600125",
+            "pin_code": "600125",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 4.1,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "http://gitanjali.swamysschool.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:366265,11:345335,10:334871",
+            "facilities": [
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 151,
+        "fields": {
+            "name": "The Fathima Matriculation Hr. Secondary School",
+            "location": "No:5, Police Lane, Saidapet, Chennai- 600 015, - 600015",
+            "pin_code": "600015",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 24.3,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.fathimaschool.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.5,
+            "fees_by_grade": "12:352758,11:332600,10:322522",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 152,
+        "fields": {
+            "name": "The Hindu Senior Secondary School",
+            "location": "PLOT NO.1 2ND MAIN ROAD INDIRA NAGAR CHENNAI TAMIL NADU, - 600020",
+            "pin_code": "600020",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 13.1,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.hsssindiranagar.edu.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:372728,11:351429,10:340780",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 153,
+        "fields": {
+            "name": "The Hindu Senior Secondary School",
+            "location": "83 BIG STREET TRIPLICANE CHENNAI TAMIL NADU, - 600005",
+            "pin_code": "600005",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 5.2,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.hinduseniortriplicane.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:382402,11:360550,10:349625",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 154,
+        "fields": {
+            "name": "The Leaders Academy",
+            "location": "Kadambavanam Village, Thiruvelangudi, Soorakudi Panchayat, Karaikudi, Shivagangai Distt., - 630002",
+            "pin_code": "630002",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 20.5,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "http://theleadersacademy@edu.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.6,
+            "fees_by_grade": "12:382708,11:360839,10:349905",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6,
+                8
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 155,
+        "fields": {
+            "name": "The Leo Academy of Excellence",
+            "location": "EAST MAIN ROAD, ANNA NAGAR WESTERN EXTENSION, - 600101",
+            "pin_code": "600101",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 15.4,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.leocbse.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.7,
+            "fees_by_grade": "12:362063,11:341374,10:331029",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6,
+                8
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 156,
+        "fields": {
+            "name": "The Schram Academy",
+            "location": "I SCHRAM AVENUE MADURAVOYAL CHENNAI, - 600095",
+            "pin_code": "600095",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 23.1,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.theschramacademy.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.2,
+            "fees_by_grade": "12:354298,11:334052,10:323930",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                8
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 157,
+        "fields": {
+            "name": "Thiruthangal Nadar Vidhyalaya",
+            "location": "NO.1051, T.H.ROAD MADHAVARAM TALUK THIRUVALLORE CHENNAI TN, - 600019",
+            "pin_code": "600019",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 23.8,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.thiruthangalnadarvidhyalaya.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.2,
+            "fees_by_grade": "12:324784,11:306225,10:296945",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 158,
+        "fields": {
+            "name": "Trileaves Global School",
+            "location": "New S.No.165/28, Thirumagal Nagar, Rajakilpakkam, Chennai - 600073., - 600073",
+            "pin_code": "600073",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 12.4,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.trileavesglobalschool.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.6,
+            "fees_by_grade": "12:421845,11:397739,10:385687",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 159,
+        "fields": {
+            "name": "Union Christian Public School",
+            "location": "# 29, Pachaiappas College Hostel Road, Chetpet,, - 600031",
+            "pin_code": "600031",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 4.3,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.unionchristianpublicschool.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:309637,11:291944,10:283097",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 160,
+        "fields": {
+            "name": "Unity Public School",
+            "location": "109, lake view road, kottur, chennai, - 600085",
+            "pin_code": "600085",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 12.2,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.unitypublicschool.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.5,
+            "fees_by_grade": "12:306843,11:289309,10:280542",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 161,
+        "fields": {
+            "name": "Vani Vidyalaya",
+            "location": "NO 12 VEMBULIAMMAN KOIL STREET WEST K K NAGAR CHENNAI TAMIL NADU, - 600078",
+            "pin_code": "600078",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 24.5,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.vanividyalaya.edu.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.2,
+            "fees_by_grade": "12:353112,11:332934,10:322845",
+            "facilities": [
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 162,
+        "fields": {
+            "name": "Velammal Bodhi Campus",
+            "location": "A.V. Garden, Jayapriya Nagar,Manapakkam Main Road, Kolapakkam, - 600128",
+            "pin_code": "600128",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 12.5,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.velammalbodhicampus.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:374362,11:352970,10:342274",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 163,
+        "fields": {
+            "name": "Velammal Vidyalaya",
+            "location": "PEARL PALACE,BLOCK NO: 7, MOGAPPAIR WEST, CHENNAI - 600 037, - 600037",
+            "pin_code": "600037",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 7.6,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.velammalnexus.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:370075,11:348928,10:338354",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 164,
+        "fields": {
+            "name": "Velankanni Public School",
+            "location": "R-72, VI BLOCK, MUTHAMIZH NAGAR, KODUNGAIYUR, - 600118",
+            "pin_code": "600118",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 7.0,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.vpsr72.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:296550,11:279605,10:271132",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 165,
+        "fields": {
+            "name": "Velankanni Public School",
+            "location": "R-10, I BLOCK, MUTHAMIZH NAGAR, KODUNGAIYUR, - 600118",
+            "pin_code": "600118",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 21.7,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://www.velankannipublicschool.org",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.2,
+            "fees_by_grade": "12:283678,11:267468,10:259363",
+            "facilities": [
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 166,
+        "fields": {
+            "name": "Vidya Mandir Senior Secondary School",
+            "location": "124 ROYAPETAH HIGH ROAD MYLAPORE CHENNAI TAMIL NADU, - 600004",
+            "pin_code": "600004",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 2.6,
+            "bus_availability": false,
+            "syllabus": "CBSE",
+            "website": "https://vidya-mandir.edu.in",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.4,
+            "fees_by_grade": "12:361274,11:340629,10:330307",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 167,
+        "fields": {
+            "name": "Vruksha Vidhyaashram School,",
+            "location": "Inner Ring Road, Housing Sector, Madhavaram, - 600060",
+            "pin_code": "600060",
+            "board": "CBSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 3.2,
+            "bus_availability": true,
+            "syllabus": "CBSE",
+            "website": "https://www.vrukshavidhyaashram.com",
+            "curriculum_website": "https://www.cbse.gov.in",
+            "rating": 4.3,
+            "fees_by_grade": "12:327197,11:308500,10:299151",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 168,
+        "fields": {
+            "name": "Akshar Árbol International School",
+            "location": "11, Somasundaram Street, T.Nagar, Chennai - 600017",
+            "pin_code": "600017",
             "board": "IB",
             "grades_offered": "6,7,8,9,10,11,12",
             "co_ed_type": "C",
-            "distance": 11.2,
-            "bus_availability": true,
+            "distance": 13.8,
+            "bus_availability": false,
             "syllabus": "International Baccalaureate",
-            "website": "https://www.ahmedabadintl.edu",
+            "website": "http://www.akshararbol.edu.in/",
             "curriculum_website": "https://www.ibo.org",
             "rating": 4.8,
-            "fees_by_grade": "12:680000,11:650000,10:630000",
-            "facilities": [1, 2, 3, 4, 5, 6, 7, 8],
-            "created_at": "2024-01-22T10:00:00Z",
-            "updated_at": "2024-01-22T10:00:00Z"
+            "fees_by_grade": "12:891984,11:850816,10:823370",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                7,
+                8
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 169,
+        "fields": {
+            "name": "Akshar Arbol International School-ECR",
+            "location": "Bethel Nagar North 9th Street, Injambakkam, Chennai - 600115",
+            "pin_code": "600115",
+            "board": "IB",
+            "grades_offered": "6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 12.5,
+            "bus_availability": true,
+            "syllabus": "International Baccalaureate",
+            "website": "http://www.akshararbol.edu.in//",
+            "curriculum_website": "https://www.ibo.org",
+            "rating": 4.5,
+            "fees_by_grade": "12:848625,11:809457,10:783346",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 170,
+        "fields": {
+            "name": "Alphabet International School",
+            "location": "3, MGR Salai, Pallavakkam, ECR, Chennai - 600041",
+            "pin_code": "600041",
+            "board": "IB",
+            "grades_offered": "6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 3.7,
+            "bus_availability": false,
+            "syllabus": "International Baccalaureate",
+            "website": "https://www.alphabet.school/",
+            "curriculum_website": "https://www.ibo.org",
+            "rating": 4.8,
+            "fees_by_grade": "12:914239,11:872043,10:843913",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 171,
+        "fields": {
+            "name": "Gateway International School",
+            "location": "Jabakadal Street, Padur, Kazhipattur Post, OMR, Kelambakkam, Chennai - 603103",
+            "pin_code": "603103",
+            "board": "IB",
+            "grades_offered": "6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 24.9,
+            "bus_availability": true,
+            "syllabus": "International Baccalaureate",
+            "website": "https://www.gatewayschools.edu.in/",
+            "curriculum_website": "https://www.ibo.org",
+            "rating": 4.7,
+            "fees_by_grade": "12:815456,11:777819,10:752728",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                7,
+                8
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 172,
+        "fields": {
+            "name": "Hiranandani Upscale School",
+            "location": "5/63, Old Mahabalipuram Road, Opp Sipcot IT Park, Egattur Village, Padur P.O. Kelambakkam, via Kanchipuram, Chennai - 600130",
+            "pin_code": "600130",
+            "board": "IB",
+            "grades_offered": "6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 19.7,
+            "bus_availability": true,
+            "syllabus": "International Baccalaureate",
+            "website": "https://hus.edu.in/",
+            "curriculum_website": "https://www.ibo.org",
+            "rating": 4.4,
+            "fees_by_grade": "12:669619,11:638713,10:618109",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 173,
+        "fields": {
+            "name": "International Village School",
+            "location": "33A, Classic Farms Road, Sholinganallur, Chennai - 600119",
+            "pin_code": "600119",
+            "board": "IB",
+            "grades_offered": "6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 12.4,
+            "bus_availability": true,
+            "syllabus": "International Baccalaureate",
+            "website": "https://internationalvillage.org",
+            "curriculum_website": "https://www.ibo.org",
+            "rating": 4.5,
+            "fees_by_grade": "12:817779,11:780035,10:754873",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 174,
+        "fields": {
+            "name": "Lady Andal School",
+            "location": "Shenstone Park, No.7, Harrington Rd, Chennai - 600031",
+            "pin_code": "600031",
+            "board": "IB",
+            "grades_offered": "6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 3.5,
+            "bus_availability": true,
+            "syllabus": "International Baccalaureate",
+            "website": "https://www.ladyandalschool.edu.in/",
+            "curriculum_website": "https://www.ibo.org",
+            "rating": 4.3,
+            "fees_by_grade": "12:704988,11:672450,10:650758",
+            "facilities": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 175,
+        "fields": {
+            "name": "The Indian Public School",
+            "location": "50/51,First Main Road, Perungudi Industrial Estate, Perungudi - 600096",
+            "pin_code": "600096",
+            "board": "IB",
+            "grades_offered": "6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 14.8,
+            "bus_availability": true,
+            "syllabus": "International Baccalaureate",
+            "website": "http://www.tipsglobal.org/",
+            "curriculum_website": "https://www.ibo.org",
+            "rating": 4.7,
+            "fees_by_grade": "12:621477,11:592793,10:573671",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 176,
+        "fields": {
+            "name": "The Pupil",
+            "location": "162/1, Masilamani Nagar, Poonamallee , Chennai - 600056",
+            "pin_code": "600056",
+            "board": "IB",
+            "grades_offered": "6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 17.3,
+            "bus_availability": true,
+            "syllabus": "International Baccalaureate",
+            "website": "http://www.thepupil.in/ib/",
+            "curriculum_website": "https://www.ibo.org",
+            "rating": 4.7,
+            "fees_by_grade": "12:630967,11:601846,10:582431",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
+        }
+    },
+    {
+        "model": "schools.school",
+        "pk": 177,
+        "fields": {
+            "name": "Abacus Montessori School",
+            "location": "Pon Vidyashram Gardens Valmiki Street, Injambakkam, ECR - 600041",
+            "pin_code": "600041",
+            "board": "ICSE",
+            "grades_offered": "1,2,3,4,5,6,7,8,9,10,11,12",
+            "co_ed_type": "C",
+            "distance": 10.1,
+            "bus_availability": true,
+            "syllabus": "ICSE",
+            "website": "",
+            "curriculum_website": "https://www.cisce.org",
+            "rating": 4.2,
+            "fees_by_grade": "12:387631,11:367229,10:357028",
+            "facilities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "created_at": "2025-12-07T18:13:33Z",
+            "updated_at": "2025-12-07T18:13:33Z"
         }
     }
 ]
-

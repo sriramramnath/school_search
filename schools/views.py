@@ -153,13 +153,7 @@ def school_search_results_view(request):
     
     # Sort results
     sort_by = request.GET.get('sort', 'rating')
-    if sort_by == 'distance' and user_pin_code:
-        # Sort by calculated distance
-        schools_list = sorted(schools_list, key=lambda s: s.calculated_distance if s.calculated_distance is not None else float('inf'))
-    elif sort_by == 'distance':
-        # Fallback to stored distance
-        schools_list = sorted(schools_list, key=lambda s: float(s.distance) if s.distance else float('inf'))
-    elif sort_by == 'fees':
+    if sort_by == 'fees':
         schools_list = sorted(schools_list, key=lambda s: s.default_fee if s.default_fee else float('inf'))
     else:
         schools_list = sorted(schools_list, key=lambda s: (float(s.rating) if s.rating else 0, s.name), reverse=True)

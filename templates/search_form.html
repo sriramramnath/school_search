@@ -23,24 +23,6 @@
                     </div>
                 </div>
 
-            <!-- Distance from Your Home - Slider -->
-            <div class="form-field-group distance-field-group">
-                    <div class="form-field-icon">
-                        <span class="material-icons">straighten</span>
-                    </div>
-                    <div class="form-field-content">
-                        <div class="distance-label-value">
-                            <label class="form-field-label" style="margin: 0;">Distance from Your Home</label>
-                            <span id="distance-value" class="distance-value-text">50 km</span>
-                        </div>
-                        <input type="range" name="distance_max" id="distance-slider" 
-                               min="5" max="50" step="5" 
-                               value="{{ distance_max|default:'50' }}"
-                               class="distance-slider">
-                        <div class="distance-slider-labels">
-                        </div>
-                    </div>
-                </div>
             <!-- School Name (Optional) -->
             <div class="form-field-group">
                     <div class="form-field-icon">
@@ -73,71 +55,6 @@
                     </div>
                 </div>
 
-            <!-- Grade Selection -->
-            <div class="form-field-group">
-                    <div class="form-field-icon">
-                        <span class="material-icons">grade</span>
-                    </div>
-                    <div class="form-field-content">
-                        <label class="form-field-label">Grade</label>
-                        <select name="grade" class="form-field-select">
-                            <option value="">Select Grade</option>
-                            <option value="1" {% if request.GET.grade == "1" %}selected{% endif %}>Grade 1</option>
-                            <option value="2" {% if request.GET.grade == "2" %}selected{% endif %}>Grade 2</option>
-                            <option value="3" {% if request.GET.grade == "3" %}selected{% endif %}>Grade 3</option>
-                            <option value="4" {% if request.GET.grade == "4" %}selected{% endif %}>Grade 4</option>
-                            <option value="5" {% if request.GET.grade == "5" %}selected{% endif %}>Grade 5</option>
-                            <option value="6" {% if request.GET.grade == "6" %}selected{% endif %}>Grade 6</option>
-                            <option value="7" {% if request.GET.grade == "7" %}selected{% endif %}>Grade 7</option>
-                            <option value="8" {% if request.GET.grade == "8" %}selected{% endif %}>Grade 8</option>
-                            <option value="9" {% if request.GET.grade == "9" %}selected{% endif %}>Grade 9</option>
-                            <option value="10" {% if request.GET.grade == "10" %}selected{% endif %}>Grade 10</option>
-                            <option value="11" {% if request.GET.grade == "11" %}selected{% endif %}>Grade 11</option>
-                            <option value="12" {% if request.GET.grade == "12" %}selected{% endif %}>Grade 12</option>
-                        </select>
-                    </div>
-                </div>
-
-            <!-- Star Rating -->
-            <div class="filter-box">
-                    <div class="filter-box-header">
-                        <span class="material-icons" style="color: var(--accent-green);">star</span>
-                        <label class="filter-box-label">Star Rating</label>
-                    </div>
-                    <div class="filter-chips">
-                        {% for i in "12345" %}
-                        <label class="filter-chip">
-                            <input type="checkbox" name="rating" value="{{ i }}" 
-                                   {% if i in selected_ratings %}checked{% endif %}>
-                            <span class="custom-checkbox"></span>
-                            <span class="filter-chip-text rating-star">{{ i }}★</span>
-                        </label>
-                        {% endfor %}
-                    </div>
-                </div>
-
-            <!-- Bus Availability -->
-            <div class="filter-box">
-                    <div class="filter-box-header">
-                        <span class="material-icons">directions_bus</span>
-                        <label class="filter-box-label">Bus Availability</label>
-                    </div>
-                    <div class="filter-chips">
-                        <label class="filter-chip">
-                            <input type="checkbox" name="bus" value="yes" 
-                                   {% if 'yes' in selected_bus %}checked{% endif %}>
-                            <span class="custom-checkbox"></span>
-                            <span class="filter-chip-text">Yes</span>
-                        </label>
-                        <label class="filter-chip">
-                            <input type="checkbox" name="bus" value="no" 
-                                   {% if 'no' in selected_bus %}checked{% endif %}>
-                            <span class="custom-checkbox"></span>
-                            <span class="filter-chip-text">No</span>
-                        </label>
-                    </div>
-                </div>
-
             <!-- School Type - Three-way Switch -->
             <div class="filter-box">
                     <div class="filter-box-header">
@@ -146,7 +63,7 @@
                     </div>
                     <div class="school-type-switch-wrapper">
                         <div class="school-type-switch">
-                            <input type="hidden" name="co_ed_type" id="school-type-input" value="{% if 'C' in selected_co_ed %}C{% elif 'B' in selected_co_ed %}B{% else %}G{% endif %}">
+                            <input type="hidden" name="co_ed_type" id="school-type-input" value="{% if 'C' in selected_co_ed %}C{% elif 'B' in selected_co_ed %}B{% elif 'G' in selected_co_ed %}G{% else %}C{% endif %}">
                             <div class="switch-option switch-left" data-value="G">
                                 <span>Girls</span>
                             </div>
@@ -174,22 +91,6 @@
 {% block extra_js %}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Distance slider value display
-    const distanceSlider = document.getElementById('distance-slider');
-    const distanceValue = document.getElementById('distance-value');
-    
-    if (distanceSlider && distanceValue) {
-        function updateDistanceValue() {
-            distanceValue.textContent = distanceSlider.value + ' km';
-            // Update slider track color
-            const percent = ((distanceSlider.value - distanceSlider.min) / (distanceSlider.max - distanceSlider.min)) * 100;
-            distanceSlider.style.setProperty('--slider-percent', percent + '%');
-        }
-        
-        updateDistanceValue();
-        distanceSlider.addEventListener('input', updateDistanceValue);
-    }
-    
     // Three-way switch
     const switchOptions = document.querySelectorAll('.switch-option');
     const switchInput = document.getElementById('school-type-input');
@@ -227,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Initialize with current value
-    const currentValue = switchInput ? switchInput.value : 'G';
+    const currentValue = switchInput ? switchInput.value : 'C';
     updateSwitchIndicator(currentValue);
 });
 </script>

@@ -90,9 +90,9 @@
                                     <div class="carousel-item-meta">
                                         <span class="rating-badge-small">
                                             <span class="material-icons" style="font-size: 14px;">star</span>
-                                            {{ school.rating }}
+                                            {% if school.rating and school.rating > 0 %}{{ school.rating }}{% else %}X.X{% endif %}
                                         </span>
-                                        <span style="font-weight: 600;">₹{% if school.default_fee %}{{ school.default_fee }}{% else %}N/A{% endif %}</span>
+                                        <span style="font-weight: 600;">{% if school.default_fee %}₹{{ school.default_fee }}{% else %}No data{% endif %}</span>
                                     </div>
                                 </div>
                             </a>

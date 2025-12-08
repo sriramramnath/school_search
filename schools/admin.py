@@ -28,7 +28,7 @@ class SchoolAdmin(admin.ModelAdmin):
             'fields': ('fees_by_grade', 'facilities')
         }),
         ('Websites', {
-            'fields': ('website', 'curriculum_website')
+            'fields': ('website', 'curriculum_website', 'google_maps_link')
         }),
         ('Rating', {
             'fields': ('rating',)

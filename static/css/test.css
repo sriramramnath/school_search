@@ -1,0 +1,4 @@
+/* Dummy CSS file for testing static file serving */
+body {
+    background-color: red !important;
+}

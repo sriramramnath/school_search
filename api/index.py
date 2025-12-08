@@ -12,6 +12,14 @@ sys.path.insert(0, str(BASE_DIR))
 # Set Django settings module
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'schoolsearch.settings')
 
-# Import Django WSGI application
-from django.core.wsgi import get_wsgi_application
-application = get_wsgi_application()
+try:
+    # Import Django WSGI application
+    # Vercel expects the variable to be named 'app'
+    from django.core.wsgi import get_wsgi_application
+    app = get_wsgi_application()
+except Exception as e:
+    # Log error for debugging
+    import traceback
+    print(f"Error initializing Django: {e}")
+    print(traceback.format_exc())
+    raise

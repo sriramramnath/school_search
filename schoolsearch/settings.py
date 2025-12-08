@@ -27,7 +27,15 @@ SECRET_KEY = config('SECRET_KEY', default='django-insecure-=i3@vn)_@a5k8pc@fx=2w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='', cast=Csv())
+# Handle ALLOWED_HOSTS - allow Vercel domains
+ALLOWED_HOSTS_STR = config('ALLOWED_HOSTS', default='')
+if ALLOWED_HOSTS_STR:
+    ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+else:
+    # For Vercel, we need to allow the vercel.app domain
+    # This will be set via environment variable in production
+    # For now, allow all (Vercel handles routing)
+    ALLOWED_HOSTS = ['*']
 
 
 # Application definition

@@ -9,6 +9,10 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(BASE_DIR))
 
+# Set Vercel environment variable if not set (helps with host validation)
+if not os.environ.get('VERCEL'):
+    os.environ['VERCEL'] = '1'
+
 # Set Django settings module
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'schoolsearch.settings')
 
@@ -17,6 +21,10 @@ try:
     # Vercel expects the variable to be named 'app'
     from django.core.wsgi import get_wsgi_application
     app = get_wsgi_application()
+    
+    # Debug: Print ALLOWED_HOSTS to verify it's set correctly
+    from django.conf import settings
+    print(f"DEBUG: ALLOWED_HOSTS = {settings.ALLOWED_HOSTS}")
 except Exception as e:
     # Log error for debugging
     import traceback

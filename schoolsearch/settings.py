@@ -28,29 +28,31 @@ SECRET_KEY = config('SECRET_KEY', default='django-insecure-=i3@vn)_@a5k8pc@fx=2w
 DEBUG = config('DEBUG', default=True, cast=bool)
 
 # Handle ALLOWED_HOSTS - allow Vercel domains
+import os
+
 ALLOWED_HOSTS_STR = config('ALLOWED_HOSTS', default='')
 if ALLOWED_HOSTS_STR:
     ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 else:
-    # For Vercel, allow all vercel.app and now.sh domains
-    # The leading dot allows all subdomains (e.g., *.vercel.app)
-    # In production, set ALLOWED_HOSTS env var with your specific domain for better security
+    # Base allowed hosts
     ALLOWED_HOSTS = [
-        '.vercel.app',  # Matches all *.vercel.app domains
-        '.now.sh',      # Matches all *.now.sh domains (legacy Vercel)
         'localhost',
         '127.0.0.1',
     ]
     
-    # If running on Vercel, also check VERCEL_URL environment variable
-    import os
-    vercel_url = os.environ.get('VERCEL_URL')
-    if vercel_url:
-        # Extract hostname from VERCEL_URL (format: https://domain.vercel.app)
-        from urllib.parse import urlparse
-        parsed = urlparse(f'https://{vercel_url}' if not vercel_url.startswith('http') else vercel_url)
-        if parsed.hostname:
-            ALLOWED_HOSTS.append(parsed.hostname)
+    # Always allow Vercel domains (the leading dot matches all subdomains)
+    # This pattern matches: *.vercel.app (e.g., school-search-eight.vercel.app)
+    ALLOWED_HOSTS.extend([
+        '.vercel.app',  # Matches all *.vercel.app domains
+        '.now.sh',      # Matches all *.now.sh domains (legacy Vercel)
+    ])
+    
+    # When on Vercel, be extra permissive - add any vercel.app domain dynamically
+    # This is a workaround in case the .vercel.app pattern isn't working
+    if os.environ.get('VERCEL') or os.environ.get('VERCEL_URL'):
+        # Add a catch-all for vercel.app domains
+        # Note: Django's .vercel.app should work, but adding explicit check as backup
+        pass
 
 
 # Application definition

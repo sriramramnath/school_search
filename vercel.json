@@ -1,7 +1,6 @@
 {
   "version": 2,
-  "installCommand": "pip install -r requirements.txt",
-  "buildCommand": "python manage.py collectstatic --noinput",
+  "buildCommand": "./build.sh",
   "builds": [
     {
       "src": "api/index.py",

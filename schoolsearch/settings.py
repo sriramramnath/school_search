@@ -101,9 +101,29 @@ WSGI_APPLICATION = 'schoolsearch.wsgi.application'
 DATABASE_URL = config('DATABASE_URL', default='')
 if DATABASE_URL:
     # Use DATABASE_URL if provided (e.g., from Supabase connection string)
+    # For serverless (Vercel), use transaction mode pooler (port 6543) instead of session mode (port 5432)
+    # Transaction mode is better for serverless functions as it doesn't hold connections
+    
+    # Convert session mode pooler to transaction mode pooler
+    if 'pooler.supabase.com:5432' in DATABASE_URL:
+        DATABASE_URL = DATABASE_URL.replace(':5432', ':6543')
+        print(f"Converted to transaction mode pooler: {DATABASE_URL[:50]}...")
+    
     DATABASES = {
-        'default': dj_database_url.parse(DATABASE_URL, conn_max_age=600)
+        'default': dj_database_url.parse(
+            DATABASE_URL, 
+            conn_max_age=60,  # Shorter for serverless - close connections faster
+            conn_health_checks=True,
+        )
     }
+    
+    # Additional connection settings for serverless
+    DATABASES['default']['CONN_MAX_AGE'] = 60
+    if 'OPTIONS' not in DATABASES['default']:
+        DATABASES['default']['OPTIONS'] = {}
+    DATABASES['default']['OPTIONS'].update({
+        'connect_timeout': 10,
+    })
 else:
     # Fall back to individual DB_* variables or SQLite
     DB_HOST = config('DB_HOST', default='')

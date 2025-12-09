@@ -239,3 +239,4 @@ class Command(BaseCommand):
                 self.stdout.write(self.style.WARNING(f'  - {error}'))
             if len(errors) > 10:
                 self.stdout.write(self.style.WARNING(f'  ... and {len(errors) - 10} more errors'))
+

@@ -28,22 +28,17 @@ SECRET_KEY = config('SECRET_KEY', default='django-insecure-=i3@vn)_@a5k8pc@fx=2w
 DEBUG = config('DEBUG', default=True, cast=bool)
 
 # Handle ALLOWED_HOSTS - allow Vercel domains
-import os
-
-# Start with base allowed hosts
-ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    '.vercel.app',  # Matches all *.vercel.app domains (e.g., school-search-eight.vercel.app)
-    '.now.sh',      # Matches all *.now.sh domains (legacy Vercel)
-]
-
-# If ALLOWED_HOSTS env var is set, use it but still add Vercel domains
 ALLOWED_HOSTS_STR = config('ALLOWED_HOSTS', default='')
 if ALLOWED_HOSTS_STR:
-    # Merge with existing Vercel domains
-    env_hosts = config('ALLOWED_HOSTS', cast=Csv())
-    ALLOWED_HOSTS = list(set(ALLOWED_HOSTS + env_hosts))  # Combine and remove duplicates
+    ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+else:
+    # Default to allowing Vercel domains
+    ALLOWED_HOSTS = [
+        '.vercel.app',
+        '.now.sh',
+        'localhost',
+        '127.0.0.1',
+    ]
 
 
 # Application definition
@@ -63,7 +58,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # Serve static files in production
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Must be after SecurityMiddleware
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -102,29 +97,8 @@ WSGI_APPLICATION = 'schoolsearch.wsgi.application'
 DATABASE_URL = config('DATABASE_URL', default='')
 if DATABASE_URL:
     # Use DATABASE_URL if provided (e.g., from Supabase connection string)
-    # For serverless (Vercel), use shorter connection max age and enable connection pooling
-    # If using Supabase, prefer transaction mode pooler (port 6543) over session mode (port 5432)
-    # Transaction mode is better for serverless functions
-    
-    # Check if we should use transaction mode pooler
-    # If DATABASE_URL uses port 5432 (session mode), try to convert to transaction mode
-    if 'pooler.supabase.com:5432' in DATABASE_URL:
-        # Replace session mode pooler with transaction mode pooler
-        DATABASE_URL = DATABASE_URL.replace(':5432', ':6543')
-    
     DATABASES = {
-        'default': dj_database_url.parse(
-            DATABASE_URL, 
-            conn_max_age=60,  # Shorter for serverless - close connections faster
-            conn_health_checks=True,  # Enable connection health checks
-        )
-    }
-    
-    # Additional connection pool settings for serverless
-    DATABASES['default']['CONN_MAX_AGE'] = 60  # 60 seconds max connection age
-    DATABASES['default']['OPTIONS'] = {
-        'connect_timeout': 10,
-        'options': '-c statement_timeout=30000'  # 30 second statement timeout
+        'default': dj_database_url.parse(DATABASE_URL, conn_max_age=600)
     }
 else:
     # Fall back to individual DB_* variables or SQLite
@@ -191,9 +165,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# WhiteNoise configuration for serving static files in production
-# Use CompressedStaticFilesStorage (no manifest) for easier deployment
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+# WhiteNoise configuration - serves static files directly from STATICFILES_DIRS
+# No need to run collectstatic for this to work
+WHITENOISE_USE_FINDERS = True
+WHITENOISE_AUTOREFRESH = True
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'

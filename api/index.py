@@ -9,7 +9,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(BASE_DIR))
 
-# Set Vercel environment variable if not set (helps with host validation)
+# Set Vercel environment variable if not set
 if not os.environ.get('VERCEL'):
     os.environ['VERCEL'] = '1'
 

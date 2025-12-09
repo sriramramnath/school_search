@@ -21,6 +21,10 @@ try:
     # Vercel expects the variable to be named 'app'
     from django.core.wsgi import get_wsgi_application
     app = get_wsgi_application()
+    
+    # Debug: Print ALLOWED_HOSTS
+    from django.conf import settings
+    print(f"DEBUG: ALLOWED_HOSTS = {settings.ALLOWED_HOSTS}")
 except Exception as e:
     # Log error for debugging
     import traceback

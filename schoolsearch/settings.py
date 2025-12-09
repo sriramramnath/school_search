@@ -28,17 +28,21 @@ SECRET_KEY = config('SECRET_KEY', default='django-insecure-=i3@vn)_@a5k8pc@fx=2w
 DEBUG = config('DEBUG', default=True, cast=bool)
 
 # Handle ALLOWED_HOSTS - allow Vercel domains
+import os
+
+# Always start with Vercel domains
+ALLOWED_HOSTS = [
+    '.vercel.app',  # Matches all *.vercel.app domains
+    '.now.sh',      # Matches all *.now.sh domains (legacy)
+    'localhost',
+    '127.0.0.1',
+]
+
+# If ALLOWED_HOSTS env var is set, merge with defaults
 ALLOWED_HOSTS_STR = config('ALLOWED_HOSTS', default='')
 if ALLOWED_HOSTS_STR:
-    ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
-else:
-    # Default to allowing Vercel domains
-    ALLOWED_HOSTS = [
-        '.vercel.app',
-        '.now.sh',
-        'localhost',
-        '127.0.0.1',
-    ]
+    env_hosts = config('ALLOWED_HOSTS', cast=Csv())
+    ALLOWED_HOSTS = list(set(ALLOWED_HOSTS + env_hosts))  # Merge and deduplicate
 
 
 # Application definition

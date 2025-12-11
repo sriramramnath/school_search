@@ -15,5 +15,5 @@
   "env": {
     "PYTHONPATH": "."
   },
-  "buildCommand": "python manage.py migrate --noinput || true"
+  "buildCommand": "python manage.py collectstatic --noinput && python manage.py migrate --noinput || true"
 }

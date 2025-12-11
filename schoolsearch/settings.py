@@ -172,7 +172,14 @@ STATICFILES_FINDERS = [
 ]
 
 # WhiteNoise configuration for serving static files in production
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# Use CompressedStaticFilesStorage (simpler, doesn't require manifest.json)
+# This works better for serverless deployments like Vercel
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
+# WhiteNoise additional settings
+WHITENOISE_USE_FINDERS = True  # Fallback to Django's static file finders if file not found
+WHITENOISE_AUTOREFRESH = True  # Auto-refresh in development (ignored in production)
+WHITENOISE_MANIFEST_STRICT = False  # Don't fail if manifest file is missing
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'

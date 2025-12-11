@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 from decouple import config, Csv
 import dj_database_url
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,22 +28,16 @@ SECRET_KEY = config('SECRET_KEY', default='django-insecure-=i3@vn)_@a5k8pc@fx=2w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=True, cast=bool)
 
-# Handle ALLOWED_HOSTS - allow Vercel domains
-import os
-
-# Always start with Vercel domains
-ALLOWED_HOSTS = [
-    '.vercel.app',  # Matches all *.vercel.app domains
-    '.now.sh',      # Matches all *.now.sh domains (legacy)
-    'localhost',
-    '127.0.0.1',
-]
-
-# If ALLOWED_HOSTS env var is set, merge with defaults
-ALLOWED_HOSTS_STR = config('ALLOWED_HOSTS', default='')
-if ALLOWED_HOSTS_STR:
-    env_hosts = config('ALLOWED_HOSTS', cast=Csv())
-    ALLOWED_HOSTS = list(set(ALLOWED_HOSTS + env_hosts))  # Merge and deduplicate
+# Allow Vercel domains
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='', cast=Csv())
+if not ALLOWED_HOSTS:
+    ALLOWED_HOSTS = []
+# Add Vercel domain if running on Vercel
+if os.environ.get('VERCEL'):
+    ALLOWED_HOSTS.extend([
+        '.vercel.app',
+        '.now.sh',
+    ])
 
 
 # Application definition
@@ -62,7 +57,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # Must be after SecurityMiddleware
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -101,29 +95,9 @@ WSGI_APPLICATION = 'schoolsearch.wsgi.application'
 DATABASE_URL = config('DATABASE_URL', default='')
 if DATABASE_URL:
     # Use DATABASE_URL if provided (e.g., from Supabase connection string)
-    # For serverless (Vercel), use transaction mode pooler (port 6543) instead of session mode (port 5432)
-    # Transaction mode is better for serverless functions as it doesn't hold connections
-    
-    # Convert session mode pooler to transaction mode pooler
-    if 'pooler.supabase.com:5432' in DATABASE_URL:
-        DATABASE_URL = DATABASE_URL.replace(':5432', ':6543')
-        print(f"Converted to transaction mode pooler: {DATABASE_URL[:50]}...")
-    
     DATABASES = {
-        'default': dj_database_url.parse(
-            DATABASE_URL, 
-            conn_max_age=60,  # Shorter for serverless - close connections faster
-            conn_health_checks=True,
-        )
+        'default': dj_database_url.parse(DATABASE_URL, conn_max_age=600)
     }
-    
-    # Additional connection settings for serverless
-    DATABASES['default']['CONN_MAX_AGE'] = 60
-    if 'OPTIONS' not in DATABASES['default']:
-        DATABASES['default']['OPTIONS'] = {}
-    DATABASES['default']['OPTIONS'].update({
-        'connect_timeout': 10,
-    })
 else:
     # Fall back to individual DB_* variables or SQLite
     DB_HOST = config('DB_HOST', default='')
@@ -185,14 +159,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-
-# WhiteNoise configuration - serves static files directly from STATICFILES_DIRS
-# No need to run collectstatic for this to work
-WHITENOISE_USE_FINDERS = True
-WHITENOISE_AUTOREFRESH = True
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'

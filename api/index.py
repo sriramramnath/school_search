@@ -39,14 +39,13 @@ def ensure_migrations():
 
 # Import Django WSGI application
 try:
-    import django
-    django.setup()
-    
-    # Attempt to run migrations on first load
-    ensure_migrations()
-    
     from django.core.wsgi import get_wsgi_application
+    
+    # Initialize Django (this calls django.setup() internally)
     application = get_wsgi_application()
+    
+    # Attempt to run migrations on first load (after Django is initialized)
+    ensure_migrations()
     
 except Exception as e:
     # Better error handling for debugging

@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q, Avg, Count, Sum
+from django.core.cache import cache
 from django_filters import FilterSet, CharFilter, ChoiceFilter, BooleanFilter, NumberFilter
 from .models import School, Facility, Review
 from curriculum.models import Curriculum
@@ -40,39 +41,63 @@ class SchoolFilter(FilterSet):
 def home_view(request):
     """Home page with recommended schools and curricula - Mobile-first design"""
     try:
-        # Get top-rated schools (social proof)
-        top_rated_schools = list(School.objects.filter(rating__gt=0).prefetch_related('facilities').order_by('-rating', '-review_count')[:6])
+        # Optimize queries: only fetch needed fields (no facilities needed on home page)
+        school_fields = ['id', 'name', 'location', 'rating', 'review_count', 'fees_by_grade', 'image', 'created_at', 'board']
         
-        # Get most reviewed schools (popularity)
-        most_reviewed = list(School.objects.filter(review_count__gt=0).prefetch_related('facilities').order_by('-review_count', '-rating')[:6])
-        
-        # Get recently added schools (fresh content)
-        recent_schools = list(School.objects.prefetch_related('facilities').order_by('-created_at')[:6])
-        
-        # Get curricula
-        curricula = list(Curriculum.objects.all()[:6])
-        
-        # Calculate stats for social proof (optimized)
-        total_schools = School.objects.count()
-        
-        # Total reviews should include ALL schools (not filtered by rating)
-        total_reviews = int(School.objects.aggregate(
-            total_reviews=Sum('review_count')
-        ).get('total_reviews') or 0)
-        
-        # Average rating should exclude 0.0 ratings
-        avg_rating_result = School.objects.filter(rating__gt=0).aggregate(
-            avg_rating=Avg('rating')
+        # Get top-rated schools (social proof) - optimized query
+        top_rated_schools = list(
+            School.objects
+            .filter(rating__gt=0)
+            .only(*school_fields)
+            .order_by('-rating', '-review_count')[:6]
         )
-        avg_rating = float(avg_rating_result.get('avg_rating') or 0.0)
         
-        # Ensure values are properly set
-        if total_reviews is None:
-            total_reviews = 0
-        if avg_rating is None:
-            avg_rating = 0.0
+        # Get most reviewed schools (popularity) - optimized query
+        most_reviewed = list(
+            School.objects
+            .filter(review_count__gt=0)
+            .only(*school_fields)
+            .order_by('-review_count', '-rating')[:6]
+        )
         
-        # Pre-calculate fees
+        # Get recently added schools (fresh content) - optimized query
+        recent_schools = list(
+            School.objects
+            .only(*school_fields)
+            .order_by('-created_at')[:6]
+        )
+        
+        # Get curricula - limit fields (only what's needed for home page)
+        curricula = list(Curriculum.objects.only('id', 'name', 'description', 'image', 'abbreviation')[:6])
+        
+        # Calculate stats for social proof - cache for 5 minutes to reduce DB load
+        cache_key = 'home_stats'
+        stats = cache.get(cache_key)
+        
+        if stats is None:
+            # Use a single aggregation query for all stats
+            stats = School.objects.aggregate(
+                total_schools=Count('id'),
+                total_reviews=Sum('review_count'),
+            )
+            
+            # Get average rating separately (filtered)
+            avg_rating_result = School.objects.filter(rating__gt=0).aggregate(
+                avg_rating=Avg('rating')
+            )
+            
+            # Extract values with defaults
+            stats['avg_rating'] = float(avg_rating_result.get('avg_rating') or 0.0)
+            
+            # Cache for 5 minutes (300 seconds)
+            cache.set(cache_key, stats, 300)
+        
+        # Extract values with defaults
+        total_schools = stats.get('total_schools') or 0
+        total_reviews = int(stats.get('total_reviews') or 0)
+        avg_rating = float(stats.get('avg_rating') or 0.0)
+        
+        # Pre-calculate fees (this is fast, just string parsing)
         for school in top_rated_schools:
             school.default_fee = school.get_default_fee()
         for school in most_reviewed:

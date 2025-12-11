@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q, Avg, Count, Sum
-from django.core.cache import cache
 from django_filters import FilterSet, CharFilter, ChoiceFilter, BooleanFilter, NumberFilter
 from .models import School, Facility, Review
 from curriculum.models import Curriculum
@@ -39,85 +38,9 @@ class SchoolFilter(FilterSet):
 
 
 def home_view(request):
-    """Home page with recommended schools and curricula - Mobile-first design"""
-    try:
-        # Hard-coded stats for fast loading (update these manually if needed)
-        total_schools = 150
-        total_reviews = 2500
-        avg_rating = 4.2
-        
-        # Simplified queries - just get the first few schools
-        school_fields = ['id', 'name', 'location', 'rating', 'review_count', 'fees_by_grade', 'image', 'created_at', 'board']
-        
-        # Get top-rated schools (social proof) - limit to 6
-        top_rated_schools = list(
-            School.objects
-            .filter(rating__gt=0)
-            .only(*school_fields)
-            .order_by('-rating', '-review_count')[:6]
-        )
-        
-        # Get most reviewed schools (popularity) - limit to 6
-        most_reviewed = list(
-            School.objects
-            .filter(review_count__gt=0)
-            .only(*school_fields)
-            .order_by('-review_count', '-rating')[:6]
-        )
-        
-        # Get recently added schools (fresh content) - limit to 6
-        recent_schools = list(
-            School.objects
-            .only(*school_fields)
-            .order_by('-created_at')[:6]
-        )
-        
-        # Get curricula - limit to 6
-        curricula = list(Curriculum.objects.only('id', 'name', 'description', 'image', 'abbreviation')[:6])
-        
-        # Pre-calculate fees (this is fast, just string parsing)
-        for school in top_rated_schools:
-            school.default_fee = school.get_default_fee()
-        for school in most_reviewed:
-            school.default_fee = school.get_default_fee()
-        for school in recent_schools:
-            school.default_fee = school.get_default_fee()
-        
-        context = {
-            'top_rated_schools': top_rated_schools,
-            'most_reviewed': most_reviewed,
-            'recent_schools': recent_schools,
-            'curricula': curricula,
-            'total_schools': total_schools or 0,
-            'total_reviews': total_reviews or 0,
-            'avg_rating': round(avg_rating, 1) if avg_rating else 0.0,
-        }
-        return render(request, 'home.html', context)
-    except Exception as e:
-        # Fallback to simple view if there's an error
-        import logging
-        import traceback
-        logger = logging.getLogger(__name__)
-        logger.error(f"Error in home_view: {e}")
-        logger.error(traceback.format_exc())
-        
-        # Try to at least get the school count even if other queries fail
-        try:
-            fallback_total_schools = School.objects.count()
-        except:
-            fallback_total_schools = 0
-        
-        # Return minimal context to avoid 500 error
-        context = {
-            'top_rated_schools': [],
-            'most_reviewed': [],
-            'recent_schools': [],
-            'curricula': [],
-            'total_schools': fallback_total_schools,
-            'total_reviews': 0,
-            'avg_rating': 0.0,
-        }
-        return render(request, 'home.html', context)
+    """Home page - completely static HTML/CSS, no database queries"""
+    # Just render the template - all content is hardcoded in the HTML
+    return render(request, 'home.html')
 
 
 

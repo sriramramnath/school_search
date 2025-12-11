@@ -26,6 +26,6 @@ urlpatterns = [
     path('profile/', include('accounts.urls')),
 ]
 
-# Serve static and media files (needed for Vercel)
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# Serve media files (static files are handled by WhiteNoise)
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -38,15 +38,15 @@
             <!-- Social Proof Stats -->
             <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
                 <div style="text-align: center;">
-                    <div style="font-size: 20px; font-weight: 700; color: var(--accent-green);">{{ total_schools }}+</div>
+                    <div style="font-size: 20px; font-weight: 700; color: var(--accent-green);">{% if total_schools > 0 %}{{ total_schools }}+{% else %}0{% endif %}</div>
                     <div style="font-size: 12px; color: var(--text-secondary);">Schools</div>
                 </div>
                 <div style="text-align: center;">
-                    <div style="font-size: 20px; font-weight: 700; color: var(--accent-green);">{{ total_reviews }}+</div>
+                    <div style="font-size: 20px; font-weight: 700; color: var(--accent-green);">{% if total_reviews > 0 %}{{ total_reviews }}+{% else %}0{% endif %}</div>
                     <div style="font-size: 12px; color: var(--text-secondary);">Reviews</div>
                 </div>
                 <div style="text-align: center;">
-                    <div style="font-size: 20px; font-weight: 700; color: var(--accent-green);">{{ avg_rating }}</div>
+                    <div style="font-size: 20px; font-weight: 700; color: var(--accent-green);">{% if avg_rating > 0 %}{{ avg_rating }}{% else %}0.0{% endif %}</div>
                     <div style="font-size: 12px; color: var(--text-secondary);">Avg Rating</div>
                 </div>
             </div>

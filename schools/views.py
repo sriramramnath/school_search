@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.db.models import Q, Avg, Count
+from django.db.models import Q, Avg, Count, Sum
 from django_filters import FilterSet, CharFilter, ChoiceFilter, BooleanFilter, NumberFilter
 from .models import School, Facility, Review
 from curriculum.models import Curriculum
@@ -57,10 +57,16 @@ def home_view(request):
         # Use aggregation for better performance
         review_stats = School.objects.aggregate(
             total_reviews=Sum('review_count'),
-            avg_rating=Avg('rating')
+            avg_rating=Avg('rating', filter=Q(rating__gt=0))
         )
-        total_reviews = review_stats.get('total_reviews') or 0
-        avg_rating = review_stats.get('avg_rating') or 0
+        # Handle None values from aggregation
+        total_reviews = int(review_stats.get('total_reviews') or 0)
+        avg_rating = float(review_stats.get('avg_rating') or 0)
+        
+        # Fallback: if no data, show 0 but ensure it's a number
+        if total_schools == 0:
+            total_reviews = 0
+            avg_rating = 0.0
         
         # Pre-calculate fees
         for school in top_rated_schools:

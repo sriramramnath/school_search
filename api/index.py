@@ -19,11 +19,28 @@ except Exception as e:
     # Better error handling for debugging
     import traceback
     error_msg = f"Django initialization failed: {str(e)}\n{traceback.format_exc()}"
-    print(error_msg, file=sys.stderr)
     
-    # Create a simple error handler
+    # Log error details
+    print("=" * 80, file=sys.stderr)
+    print("DJANGO INITIALIZATION ERROR", file=sys.stderr)
+    print("=" * 80, file=sys.stderr)
+    print(error_msg, file=sys.stderr)
+    print("=" * 80, file=sys.stderr)
+    print(f"PYTHONPATH: {sys.path}", file=sys.stderr)
+    print(f"DJANGO_SETTINGS_MODULE: {os.environ.get('DJANGO_SETTINGS_MODULE')}", file=sys.stderr)
+    print(f"Project root: {project_root}", file=sys.stderr)
+    print("=" * 80, file=sys.stderr)
+    
+    # Create a simple error handler that returns JSON
     def application(environ, start_response):
         status = '500 Internal Server Error'
-        headers = [('Content-Type', 'text/plain')]
+        headers = [('Content-Type', 'application/json')]
         start_response(status, headers)
-        return [error_msg.encode()]
+        import json
+        error_response = {
+            'error': 'Django initialization failed',
+            'message': str(e),
+            'type': type(e).__name__,
+            'hint': 'Check server logs for full traceback. Ensure migrations are run and DATABASE_URL is set.'
+        }
+        return [json.dumps(error_response, indent=2).encode()]

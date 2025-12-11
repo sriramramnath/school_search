@@ -40,9 +40,9 @@ class School(models.Model):
     distance = models.DecimalField(max_digits=5, decimal_places=2, db_index=True, help_text="Distance in km")
     bus_availability = models.BooleanField(default=False, db_index=True)
     syllabus = models.CharField(max_length=100)
-    website = models.URLField(blank=True)
-    curriculum_website = models.URLField(blank=True)
-    google_maps_link = models.URLField(blank=True, help_text="Google Maps URL for the school location")
+    website = models.CharField(max_length=500, blank=True, help_text="School website URL")
+    curriculum_website = models.CharField(max_length=500, blank=True, help_text="Curriculum website URL")
+    google_maps_link = models.CharField(max_length=500, blank=True, help_text="Google Maps URL for the school location")
     rating = models.DecimalField(
         max_digits=3, 
         decimal_places=1, 
@@ -50,6 +50,12 @@ class School(models.Model):
         default=0.0,
         db_index=True
     )
+    # New fields from Schools_New.csv
+    phone_number = models.CharField(max_length=20, blank=True, help_text="Phone number of the school")
+    review_count = models.IntegerField(default=0, db_index=True, help_text="Number of reviews")
+    address_line_1 = models.CharField(max_length=200, blank=True, help_text="First line of address")
+    address_line_2 = models.CharField(max_length=200, blank=True, help_text="Second line of address")
+    top_review = models.TextField(blank=True, help_text="Top review from Google Maps")
     image = models.ImageField(upload_to='schools/', blank=True, null=True)
     
     # Fees stored as JSON-like string or separate model
@@ -90,6 +96,23 @@ class School(models.Model):
         if fee_dict:
             return fee_dict.get('12') or list(fee_dict.values())[0]
         return None
+    
+    def is_valid_address_line(self, address_line):
+        """Check if address line is valid (not a placeholder)"""
+        if not address_line:
+            return False
+        address_line = str(address_line).strip()
+        placeholders = ['·', 'Closed', 'Closes soon', '']
+        return address_line not in placeholders
+    
+    def get_display_address_lines(self):
+        """Get valid address lines for display"""
+        lines = []
+        if self.is_valid_address_line(self.address_line_1):
+            lines.append(self.address_line_1.strip())
+        if self.is_valid_address_line(self.address_line_2):
+            lines.append(self.address_line_2.strip())
+        return lines
     
     class Meta:
         ordering = ['-rating', 'name']

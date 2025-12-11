@@ -77,9 +77,7 @@ def school_search_view(request):
 
 def school_search_results_view(request):
     """School search results page"""
-    schools = School.objects.prefetch_related('facilities').annotate(
-        review_count=Count('reviews')
-    )
+    schools = School.objects.prefetch_related('facilities')
     
     # Get search parameters
     name = request.GET.get('name', '')
@@ -180,12 +178,15 @@ def school_detail_view(request, school_id):
         rating_dist[item['rating']] = item['count']
         total_reviews += item['count']
     
+    # Use review_count from model if available, otherwise use count from reviews
+    display_review_count = school.review_count if school.review_count > 0 else total_reviews
+    
     # Convert to list of tuples for easier template iteration
     rating_dist_list = [(i, rating_dist[i], rating_dist[i] / total_reviews * 100 if total_reviews > 0 else 0) 
                         for i in range(5, 0, -1)]
     
-    # Get average rating
-    avg_rating = reviews.aggregate(Avg('rating'))['rating__avg'] or 0
+    # Get average rating - use school.rating if available and no reviews in DB
+    avg_rating = reviews.aggregate(Avg('rating'))['rating__avg'] or (school.rating if school.rating > 0 else 0)
     
     # Pre-calculate fee
     school.default_fee = school.get_default_fee()
@@ -196,6 +197,7 @@ def school_detail_view(request, school_id):
         'rating_distribution': rating_dist,
         'rating_distribution_list': rating_dist_list,
         'total_reviews': total_reviews,
+        'display_review_count': display_review_count,
         'average_rating': round(avg_rating, 1) if avg_rating else school.rating,
     }
     return render(request, 'school_detail.html', context)

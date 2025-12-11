@@ -58,6 +58,9 @@
                 <div class="card-meta">
                     <span class="rating-badge">
                         {% if school.rating and school.rating > 0 %}{{ school.rating }}{% else %}X.X{% endif %} <span class="material-icons">star</span>
+                        {% if school.review_count > 0 %}
+                        <span style="font-size: 11px; color: var(--text-secondary); margin-left: 4px;">({{ school.review_count }})</span>
+                        {% endif %}
                     </span>
                     <span style="font-weight: 600; color: var(--text-primary);">{% if school.default_fee %}₹{{ school.default_fee }}{% else %}No data{% endif %}</span>
                     <span style="color: var(--text-secondary); font-size: 14px;">{{ school.board }}</span>

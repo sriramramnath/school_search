@@ -30,9 +30,28 @@
 
         <div class="grid-2" style="gap: var(--space-6);">
             <div>
-                <div style="display: flex; align-items: center; gap: var(--space-2); color: var(--text-secondary); margin-bottom: var(--space-3); padding: var(--space-3); background: var(--bg-secondary); border-radius: var(--radius-md);">
-                    <span class="material-icons" style="color: var(--text-primary);">location_on</span>
-                    <span style="font-weight: 500;">{{ school.location }}</span>
+                <!-- Address Information -->
+                <div style="margin-bottom: var(--space-3);">
+                    {% comment %}Show address lines if they have real data (not placeholders), otherwise show location{% endcomment %}
+                    {% with display_address_lines=school.get_display_address_lines %}
+                    {% if display_address_lines %}
+                    <!-- Show separate address lines if they have real data -->
+                    <div style="padding: var(--space-3); background: var(--bg-secondary); border-radius: var(--radius-md);">
+                        {% for address_line in display_address_lines %}
+                        <div style="display: flex; align-items: center; gap: var(--space-2); color: var(--text-primary); {% if not forloop.last %}margin-bottom: var(--space-1);{% endif %}">
+                            <span class="material-icons" style="color: var(--text-primary); font-size: 18px; {% if forloop.counter0 > 0 %}opacity: 0.6;{% endif %}">{% if forloop.first %}location_on{% else %}place{% endif %}</span>
+                            <span style="font-weight: 500;">{{ address_line }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% elif school.location and school.location.strip %}
+                    <!-- Fallback to combined location only if address lines are empty or placeholders -->
+                    <div style="display: flex; align-items: center; gap: var(--space-2); color: var(--text-secondary); padding: var(--space-3); background: var(--bg-secondary); border-radius: var(--radius-md);">
+                        <span class="material-icons" style="color: var(--text-primary);">location_on</span>
+                        <span style="font-weight: 500;">{{ school.location }}</span>
+                    </div>
+                    {% endif %}
+                    {% endwith %}
                 </div>
                 {% if school.google_maps_link %}
                 <a href="{{ school.google_maps_link }}" target="_blank" style="display: flex; align-items: center; justify-content: center; gap: var(--space-2); padding: var(--space-3) var(--space-4); background: var(--bg-secondary); border-radius: var(--radius-md); border: 1px solid var(--border-light); transition: all var(--transition-base); margin-bottom: var(--space-4); text-decoration: none;">
@@ -65,13 +84,18 @@
 
             <div>
                 <div style="text-align: center; padding: var(--space-5); background: var(--bg-secondary); border-radius: var(--radius-lg); margin-bottom: var(--space-5); border: 1px solid var(--border-light);">
-                    <div style="font-size: 64px; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-2);">{% if average_rating and average_rating > 0 %}{{ average_rating }}{% else %}X.X{% endif %}</div>
+                    <div style="font-size: 64px; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-2);">{% if average_rating and average_rating > 0 %}{{ average_rating }}{% else %}{% if school.rating and school.rating > 0 %}{{ school.rating }}{% else %}X.X{% endif %}{% endif %}</div>
                     <div style="display: flex; justify-content: center; color: var(--accent-green); margin-bottom: var(--space-2);">
                         {% for i in "12345" %}
-                        <span class="material-icons" style="font-size: 28px; color: var(--accent-green);">{% if forloop.counter <= average_rating|add:"0" %}star{% else %}star_border{% endif %}</span>
+                        <span class="material-icons" style="font-size: 28px; color: var(--accent-green);">{% if forloop.counter <= average_rating|add:"0"|default:school.rating|add:"0" %}star{% else %}star_border{% endif %}</span>
                         {% endfor %}
                     </div>
                     <span style="color: var(--text-secondary); font-size: 14px; font-weight: 500;">Average Rating</span>
+                    {% if display_review_count > 0 %}
+                    <div style="margin-top: var(--space-2); color: var(--text-secondary); font-size: 12px;">
+                        Based on {{ display_review_count }} review{{ display_review_count|pluralize }}
+                    </div>
+                    {% endif %}
                 </div>
 
                 <div style="padding: var(--space-4); background: var(--bg-secondary); border-radius: var(--radius-lg);">
@@ -112,10 +136,25 @@
         </div>
     </div>
 
+    {% if school.top_review %}
+    <div class="card" style="padding: var(--space-6); margin-bottom: var(--space-6); border: 2px solid var(--accent-green);">
+        <h2 style="margin-bottom: var(--space-4); display: flex; align-items: center; gap: var(--space-2);">
+            <span class="material-icons" style="color: var(--accent-green);">star</span>
+            Top Review
+        </h2>
+        <div style="padding: var(--space-4); background: var(--bg-secondary); border-radius: var(--radius-md);">
+            <p style="color: var(--text-primary); line-height: 1.8; font-size: 16px; margin: 0; font-style: italic;">"{{ school.top_review }}"</p>
+        </div>
+    </div>
+    {% endif %}
+
     <div class="card" style="padding: var(--space-6); margin-bottom: var(--space-6);">
         <h2 style="margin-bottom: var(--space-5); display: flex; align-items: center; gap: var(--space-2);">
             <span class="material-icons" style="color: var(--text-primary);">rate_review</span>
             Reviews
+            {% if display_review_count > 0 %}
+            <span style="font-size: 14px; font-weight: normal; color: var(--text-secondary); margin-left: var(--space-2);">({{ display_review_count }} total)</span>
+            {% endif %}
         </h2>
         <div>
             {% for review in reviews %}
@@ -150,6 +189,15 @@
             Contact & Info
         </h3>
         <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+            {% if school.phone_number %}
+            <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4); background: var(--bg-secondary); border-radius: var(--radius-md); border: 1px solid var(--border-light);">
+                <span class="material-icons" style="color: var(--text-primary);">phone</span>
+                <div style="flex: 1;">
+                    <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: var(--space-1);">Phone Number</div>
+                    <a href="tel:{{ school.phone_number }}" style="font-weight: 600; color: var(--text-primary); text-decoration: none;">{{ school.phone_number }}</a>
+                </div>
+            </div>
+            {% endif %}
             {% if school.website %}
             <a href="{{ school.website }}" target="_blank" style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4); background: var(--bg-secondary); border-radius: var(--radius-md); transition: all var(--transition-base); border: 1px solid transparent;">
                 <span class="material-icons" style="color: var(--text-primary);">language</span>

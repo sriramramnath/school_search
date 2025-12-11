@@ -38,11 +38,12 @@ def ensure_migrations():
         print(f"Migration check failed (this is OK if migrations are already applied): {e}", file=sys.stderr)
 
 # Import Django WSGI application
+# Vercel requires the variable to be named 'app' (not 'application')
 try:
     from django.core.wsgi import get_wsgi_application
     
     # Initialize Django (this calls django.setup() internally)
-    application = get_wsgi_application()
+    app = get_wsgi_application()
     
     # Attempt to run migrations on first load (after Django is initialized)
     ensure_migrations()
@@ -65,7 +66,8 @@ except Exception as e:
     print("=" * 80, file=sys.stderr)
     
     # Create a simple error handler that returns JSON
-    def application(environ, start_response):
+    # Vercel requires 'app' variable
+    def error_handler(environ, start_response):
         status = '500 Internal Server Error'
         headers = [('Content-Type', 'application/json')]
         start_response(status, headers)
@@ -82,3 +84,5 @@ except Exception as e:
             }
         }
         return [json.dumps(error_response, indent=2).encode()]
+    
+    app = error_handler

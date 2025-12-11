@@ -38,17 +38,41 @@ class SchoolFilter(FilterSet):
 
 
 def home_view(request):
-    """Home page with recommended schools and curricula"""
-    recommended_schools = School.objects.select_related().prefetch_related('facilities').order_by('-rating')[:10]
-    curricula = Curriculum.objects.all()[:10]
+    """Home page with recommended schools and curricula - Mobile-first design"""
+    # Get top-rated schools (social proof)
+    top_rated_schools = School.objects.filter(rating__gt=0).prefetch_related('facilities').order_by('-rating', '-review_count')[:6]
     
-    # Pre-calculate fees for each school to avoid repeated method calls
-    for school in recommended_schools:
+    # Get most reviewed schools (popularity)
+    most_reviewed = School.objects.filter(review_count__gt=0).prefetch_related('facilities').order_by('-review_count', '-rating')[:6]
+    
+    # Get recently added schools (fresh content)
+    recent_schools = School.objects.prefetch_related('facilities').order_by('-created_at')[:6]
+    
+    # Get curricula
+    curricula = Curriculum.objects.all()[:6]
+    
+    # Calculate stats for social proof
+    total_schools = School.objects.count()
+    # Sum review_count from all schools
+    total_reviews = sum(school.review_count for school in School.objects.only('review_count'))
+    avg_rating = School.objects.filter(rating__gt=0).aggregate(avg=Avg('rating'))['avg'] or 0
+    
+    # Pre-calculate fees and add review counts
+    for school in top_rated_schools:
+        school.default_fee = school.get_default_fee()
+    for school in most_reviewed:
+        school.default_fee = school.get_default_fee()
+    for school in recent_schools:
         school.default_fee = school.get_default_fee()
     
     context = {
-        'recommended_schools': recommended_schools,
+        'top_rated_schools': top_rated_schools,
+        'most_reviewed': most_reviewed,
+        'recent_schools': recent_schools,
         'curricula': curricula,
+        'total_schools': total_schools,
+        'total_reviews': total_reviews,
+        'avg_rating': round(avg_rating, 1) if avg_rating else 0,
     }
     return render(request, 'home.html', context)
 

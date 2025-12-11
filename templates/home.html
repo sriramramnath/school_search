@@ -4,184 +4,212 @@
 {% block title %}Home - School Search{% endblock %}
 
 {% block content %}
-<div class="home-container">
-    <!-- Header with Greeting and Search Bar -->
-    <div class="home-header">
-        <h1 class="greeting-text">
-            {% now "H" as current_hour %}
-            {% with hour=current_hour|add:"0" %}
-                {% if hour < 12 %}
-                    Good Morning
-                {% elif hour < 18 %}
-                    Good Afternoon
-                {% else %}
-                    Good Evening
-                {% endif %}
-            {% endwith %}
-        </h1>
-        <div class="home-search-bar" onclick="window.location.href='{% url 'school_search' %}'">
-            <span class="material-icons">search</span>
-            <span>Search for schools...</span>
-        </div>
-    </div>
-
-    <!-- Curricula Carousel -->
-    <div class="carousel-section">
-        <div class="carousel-section-header">
-            <h2 class="carousel-title">Curricula</h2>
-        </div>
-        <div class="carousel-section-content">
-            <div class="carousel-container">
-                <div class="swiper" id="curricula-carousel">
-                    <div class="swiper-wrapper">
-                        {% for curriculum in curricula %}
-                        <div class="swiper-slide">
-                            <a href="{% url 'curriculum_detail' curriculum.id %}" class="carousel-item curriculum-item">
-                                <div class="carousel-item-content">
-                                    {% if curriculum.abbreviation %}
-                                    <div class="curriculum-abbr">{{ curriculum.abbreviation }}</div>
-                                    {% endif %}
-                                    <h3 class="carousel-item-title">{{ curriculum.name }}</h3>
-                                    {% if curriculum.description %}
-                                    <p class="carousel-item-desc">{{ curriculum.description|truncatewords:15 }}</p>
-                                    {% endif %}
-                                </div>
-                            </a>
-                        </div>
-                        {% empty %}
-                        <div class="empty-state-small">No curricula available</div>
-                        {% endfor %}
-                    </div>
+<div class="home-container" style="padding-bottom: 100px;">
+    
+    <!-- Hero Section -->
+    <div style="padding: var(--space-6) var(--space-4); background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%); border-bottom: 1px solid var(--border-light);">
+        <div style="max-width: 600px; margin: 0 auto;">
+            <!-- Greeting -->
+            <h1 style="font-size: 28px; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-2);">
+                {% now "H" as current_hour %}
+                {% with hour=current_hour|add:"0" %}
+                    {% if hour < 12 %}
+                        Good Morning
+                    {% elif hour < 18 %}
+                        Good Afternoon
+                    {% else %}
+                        Good Evening
+                    {% endif %}
+                {% endwith %}
+            </h1>
+            
+            <!-- Value Proposition -->
+            <p style="font-size: 16px; color: var(--text-secondary); margin-bottom: var(--space-5); line-height: 1.5;">
+                Find the perfect school for your child. Search {{ total_schools }}+ schools with detailed reviews and ratings.
+            </p>
+            
+            <!-- Prominent Search Bar -->
+            <div class="home-search-bar" onclick="window.location.href='{% url 'school_search' %}'" style="width: 100%; padding: var(--space-4); background: var(--bg-primary); border: 2px solid var(--accent-green); border-radius: var(--radius-lg); cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4);">
+                <span class="material-icons" style="font-size: 24px; color: var(--accent-green);">search</span>
+                <span style="font-size: 16px; color: var(--text-secondary); flex: 1;">Search for schools...</span>
+                <span class="material-icons" style="font-size: 20px; color: var(--text-tertiary);">arrow_forward</span>
+            </div>
+            
+            <!-- Social Proof Stats -->
+            <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <div style="font-size: 20px; font-weight: 700; color: var(--accent-green);">{{ total_schools }}+</div>
+                    <div style="font-size: 12px; color: var(--text-secondary);">Schools</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 20px; font-weight: 700; color: var(--accent-green);">{{ total_reviews }}+</div>
+                    <div style="font-size: 12px; color: var(--text-secondary);">Reviews</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 20px; font-weight: 700; color: var(--accent-green);">{{ avg_rating }}</div>
+                    <div style="font-size: 12px; color: var(--text-secondary);">Avg Rating</div>
                 </div>
             </div>
-            <div class="carousel-section-pagination">
-                <div class="swiper-pagination" id="curricula-pagination"></div>
-            </div>
         </div>
     </div>
 
-    <!-- Schools Carousel -->
-    <div class="carousel-section">
-        <div class="carousel-section-header">
-            <h2></h2>
-            <h2></h2>
-            <h2 class="carousel-title">Recommended Schools</h2>
+    <!-- Quick-Access Buttons -->
+    <div style="padding: var(--space-5) var(--space-4);">
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-3); max-width: 600px; margin: 0 auto;">
+            <a href="{% url 'school_search' %}" style="display: flex; flex-direction: column; align-items: center; gap: var(--space-2); padding: var(--space-4); background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-lg); text-decoration: none; transition: all 0.2s;">
+                <span class="material-icons" style="font-size: 32px; color: var(--accent-green);">search</span>
+                <span style="font-weight: 600; color: var(--text-primary); font-size: 14px;">Search Schools</span>
+            </a>
+            <a href="{% url 'curriculum_search' %}" style="display: flex; flex-direction: column; align-items: center; gap: var(--space-2); padding: var(--space-4); background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-lg); text-decoration: none; transition: all 0.2s;">
+                <span class="material-icons" style="font-size: 32px; color: var(--accent-green);">school</span>
+                <span style="font-weight: 600; color: var(--text-primary); font-size: 14px;">Curricula</span>
+            </a>
+            <a href="{% url 'ai_picker' %}" style="display: flex; flex-direction: column; align-items: center; gap: var(--space-2); padding: var(--space-4); background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-lg); text-decoration: none; transition: all 0.2s;">
+                <span class="material-icons" style="font-size: 32px; color: var(--accent-green);">auto_awesome</span>
+                <span style="font-weight: 600; color: var(--text-primary); font-size: 14px;">AI Picker</span>
+            </a>
+            <a href="{% url 'profile' %}" style="display: flex; flex-direction: column; align-items: center; gap: var(--space-2); padding: var(--space-4); background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-lg); text-decoration: none; transition: all 0.2s;">
+                <span class="material-icons" style="font-size: 32px; color: var(--accent-green);">person</span>
+                <span style="font-weight: 600; color: var(--text-primary); font-size: 14px;">Profile</span>
+            </a>
         </div>
-        <div class="carousel-section-content">
-            <div class="carousel-container">
-                <div class="swiper" id="schools-carousel">
-                    <div class="swiper-wrapper">
-                        {% for school in recommended_schools %}
-                        <div class="swiper-slide">
-                            <a href="{% url 'school_detail' school.id %}" class="carousel-item school-item">
-                                {% if school.image %}
-                                <img src="{{ school.image.url }}" alt="{{ school.name }}" class="carousel-item-image">
-                                {% else %}
-                                <div class="carousel-item-image-placeholder">
-                                    <span class="material-icons">school</span>
-                                </div>
+    </div>
+
+    <!-- Top Rated Schools Section -->
+    {% if top_rated_schools %}
+    <div style="padding: 0 var(--space-4) var(--space-6);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-4);">
+            <h2 style="font-size: 20px; font-weight: 600; color: var(--text-primary);">⭐ Top Rated Schools</h2>
+            <a href="{% url 'school_search' %}?sort=rating" style="font-size: 14px; color: var(--accent-green); text-decoration: none; font-weight: 500;">See All</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+            {% for school in top_rated_schools %}
+            <a href="{% url 'school_detail' school.id %}" style="display: block; padding: var(--space-4); background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-lg); text-decoration: none; transition: all 0.2s;">
+                <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                    {% if school.image %}
+                    <img src="{{ school.image.url }}" alt="{{ school.name }}" style="width: 80px; height: 80px; object-fit: cover; border-radius: var(--radius-md); flex-shrink: 0;">
+                    {% else %}
+                    <div style="width: 80px; height: 80px; background: var(--bg-tertiary); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                        <span class="material-icons" style="font-size: 32px; color: var(--text-tertiary);">school</span>
+                    </div>
+                    {% endif %}
+                    <div style="flex: 1; min-width: 0;">
+                        <h3 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-1); line-height: 1.3;">{{ school.name }}</h3>
+                        <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: var(--space-2); display: flex; align-items: center; gap: 4px;">
+                            <span class="material-icons" style="font-size: 14px;">location_on</span>
+                            <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ school.location|truncatewords:8 }}</span>
+                        </p>
+                        <div style="display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap;">
+                            <div style="display: flex; align-items: center; gap: 4px;">
+                                <span class="material-icons" style="font-size: 16px; color: var(--accent-green);">star</span>
+                                <span style="font-weight: 600; color: var(--text-primary); font-size: 14px;">{% if school.rating and school.rating > 0 %}{{ school.rating }}{% else %}N/A{% endif %}</span>
+                                {% if school.review_count > 0 %}
+                                <span style="font-size: 12px; color: var(--text-secondary);">({{ school.review_count }})</span>
                                 {% endif %}
-                                <div class="carousel-item-content">
-                                    <h3 class="carousel-item-title">{{ school.name }}</h3>
-                                    <p class="carousel-item-subtitle">
-                                        <span class="material-icons" style="font-size: 14px;">location_on</span>
-                                        {{ school.location }}
-                                    </p>
-                                    <div class="carousel-item-meta">
-                                        <span class="rating-badge-small">
-                                            <span class="material-icons" style="font-size: 14px;">star</span>
-                                            {% if school.rating and school.rating > 0 %}{{ school.rating }}{% else %}X.X{% endif %}
-                                        </span>
-                                        <span style="font-weight: 600;">{% if school.default_fee %}₹{{ school.default_fee }}{% else %}No data{% endif %}</span>
-                                    </div>
-                                </div>
-                            </a>
+                            </div>
+                            <span style="font-size: 13px; color: var(--text-secondary);">{{ school.board }}</span>
+                            {% if school.default_fee %}
+                            <span style="font-size: 13px; font-weight: 600; color: var(--accent-green);">₹{{ school.default_fee }}</span>
+                            {% endif %}
                         </div>
-                        {% empty %}
-                        <div class="empty-state-small">No schools available</div>
-                        {% endfor %}
                     </div>
                 </div>
-            </div>
-            <div class="carousel-section-pagination">
-                <div class="swiper-pagination" id="schools-pagination"></div>
-            </div>
+            </a>
+            {% endfor %}
         </div>
     </div>
+    {% endif %}
+
+    <!-- Curricula Section -->
+    {% if curricula %}
+    <div style="padding: 0 var(--space-4) var(--space-6);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-4);">
+            <h2 style="font-size: 20px; font-weight: 600; color: var(--text-primary);">📚 Explore Curricula</h2>
+            <a href="{% url 'curriculum_search' %}" style="font-size: 14px; color: var(--accent-green); text-decoration: none; font-weight: 500;">See All</a>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-3);">
+            {% for curriculum in curricula %}
+            <a href="{% url 'curriculum_detail' curriculum.id %}" style="display: block; padding: var(--space-4); background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-lg); text-decoration: none; transition: all 0.2s;">
+                {% if curriculum.abbreviation %}
+                <div style="font-size: 24px; font-weight: 700; color: var(--accent-green); margin-bottom: var(--space-2);">{{ curriculum.abbreviation }}</div>
+                {% endif %}
+                <h3 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-1);">{{ curriculum.name }}</h3>
+                {% if curriculum.description %}
+                <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.4;">{{ curriculum.description|truncatewords:12 }}</p>
+                {% endif %}
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Most Reviewed Schools -->
+    {% if most_reviewed %}
+    <div style="padding: 0 var(--space-4) var(--space-6);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-4);">
+            <h2 style="font-size: 20px; font-weight: 600; color: var(--text-primary);">🔥 Most Reviewed</h2>
+            <a href="{% url 'school_search' %}" style="font-size: 14px; color: var(--accent-green); text-decoration: none; font-weight: 500;">See All</a>
+        </div>
+        <div style="display: flex; overflow-x: auto; gap: var(--space-3); padding-bottom: var(--space-2); -webkit-overflow-scrolling: touch; scrollbar-width: none;">
+            {% for school in most_reviewed %}
+            <a href="{% url 'school_detail' school.id %}" style="display: block; min-width: 280px; padding: var(--space-4); background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-lg); text-decoration: none; transition: all 0.2s;">
+                {% if school.image %}
+                <img src="{{ school.image.url }}" alt="{{ school.name }}" style="width: 100%; height: 160px; object-fit: cover; border-radius: var(--radius-md); margin-bottom: var(--space-3);">
+                {% else %}
+                <div style="width: 100%; height: 160px; background: var(--bg-tertiary); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-3);">
+                    <span class="material-icons" style="font-size: 48px; color: var(--text-tertiary);">school</span>
+                </div>
+                {% endif %}
+                <h3 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-2); line-height: 1.3;">{{ school.name }}</h3>
+                <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: var(--space-3); display: flex; align-items: center; gap: 4px;">
+                    <span class="material-icons" style="font-size: 14px;">location_on</span>
+                    <span>{{ school.location|truncatewords:6 }}</span>
+                </p>
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="material-icons" style="font-size: 18px; color: var(--accent-green);">star</span>
+                        <span style="font-weight: 600; color: var(--text-primary);">{% if school.rating and school.rating > 0 %}{{ school.rating }}{% else %}N/A{% endif %}</span>
+                        <span style="font-size: 12px; color: var(--text-secondary); margin-left: 4px;">({{ school.review_count }})</span>
+                    </div>
+                    <span style="font-size: 12px; color: var(--text-secondary);">{{ school.board }}</span>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Call to Action -->
+    <div style="padding: var(--space-6) var(--space-4); margin: var(--space-6) var(--space-4); background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-xl); text-align: center;">
+        <h3 style="font-size: 20px; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-2);">
+            Ready to Find Your Perfect School?
+        </h3>
+        <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: var(--space-5);">
+            Use our advanced search filters to find schools that match your preferences.
+        </p>
+        <a href="{% url 'school_search' %}" style="display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-4) var(--space-6); background: var(--accent-green); color: var(--bg-primary); border-radius: var(--radius-md); text-decoration: none; font-weight: 600; font-size: 16px; transition: all 0.2s;">
+            <span class="material-icons" style="font-size: 20px;">search</span>
+            Start Searching
+        </a>
+    </div>
+
 </div>
 {% endblock %}
 
 {% block extra_js %}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize Curricula Carousel
-    const curriculaSwiper = new Swiper('#curricula-carousel', {
-        slidesPerView: 'auto',
-        spaceBetween: 24,
-        loop: true,
-        freeMode: true,
-        grabCursor: true,
-        centeredSlides: false,
-        pagination: {
-            el: '#curricula-pagination',
-            clickable: true,
-            renderBullet: function (index, className) {
-                return '<span class="' + className + ' carousel-dot"></span>';
-            },
-        },
-        breakpoints: {
-            320: {
-                slidesPerView: 'auto',
-                spaceBetween: 24,
-            },
-            480: {
-                slidesPerView: 'auto',
-                spaceBetween: 24,
-            },
-            768: {
-                slidesPerView: 'auto',
-                spaceBetween: 24,
-            },
-            1024: {
-                slidesPerView: 'auto',
-                spaceBetween: 24,
-            },
-        },
-    });
-    
-    // Initialize Schools Carousel
-    const schoolsSwiper = new Swiper('#schools-carousel', {
-        slidesPerView: 'auto',
-        spaceBetween: 24,
-        loop: true,
-        freeMode: true,
-        grabCursor: true,
-        centeredSlides: false,
-        pagination: {
-            el: '#schools-pagination',
-            clickable: true,
-            renderBullet: function (index, className) {
-                return '<span class="' + className + ' carousel-dot"></span>';
-            },
-        },
-        breakpoints: {
-            320: {
-                slidesPerView: 'auto',
-                spaceBetween: 24,
-            },
-            480: {
-                slidesPerView: 'auto',
-                spaceBetween: 24,
-            },
-            768: {
-                slidesPerView: 'auto',
-                spaceBetween: 24,
-            },
-            1024: {
-                slidesPerView: 'auto',
-                spaceBetween: 24,
-            },
-        },
+    // Add hover effects for interactive elements
+    const interactiveElements = document.querySelectorAll('.home-search-bar, a[href*="school"], a[href*="curriculum"]');
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px)';
+            this.style.boxShadow = 'var(--layer-2)';
+        });
+        el.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = 'none';
+        });
     });
 });
 </script>

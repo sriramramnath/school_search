@@ -177,9 +177,10 @@ STATICFILES_FINDERS = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 # WhiteNoise additional settings
-WHITENOISE_USE_FINDERS = True  # Fallback to Django's static file finders if file not found
-WHITENOISE_AUTOREFRESH = True  # Auto-refresh in development (ignored in production)
-WHITENOISE_MANIFEST_STRICT = False  # Don't fail if manifest file is missing
+# Use finders as fallback if staticfiles aren't collected (helps with serverless)
+WHITENOISE_USE_FINDERS = True
+# Don't auto-refresh in production (performance)
+WHITENOISE_AUTOREFRESH = DEBUG
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'

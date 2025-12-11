@@ -54,18 +54,22 @@ def home_view(request):
         
         # Calculate stats for social proof (optimized)
         total_schools = School.objects.count()
-        # Use aggregation for better performance
-        review_stats = School.objects.aggregate(
-            total_reviews=Sum('review_count'),
-            avg_rating=Avg('rating', filter=Q(rating__gt=0))
-        )
-        # Handle None values from aggregation
-        total_reviews = int(review_stats.get('total_reviews') or 0)
-        avg_rating = float(review_stats.get('avg_rating') or 0)
         
-        # Fallback: if no data, show 0 but ensure it's a number
-        if total_schools == 0:
+        # Total reviews should include ALL schools (not filtered by rating)
+        total_reviews = int(School.objects.aggregate(
+            total_reviews=Sum('review_count')
+        ).get('total_reviews') or 0)
+        
+        # Average rating should exclude 0.0 ratings
+        avg_rating_result = School.objects.filter(rating__gt=0).aggregate(
+            avg_rating=Avg('rating')
+        )
+        avg_rating = float(avg_rating_result.get('avg_rating') or 0.0)
+        
+        # Ensure values are properly set
+        if total_reviews is None:
             total_reviews = 0
+        if avg_rating is None:
             avg_rating = 0.0
         
         # Pre-calculate fees
@@ -81,16 +85,24 @@ def home_view(request):
             'most_reviewed': most_reviewed,
             'recent_schools': recent_schools,
             'curricula': curricula,
-            'total_schools': total_schools,
-            'total_reviews': int(total_reviews) if total_reviews else 0,
-            'avg_rating': round(float(avg_rating), 1) if avg_rating else 0,
+            'total_schools': total_schools or 0,
+            'total_reviews': total_reviews or 0,
+            'avg_rating': round(avg_rating, 1) if avg_rating else 0.0,
         }
         return render(request, 'home.html', context)
     except Exception as e:
         # Fallback to simple view if there's an error
         import logging
+        import traceback
         logger = logging.getLogger(__name__)
         logger.error(f"Error in home_view: {e}")
+        logger.error(traceback.format_exc())
+        
+        # Try to at least get the school count even if other queries fail
+        try:
+            fallback_total_schools = School.objects.count()
+        except:
+            fallback_total_schools = 0
         
         # Return minimal context to avoid 500 error
         context = {
@@ -98,9 +110,9 @@ def home_view(request):
             'most_reviewed': [],
             'recent_schools': [],
             'curricula': [],
-            'total_schools': 0,
+            'total_schools': fallback_total_schools,
             'total_reviews': 0,
-            'avg_rating': 0,
+            'avg_rating': 0.0,
         }
         return render(request, 'home.html', context)
 

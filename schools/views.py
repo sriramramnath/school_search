@@ -39,8 +39,26 @@ class SchoolFilter(FilterSet):
 
 def home_view(request):
     """Home page - completely static HTML/CSS, no database queries"""
-    # Just render the template - all content is hardcoded in the HTML
-    return render(request, 'home.html')
+    try:
+        # Just render the template - all content is hardcoded in the HTML
+        return render(request, 'home.html')
+    except Exception as e:
+        # Log error but return a simple response
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.error(f"Error in home_view: {e}")
+        # Return a simple HTML response as fallback
+        from django.http import HttpResponse
+        return HttpResponse("""
+        <html>
+        <head><title>Home - School Search</title></head>
+        <body style="padding: 20px; font-family: Arial;">
+            <h1>Welcome to School Search</h1>
+            <p>Find the perfect school for your child.</p>
+            <a href="/search/">Search Schools</a>
+        </body>
+        </html>
+        """)
 
 
 

@@ -39,42 +39,64 @@ class SchoolFilter(FilterSet):
 
 def home_view(request):
     """Home page with recommended schools and curricula - Mobile-first design"""
-    # Get top-rated schools (social proof)
-    top_rated_schools = School.objects.filter(rating__gt=0).prefetch_related('facilities').order_by('-rating', '-review_count')[:6]
-    
-    # Get most reviewed schools (popularity)
-    most_reviewed = School.objects.filter(review_count__gt=0).prefetch_related('facilities').order_by('-review_count', '-rating')[:6]
-    
-    # Get recently added schools (fresh content)
-    recent_schools = School.objects.prefetch_related('facilities').order_by('-created_at')[:6]
-    
-    # Get curricula
-    curricula = Curriculum.objects.all()[:6]
-    
-    # Calculate stats for social proof
-    total_schools = School.objects.count()
-    # Sum review_count from all schools
-    total_reviews = sum(school.review_count for school in School.objects.only('review_count'))
-    avg_rating = School.objects.filter(rating__gt=0).aggregate(avg=Avg('rating'))['avg'] or 0
-    
-    # Pre-calculate fees and add review counts
-    for school in top_rated_schools:
-        school.default_fee = school.get_default_fee()
-    for school in most_reviewed:
-        school.default_fee = school.get_default_fee()
-    for school in recent_schools:
-        school.default_fee = school.get_default_fee()
-    
-    context = {
-        'top_rated_schools': top_rated_schools,
-        'most_reviewed': most_reviewed,
-        'recent_schools': recent_schools,
-        'curricula': curricula,
-        'total_schools': total_schools,
-        'total_reviews': total_reviews,
-        'avg_rating': round(avg_rating, 1) if avg_rating else 0,
-    }
-    return render(request, 'home.html', context)
+    try:
+        # Get top-rated schools (social proof)
+        top_rated_schools = list(School.objects.filter(rating__gt=0).prefetch_related('facilities').order_by('-rating', '-review_count')[:6])
+        
+        # Get most reviewed schools (popularity)
+        most_reviewed = list(School.objects.filter(review_count__gt=0).prefetch_related('facilities').order_by('-review_count', '-rating')[:6])
+        
+        # Get recently added schools (fresh content)
+        recent_schools = list(School.objects.prefetch_related('facilities').order_by('-created_at')[:6])
+        
+        # Get curricula
+        curricula = list(Curriculum.objects.all()[:6])
+        
+        # Calculate stats for social proof (optimized)
+        total_schools = School.objects.count()
+        # Use aggregation for better performance
+        review_stats = School.objects.aggregate(
+            total_reviews=Sum('review_count'),
+            avg_rating=Avg('rating')
+        )
+        total_reviews = review_stats.get('total_reviews') or 0
+        avg_rating = review_stats.get('avg_rating') or 0
+        
+        # Pre-calculate fees
+        for school in top_rated_schools:
+            school.default_fee = school.get_default_fee()
+        for school in most_reviewed:
+            school.default_fee = school.get_default_fee()
+        for school in recent_schools:
+            school.default_fee = school.get_default_fee()
+        
+        context = {
+            'top_rated_schools': top_rated_schools,
+            'most_reviewed': most_reviewed,
+            'recent_schools': recent_schools,
+            'curricula': curricula,
+            'total_schools': total_schools,
+            'total_reviews': int(total_reviews) if total_reviews else 0,
+            'avg_rating': round(float(avg_rating), 1) if avg_rating else 0,
+        }
+        return render(request, 'home.html', context)
+    except Exception as e:
+        # Fallback to simple view if there's an error
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.error(f"Error in home_view: {e}")
+        
+        # Return minimal context to avoid 500 error
+        context = {
+            'top_rated_schools': [],
+            'most_reviewed': [],
+            'recent_schools': [],
+            'curricula': [],
+            'total_schools': 0,
+            'total_reviews': 0,
+            'avg_rating': 0,
+        }
+        return render(request, 'home.html', context)
 
 
 
